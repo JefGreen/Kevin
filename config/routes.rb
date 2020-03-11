@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'like/new'
-  get 'like/create'
+  get 'tags/new'
+  get 'tags/create'
+  get 'likes/new'
+  get 'likes/create'
   devise_for :users
   root to: 'pages#home'
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i(new create)
-  # resources :tags %i(new create)
+  resources :tags, only: %i(new create)
   resources :groups
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
