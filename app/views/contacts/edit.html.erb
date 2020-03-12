@@ -1,0 +1,6 @@
+  <%= simple_form_for [@contact] do |f| %>
+    <%= f.input :first_name, as: :string, required: false  %>
+    <%= f.input :last_name, as: :string, required: false %>
+    <%= f.submit "editing it" %>
+  <% end %>
+

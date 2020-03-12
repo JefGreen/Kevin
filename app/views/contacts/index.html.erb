@@ -1,0 +1,10 @@
+<p>hello</p>
+
+<%= link_to "Add a new contact", new_contact_path %>
+
+<% @contacts.each do |contact| %>
+  <%= contact.first_name %>
+  <%= contact.last_name %>
+  <%= link_to "Delete", contact_path(contact), method: :delete %>
+  <%= link_to "Edit", edit_contact_path(contact) %>
+<% end  %>
