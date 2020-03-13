@@ -1,2 +1,8 @@
 <h1>Like#new</h1>
 <p>Find me in app/views/like/new.html.erb</p>
+
+  <%= simple_form_for [@contact, @liked] do |f| %>
+    <%= f.input :tag, as: :string, required: false %>
+    <%= f.input :liked, as: :boolean, required: false %>
+    <%= f.submit "adding it" %>
+  <% end %>
