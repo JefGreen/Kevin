@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    liked_before = Like.find_by(contact: 'Jeff', tag: 'Rock')
+    liked_before = Like.find_by(contact: likes_params.contact, tag: likes_params.tag)
     @liked = liked_before.exists? ? liked_before : Like.new(likes_params)
     if @liked.save
       redirect_to contact_path(@liked)
