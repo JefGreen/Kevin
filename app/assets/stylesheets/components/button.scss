@@ -1,0 +1,51 @@
+.button {
+	align-items: center;
+    justify-content: center;
+    display: flex;
+	width: 110px;
+	height: 50px;
+	color: #4A4A4A;
+	border: 1px solid #4A4A4A;
+	padding: 8px 24px;
+	border-radius: 50px;
+	font-weight: lighter;
+	opacity: 0.6;
+	transition: opacity 0.3s ease;
+	margin: 10px;
+}
+
+.button:hover {
+	opacity: 1;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.buttons {
+	text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button-secondary {
+	align-items: center;
+    justify-content: center;
+	color: #4A4A4A;
+	border: 1px solid #4A4A4A;
+	padding: 8px 24px;
+	border-radius: 50px;
+	font-weight: lighter;
+	opacity: 0.6;
+	transition: opacity 0.3s ease;
+	margin: 10px;
+}
+
+.button-secondary:hover {
+	opacity: 1;
+}
+
