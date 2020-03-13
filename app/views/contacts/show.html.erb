@@ -1,6 +1,9 @@
 
   <%= @contact.first_name %>
 
+
+
+
 <% likes = Like.where(contact_id: @contact.id)  %>
 <br>
 <br>
@@ -8,7 +11,7 @@ Likes:
 <% likes.where(liked: true).each do |like| %>
   <%= like.tag.name %>
 <% end %>
-
+<%= link_to "Add a like", new_contact_like_path(@contact) %>
 <br>
 <br>
 
@@ -16,3 +19,5 @@ Don't like:
 <% likes.where(liked: false).each do |like| %>
   <%= like.tag.name %>
 <% end %>
+
+<%= link_to "Add a dislike", new_contact_like_path(@contact) %>
