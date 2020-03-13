@@ -1,6 +1,6 @@
 <div class="jumbotron vertical-center">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
       <div class="col-sm-4">
         <h2 class="text-center">Forgot your password?</h2>
 
@@ -15,11 +15,10 @@
                         placeholder: "example@example.com" %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Send me reset password instructions", class: "button-secondary" %>
+          <div class="form-actions d-flex justify-content-center mt-3 mb-5">
+            <%= f.button :submit, "Send me instructions", class: "button-secondary" %>
           </div>
         <% end %>
-        <br>
 
         <%= render "devise/shared/links" %>
       </div>
