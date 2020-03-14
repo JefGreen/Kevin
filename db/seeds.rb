@@ -14,11 +14,17 @@ require "open-uri"
 puts '***********************'
 puts 'Clearing the current db'
 User.destroy_all
-puts '-Deleted users'
-# Experience.destroy_all
-puts '-Deleted experiences'
-# Skill.destroy_all
-puts '-Deleted skills'
+puts '-Deleted Users'
+
+Contact.destroy_all
+puts '-Deleted Contacts'
+
+Tag.destroy_all
+puts '-Deleted Tags'
+
+Group.destroy_all
+puts '-Deleted Groups'
+
 puts 'Clearing db completed'
 puts '***********************'
 

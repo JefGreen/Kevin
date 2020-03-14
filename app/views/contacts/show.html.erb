@@ -3,14 +3,18 @@
 		<div class="row justify-content-center">
 			<div class="sm-col-4">
 				<div class="picture-container">
-					<img class="picture" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></img>
+          <% begin %>
+            <%= cl_image_tag @contact.photo.key, class: "avatar-show" %>
+          <% rescue %>
+					  <img class="picture" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></img>
+          <% end %>
 				</div>
 				<div class="name">
 					<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
 				</div>
 
 				<div class="box">
-				<div> 
+				<div>
 					<% likes = Like.where(contact_id: @contact.id)  %>
 					Likes:
 					<% likes.where(liked: true).each do |like| %>
@@ -18,7 +22,7 @@
 					<% end %>
 					<%= link_to "+", new_contact_like_path(@contact), class: "button-round" %>
 				</div>
-								
+
 				</div>
 
 				<div class="box">
