@@ -13,13 +13,14 @@
 @import "components/index";
 
 body {
+	height: 100%;
 	background: white;
+  	height: 100vh;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
 }
 
 .jumbotron {
 	background: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
