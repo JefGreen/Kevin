@@ -2,7 +2,8 @@ class LikesController < ApplicationController
   def new
     @liked = Like.new
     @contact = Contact.find(params[:contact_id])
-
+    @false = @liked.liked = false
+    @true = @liked.liked = true
   end
 
   def create
@@ -15,7 +16,7 @@ class LikesController < ApplicationController
       liked: params[:like][:liked]
     )
     if @liked.save
-      redirect_to new_contact_like_path
+      redirect_to contact_path(@contact)
     else
       render :new
     end
