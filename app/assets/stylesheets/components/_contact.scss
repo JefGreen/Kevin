@@ -45,13 +45,8 @@
 }
 
 .search-contact {
+	position: relative;
 	display:flex;
-	margin-top: 0px;
-}
-
-
-.title {
-	text-align: left;
 }
 
 .box {
@@ -65,6 +60,8 @@
 
 	.actions {
 		display: flex;
+		align-items: center;
+	    justify-content: left;
 		width: 100%;
 	}
 	
@@ -85,7 +82,7 @@
 
 
 
-#myInput {
+/*#myInput {
   background-position: 10px 12px;
   width: 100%;
   font-size: 16px;
@@ -93,7 +90,7 @@
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
-
+*/
 #myUL {
   list-style-type: none;
   padding: 0;
@@ -111,4 +108,16 @@
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+input[type=text] {
+  width: 130px;
+  height: 100%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 100%;
 }
