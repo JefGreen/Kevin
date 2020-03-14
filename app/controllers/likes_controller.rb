@@ -13,17 +13,26 @@ class LikesController < ApplicationController
 
     if liked_before
       liked_before.update(likes_params)
+      question_exists = Question.find_by(question: "Does #{@contact.first_name} likes #{@tag.name}?")
+      question_exists.update(correct_answer: params[:like][:liked].to_s)
       redirect_to contact_path(@contact)
+
     else
       @liked = Like.new(likes_params)
       @liked.tag_id = @tag.id
       @liked.contact_id = params[:contact_id]
+      @question = Question.create(
+        question: "Does #{@contact.first_name} likes #{@tag.name}?",
+        correct_answer: params[:like][:liked].to_s,
+        contact: @contact
+      )
       if @liked.save
         redirect_to contact_path(@contact)
       else
         render :new
       end
     end
+
   end
 
   private
