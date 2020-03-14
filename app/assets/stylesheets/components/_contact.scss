@@ -1,0 +1,70 @@
+.picture-container{
+	text-align: center;
+}
+.picture {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: red;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	border: white 1px solid;
+	object-fit: cover;
+}
+
+.name {
+	font-size: 24px;
+	text-align: center;
+}
+
+.title {
+	text-align: left;
+}
+
+.box {
+	width: 277px;
+	height: 89px;
+	background: rgba(196, 196, 196, 0.1);
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-weight: bold;
+	line-height: 14px;
+	color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  margin-top: -1px; /* Prevent double borders */
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
