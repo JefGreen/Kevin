@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'questions/new'
+  get 'questions/create'
+  get 'answers/new'
+  get 'answers/create'
+  get 'quizzes/show'
   get 'tags/new'
   get 'tags/create'
   get 'likes/new'
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
   resources :contacts do
     resources :likes
     resources :questions
+    resources :answers, only: %i(new create)
   end
 
   resources :users, only: %i(new create)
