@@ -12,11 +12,6 @@ class LikesController < ApplicationController
     liked_before = Like.find_by(contact_id: params[:contact_id], tag_id: @tag.id)
 
     if liked_before
-      # liked_before.update(
-      #   contact_id: params[:contact_id],
-      #   tag_id: @tag.id,
-      #   liked: params[:like][:liked]
-      # )
       liked_before.update(likes_params)
       redirect_to contact_path(@contact)
     else
