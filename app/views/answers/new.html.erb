@@ -1,0 +1,10 @@
+<h1>Answers#new</h1>
+<p>Find me in app/views/answers/new.html.erb</p>
+
+<%= @question.question%>
+
+<%= simple_form_for [@contact, @answer] do |f| %>
+<%= f.input :answer, as: :string, required: false  %>
+<%= f.hidden_field :question_id  %>
+<%= f.submit "Save" %>
+<% end %>
