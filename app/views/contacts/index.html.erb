@@ -2,9 +2,14 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="cm-col-8">
-				<h2 class="title">Friends.</h2>
+				<div class="search-contact">
+					<h2 class="title">Friends.</h2>				
 
-				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+					<div>
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Who are we searching for?" title="Type in a name">
+					</div>
+				</div>
+
 
 				<ul id="myUL">
 					<% @contacts.each do |contact| %>

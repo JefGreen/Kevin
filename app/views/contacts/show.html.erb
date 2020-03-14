@@ -5,30 +5,42 @@
 				<div class="picture-container">
 					<img class="picture" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></img>
 				</div>
-				<div class="name">
-					<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
+				<div class="information">
+					<div class="name">
+						<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
+					</div>
+					<div class="results">
+						80%
+					</div>
 				</div>
 
 				<div class="box">
-				<div> 
+					<div class="actions">
+						<strong>Likes</strong>
+						<%= link_to new_contact_like_path(@contact) do  %>
+								<div class="button-round"><div>+</div></div>
+						<% end %>
+					</div>
+
 					<% likes = Like.where(contact_id: @contact.id)  %>
-					Likes:
 					<% likes.where(liked: true).each do |like| %>
-					  <%= like.tag.name %>
+						<div class="rectangle"><%= like.tag.name.capitalize %></div>
 					<% end %>
-					<%= link_to "+", new_contact_like_path(@contact), class: "button-round" %>
-				</div>
 								
 				</div>
 
 				<div class="box">
-					<p>Dislikes</p>
+					<div class="actions">
+						<strong>Dislikes</strong>
+						<%= link_to new_contact_like_path(@contact) do %>
+							<div class="button-round"><div>+</div></div>
+						<% end %>
+					</div>
 
-					Don't like:
+					<% likes = Like.where(contact_id: @contact.id)  %>
 					<% likes.where(liked: false).each do |like| %>
-					  <%= like.tag.name %>
+					  <div class="rectangle"><%= like.tag.name.capitalize %></div>
 					<% end %>
-					<%= link_to "Add a dislike", new_contact_like_path(@contact) %>
 				</div>
 			</div>
 		</div>
