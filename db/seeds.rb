@@ -37,6 +37,32 @@ puts 'Currently seeding'
 puts '***********************'
 puts ''
 
+
+jeff = User.create({
+  email: "jeff@gmail.com",
+  password: 'apple1',
+  name: "Jeff",
+  description: Faker::TvShows::MichaelScott.quote,
+  location: '21 jump Street, Pasig, Metro Manila, Philippines'
+})
+
+def generateContact()
+  User.create({
+    first_name: "jeff@gmail.com",
+    last_name: 'apple1',
+    meeting_location: "Jeff",
+    birthday: faker.date.past(10),
+  })
+end
+
+Question.create({
+  question: "Does Jeff likes ski?",
+  right_answer: true,
+  contact_id: 3,
+})
+
+Question.find_by(question: "Does Jeff likes ski?").update
+
 tags = ['Ruby', 'JavaScript', 'HTML & CSS', 'UI/UX', 'PHP', 'Angular', 'Google Script', 'Python', 'C#', 'Java', 'React']
 
 tags.each {|tag| Like.create({ name: skill })}
@@ -133,14 +159,7 @@ def generateReviews(user)
 end
 
  admin = []
-# admin = User.create({
-#   email: "admindgh@admirrn.com",
-#   password: 'admin123reewr',
-#   name: "admin",
-#   description: Faker::TvShows::MichaelScott.quote
-# })
-# admin.photo.attach(io: URI.open(defaul_image), filename: "admin.png", content_type: 'image/png')
-# generateExperiences(admin, skills)
+
 
 image_index = 0
 images.length().times do
