@@ -2,6 +2,9 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="sm-col-4">
+				<%= link_to contacts_path(@contact) do %>
+					<div><strong><i class="fas fa-chevron-left" style="color: black; font-size: 25px;"></i></strong></div>
+				<% end %>
 				<div class="picture-container">
 					<img class="picture" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></img>
 				</div>
@@ -12,6 +15,7 @@
 					<div class="results">
 						80%
 					</div>
+
 				</div>
 
 				<div class="box">
