@@ -13,7 +13,6 @@
 @import "components/index";
 
 body {
-	height: 100%;
 	background: white;
   	height: 100vh;
   	display: flex;
@@ -22,5 +21,6 @@ body {
 }
 
 .jumbotron {
+  	overflow: scroll;
 	background: white;
 }
