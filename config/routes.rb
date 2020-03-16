@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :contacts do
     resources :likes
     resources :questions
-    resources :answers, only: %i(new create)
+    resources :answers, only: %i(new create index)
   end
 
   resources :users, only: %i(new create)
