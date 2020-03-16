@@ -4,7 +4,7 @@
 <%= @question.question%>
 
 <%= simple_form_for [@contact, @answer] do |f| %>
-<%= f.input :answer, as: :string, required: false  %>
+<%= f.input :answer, as: :boolean, required: false  %>
 <%= f.hidden_field :question_id  %>
 <%= f.submit "Save" %>
 <% end %>
