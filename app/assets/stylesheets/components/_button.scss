@@ -4,7 +4,8 @@
     display: flex;
 	width: 110px;
 	height: 50px;
-	color: #4C45E4;
+	color: white;
+	background: #4C45E4;
 	border: 1px solid #4A4A4A;
 	padding: 8px 24px;
 	border-radius: 50px;
@@ -16,15 +17,9 @@
 
 .button:hover {
 	opacity: 1;
-}
-
-a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: none;
-}
 
 .buttons {
     display: flex;
