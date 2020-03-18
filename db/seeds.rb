@@ -228,6 +228,20 @@ def generateLikes(contact, tags, liked)
   end
 end
 
+def generateMeetingLocations()
+  array = []
+  4.times {array.push("#{Faker::Job.unique.field} association in #{rand(2015..2020)}")}
+  2.times {array.push("#{Contact.all.sample.first_name}'s #{Faker::Job.education_level} graduation")}
+  6.times {array.push("Worked together at #{Faker::Company.unique.name}")}
+  12.times {array.push("Game night at #{Contact.all.sample.first_name}'s place")}
+  2.times {array.push("Wagon meetup of #{rand(2019..2020)}")}
+  # 4.times {array.push("Party with #{Group.all.sample.name} in #{rand(2015..2020)}")}
+  array.push("Studied together in Chicoutimi")
+  6.times {array.push("Introduced by #{Contact.all.sample.first_name}")}
+  4.times {array.push("Meet during my trip in #{Faker::Address.unique.country}")}
+  return array
+end
+
 puts ''
 
 puts '***********************'
@@ -238,15 +252,24 @@ puts ''
 puts 'Generating Tags'
 10.times {Tag.create(name: Faker::Dessert.unique.variety)}
 15.times {Tag.create(name: Faker::Food.unique.fruits)}
+10.times {Tag.create(name: Faker::ProgrammingLanguage.unique.name)}
+15.times {Tag.create(name: Faker::Team.unique.sport)}
 
 puts 'Generating Groups'
-['Chess club', 'Board game Wednesday']
+['Chess club', 'Board game Wednesday', ]
 
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
 images.shuffle.take(30).each do |image|
   generateContact(image)
+end
+
+puts ''
+puts 'Generating random meeting locations'
+meeting_locations = generateMeetingLocations()
+Contact.all.each do |contact|
+  contact.update(meeting_location: meeting_locations.sample)
 end
 
 puts ''
@@ -258,5 +281,8 @@ Contact.all.each do |contact|
   dislikes = (Tag.all - likes).take(rand(4..8))
   generateLikes(contact, dislikes, false)
 end
+puts ''
+puts 'Associating Groups and Contacts'
+
 
 puts 'Seeding completed'
