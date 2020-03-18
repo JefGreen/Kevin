@@ -219,6 +219,11 @@ def generateLikes(contact, tags, liked)
       tag_id: tag.id,
       contact_id: contact.id,
     })
+    Question.create(
+      question: "Does #{contact.first_name} likes #{tag.name}?",
+      correct_answer: liked.to_s,
+      contact: contact
+    )
   end
 end
 
@@ -233,6 +238,9 @@ puts 'Generating Tags'
 10.times {Tag.create(name: Faker::Dessert.unique.variety)}
 15.times {Tag.create(name: Faker::Food.unique.fruits)}
 
+puts 'Generating Groups'
+['Chess club', 'Board game Wednesday']
+
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
@@ -240,12 +248,13 @@ images.shuffle.take(30).each do |image|
   generateContact(image)
 end
 
-puts 'Generating Likes'
+puts ''
+puts 'Generating Likes and Questions'
 Contact.all.each do |contact|
-  likes = Tag.all.take(rand(1..7))
+  likes = Tag.all.take(rand(4..8))
   generateLikes(contact, likes, true)
 
-  dislikes = (Tag.all - likes).take(rand(1..7))
+  dislikes = (Tag.all - likes).take(rand(4..8))
   generateLikes(contact, dislikes, false)
 end
 
