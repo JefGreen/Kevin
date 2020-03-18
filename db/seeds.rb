@@ -127,37 +127,6 @@ require "open-uri"
 #   end
 # end
 
-# # def generateMeetings(user, mentor)
-# #   if mentor
-# #     mentor = user
-# #     mentee = (User.all - [user]).sample
-# #   else
-# #     mentor = (User.all - [user]).sample
-# #     mentee = user
-# #   end
-
-# #   Meeting.create({
-# #     start_time: DateTime.new(2020,9,1,17),
-# #     end_time: DateTime.new(2020,9,1,18),
-# #     location: LOCATIONS.sample,
-# #     mentor_id: mentor.id,
-# #     mentee_id: mentee.id,
-# #     accepted: [true, nil].sample
-# #   })
-# # end
-
-# # def generateReviews(user)
-# #   rand(2..4).times do
-# #     user_mentee = (User.all - [user]).sample
-# #     Review.create({
-# #       rate: rand(3..5),
-# #       content: Faker::Quote.matz,
-# #       mentor_id: user.id,
-# #       mentee_id: user_mentee.id
-# #       })
-# #   end
-# # end
-
 #  admin = []
 
 

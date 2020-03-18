@@ -1,4 +1,3 @@
-
 <%= @question.question%>
   <%= simple_form_for [@contact, @answer] do |f| %>
     <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
