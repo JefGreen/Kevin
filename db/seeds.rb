@@ -200,31 +200,16 @@ images = [
 
 # Contacts 30 - 40
 def generateContact(image)
+  f_name = image[:male] ? Faker::Name.male_first_name : Faker::Name.female_first_name
   contact = Contact.create({
-    first_name: image[:male] ? Faker::Name.male_first_name : Faker::Name.female_first_name,
+    first_name: f_name,
     last_name: Faker::Name.last_name,
     meeting_location: Faker::Address.full_address,
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
     # phone_number: ,
   })
   contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
-end
-
-# Types of tags
-def generateTagsDesserts(nbTimes)
-  nbTimes.times do
-    Tag.create({
-      name: Faker::Dessert.unique.variety,
-    })
-  end
-end
-
-def generateTagsFruits(nbTimes)
-  nbTimes.times do
-    Tag.create({
-      name: Faker::Food.unique.fruits,
-    })
-  end
+  puts "-#{f_name}"
 end
 
 def generateLikes(contact, tags, liked)
@@ -237,7 +222,6 @@ def generateLikes(contact, tags, liked)
   end
 end
 
-
 puts ''
 
 puts '***********************'
@@ -246,11 +230,13 @@ puts '***********************'
 puts ''
 
 puts 'Generating Tags'
-generateTagsDesserts(10)
-generateTagsFruits(15)
+10.times {Tag.create(name: Faker::Dessert.unique.variety)}
+15.times {Tag.create(name: Faker::Food.unique.fruits)}
 
 puts 'Generating Contacts'
-images.shuffle.take(15).each do |image|
+puts ''
+puts 'Added the following to Kevin:'
+images.shuffle.take(30).each do |image|
   generateContact(image)
 end
 
