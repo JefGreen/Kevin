@@ -1,29 +1,57 @@
 
 <div class="search-contact">
 	<h2><strong>Friends.</strong></h2>				
-	<div>
-		<input type="text" name="search" placeholder="Enter a name" id="myInput" onkeyup="myFunction()">
-	</div>
+	<input type="text" name="search" placeholder="Enter a name" id="myInput" onkeyup="myFunction()">
+</div>
+
+<div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
+	<ul id="myUL">
+		<% @contacts.each do |contact| %>
+			<li>
+			<%= link_to contact_path(contact) do %>
+				<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
+			<% end %>
+			</li>
+			
+		<% end  %>
+	</ul>
 </div>
 
 
-<div class="jumbotron vertical-center">
+<!-- <div class="jumbotron vertical-center">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-sm-4">
 
 
 
-				<ul id="myUL">
-					<% @contacts.each do |contact| %>
-						<li>
-						<%= link_to contact_path(contact) do %>
-							<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
-						<% end %>
-						</li>
-						
-					<% end  %>
-				</ul>
+				
+
+				
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<div class="footer">
+	<div class="button-plus">
+		<%= link_to new_contact_path do %>
+			<i class="fas fa-plus" style="color: white"></i>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 				<script>
 				function myFunction() {
@@ -43,18 +71,3 @@
 				    }
 				}
 				</script>
-				
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="footer">
-	<div class="big-circle">
-		<div class="button-plus">
-			<div>
-				<a class="fas fa-plus-circle" href="./contacts/new" style="color: white"></a>
-			</div>
-		</div>
-	</div>
-</div>
