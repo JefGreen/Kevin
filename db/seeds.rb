@@ -38,42 +38,6 @@ puts '-Deleted Memories'
 puts 'Clearing db completed'
 puts '***********************'
 
-
-# Contacts 30 - 40
-def generateContact(image)
-  contact = Contact.create({
-    first_name: image.male ? Faker::Name.male_first_name : Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    meeting_location: Faker::Address.full_address,
-    birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
-  })
-  contact.photo.attach(io: URI.open(image.url), filename: "#{Faker::Name.unique.name}.png")
-end
-
-# Types of tags
-def generateTagsDesserts(nbTimes)
-  nbTimes.times do
-    Tag.create({
-      name: Faker::Dessert.variety,
-    })
-  end
-end
-
-def generateTagsFruits(nbTimes)
-  nbTimes.times do
-    Tag.create({
-      name: Faker::Food.fruits,
-    })
-  end
-end
-
-def generateLikes()
-  nbTimes.times do
-    Tag.create({
-      name: Faker::Food.fruits,
-    })
-  end
-end
 # Images male=true femal=false
 images = [
 {
@@ -223,7 +187,7 @@ images = [
 {
   url:'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
   male: false,
-},
+}
 # {
 #   url:'',
 #   male: ,
@@ -234,6 +198,45 @@ images = [
 # },
 ]
 
+# Contacts 30 - 40
+def generateContact(image)
+  contact = Contact.create({
+    first_name: image[:male] ? Faker::Name.male_first_name : Faker::Name.female_first_name,
+    last_name: Faker::Name.last_name,
+    meeting_location: Faker::Address.full_address,
+    birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+  })
+  contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
+end
+
+# Types of tags
+def generateTagsDesserts(nbTimes)
+  nbTimes.times do
+    Tag.create({
+      name: Faker::Dessert.unique.variety,
+    })
+  end
+end
+
+def generateTagsFruits(nbTimes)
+  nbTimes.times do
+    Tag.create({
+      name: Faker::Food.unique.fruits,
+    })
+  end
+end
+
+def generateLikes(contact, nbTimes, liked)
+  nbTimes.times do
+    Like.create({
+      liked: liked,
+      tag_id: Tag.all.sample.id,
+      contact_id: contact.id,
+    })
+  end
+end
+
+
 puts ''
 
 puts '***********************'
@@ -241,28 +244,20 @@ puts 'Currently seeding'
 puts '***********************'
 puts ''
 
-
 puts 'Generating Tags'
 generateTagsDesserts(10)
 generateTagsFruits(15)
 
 puts 'Generating Contacts'
-images.shuffle.take(2).each do |image|
+images.shuffle.take(15).each do |image|
   generateContact(image)
 end
 
 puts 'Generating Likes'
-Contact.all
-
-
-
-# jeff = User.create({
-#   email: "jeff@gmail.com",
-#   password: 'apple1',
-#   name: "Jeff",
-#   description: Faker::TvShows::MichaelScott.quote,
-#   location: '21 jump Street, Pasig, Metro Manila, Philippines'
-# })
+Contact.all.each do |contact|
+  generateLikes(contact, rand(1..7), true)
+  generateLikes(contact, rand(1..7), false)
+end
 
 # def generateContact()
 #   User.create({
