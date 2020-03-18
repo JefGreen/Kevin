@@ -1,5 +1,5 @@
 <%= link_to contacts_path(@contact) do %>
-	<div><i class="fas fa-chevron-left" style="color: black; font-size: 25px; margin: 20px;"></i></div>
+	<div><i class="fas fa-chevron-left" style="color: #CCCCD7; font-size: 25px; margin: 20px;"></i></div>
 <% end %>
 
 <div>
@@ -8,21 +8,21 @@
 	</div>
 	<div class="information">
 		<div class="name">
-			<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
+			<%= link_to edit_contact_path do %>
+				<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
+			<% end %>
 		</div>
-		<div class="results">
-			80%
-		</div>
-
+			<%= link_to new_contact_answer_path(@contact) do %>
+				<div class="results">
+					80%
+				</div>
+			<% end %>
 	</div>
 </div>
 
 
-<div class="jumbotron vertical-center">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-sm-4">
 
+<div class="boxes">
 
 				<div class="box">
 					<div class="actions">
@@ -32,12 +32,13 @@
 						<% end %>
 					</div>
 
-					<div class="tag">
-						<% likes = Like.where(contact_id: @contact.id)  %>
-					<% likes.where(liked: true).each do |like| %>
-						<div class="rectangle"><%= like.tag.name.capitalize %></div>
-					<% end %>
+					<div class="tags">
+							<% likes = Like.where(contact_id: @contact.id)  %>
+							<% likes.where(liked: true).each do |like| %>
+							<div class="tag"><%= like.tag.name.capitalize %></div>
+						<% end %>
 					</div>
+
 								
 				</div>
 
@@ -49,16 +50,13 @@
 						<% end %>
 					</div>
 
-					<div class="tag">
+					<div class="tags">
 						<% likes = Like.where(contact_id: @contact.id)  %>
 						<% likes.where(liked: false).each do |like| %>
-						  <div class="rectangle"><%= like.tag.name.capitalize %></div>
+						  <div class="tag"><%= like.tag.name.capitalize %></div>
 						<% end %>
 					</div>
 
 					
 				</div>
-			</div>
-		</div>
-	</div>
 </div>
