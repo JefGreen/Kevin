@@ -17,22 +17,6 @@
 	</ul>
 </div>
 
-
-<!-- <div class="jumbotron vertical-center">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-sm-4">
-
-
-
-				
-
-				
-			</div>
-		</div>
-	</div>
-</div> -->
-
 <div class="footer">
 	<div class="button-plus">
 		<%= link_to new_contact_path do %>
@@ -53,21 +37,21 @@
 
 
 
-				<script>
-				function myFunction() {
-				    var input, filter, ul, li, a, i, txtValue;
-				    input = document.getElementById("myInput");
-				    filter = input.value.toUpperCase();
-				    ul = document.getElementById("myUL");
-				    li = ul.getElementsByTagName("li");
-				    for (i = 0; i < li.length; i++) {
-				        a = li[i].getElementsByTagName("a")[0];
-				        txtValue = a.textContent || a.innerText;
-				        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				            li[i].style.display = "";
-				        } else {
-				            li[i].style.display = "none";
-				        }
-				    }
-				}
-				</script>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>

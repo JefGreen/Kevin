@@ -1,6 +1,8 @@
+<div class="d-flex align-items-center justify-content-center full-screen">
   <%= simple_form_for [@contact] do |f| %>
     <%= f.input :first_name, as: :string, required: false  %>
     <%= f.input :last_name, as: :string, required: false %>
-    <%= f.submit "editing it" %>
+    <%= f.submit "Save changes", class: "button-secondary" %>
   <% end %>
+</div>
 

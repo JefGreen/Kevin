@@ -1,23 +1,36 @@
-<%= link_to contacts_path(@contact) do %>
-	<div><i class="fas fa-chevron-left" style="color: #CCCCD7; font-size: 25px; margin: 20px;"></i></div>
-<% end %>
+<div class="header">
+	<%= link_to contacts_path(@contact) do %>
+		<div>
+			<i class="fas fa-chevron-left""></i>
+		</div>
+	<% end %>
+	<h4>Profile</h4>
+</div>
 
-<div>
+<div class="info">
 	<div class="picture-container">
+		<!-- <%= cl_image_tag @contact.photo.key %>  -->
 		<img class="picture" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></img>
 	</div>
+
 	<div class="information">
 		<div class="name">
 			<%= link_to edit_contact_path do %>
 				<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
 			<% end %>
 		</div>
-			<%= link_to new_contact_answer_path(@contact) do %>
-				<div class="results">
-					80%
-				</div>
-			<% end %>
+		<%= link_to new_contact_answer_path(@contact) do %>
+			<div class="results">
+				80%
+			</div>
+		<% end %>
 	</div>
+	<div class="justify-content-center align-items-center d-flex">
+		<%= @contact.birthday %> 
+		<br>
+		<%= @contact.meeting_location %>
+	</div>
+
 </div>
 
 

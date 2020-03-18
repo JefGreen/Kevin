@@ -4,7 +4,7 @@
     display: flex;
 	width: 110px;
 	height: 50px;
-	color: #4A4A4A;
+	color: #4C45E4;
 	border: 1px solid #4A4A4A;
 	padding: 8px 24px;
 	border-radius: 50px;
@@ -27,8 +27,8 @@ a:hover {
 }
 
 .buttons {
-	text-align: center;
     display: flex;
+	text-align: center;
     justify-content: center;
 }
 
@@ -36,15 +36,15 @@ a:hover {
 	display: flex;
 	align-items: center;
     justify-content: center;
-	color: #4A4A4A;
-	border: 1px solid #4A4A4A;
+    color: white;
 	padding: 8px;
 	border-radius: 50px;
-	font-weight: lighter;
 	opacity: 0.6;
 	transition: opacity 0.3s ease;
 	margin: auto;
 	text-decoration: none;
+	background: #4C45E4;
+	box-shadow: 3px 18px 22px rgba(0, 0, 0, 0.12);
 }
 
 .button-secondary:hover {
