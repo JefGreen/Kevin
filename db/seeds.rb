@@ -261,7 +261,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.shuffle.take(30).each do |image|
+images.sample(30).each do |image|
   generateContact(image)
 end
 
@@ -275,10 +275,10 @@ end
 puts ''
 puts 'Generating Likes and Questions'
 Contact.all.each do |contact|
-  likes = Tag.all.take(rand(4..8))
+  likes = Tag.all.sample(rand(4..8))
   generateLikes(contact, likes, true)
 
-  dislikes = (Tag.all - likes).take(rand(4..8))
+  dislikes = (Tag.all - likes).sample(rand(4..8))
   generateLikes(contact, dislikes, false)
 end
 puts ''
