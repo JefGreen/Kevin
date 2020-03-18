@@ -205,6 +205,7 @@ def generateContact(image)
     last_name: Faker::Name.last_name,
     meeting_location: Faker::Address.full_address,
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+    # phone_number: ,
   })
   contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
 end
@@ -226,11 +227,11 @@ def generateTagsFruits(nbTimes)
   end
 end
 
-def generateLikes(contact, nbTimes, liked)
-  nbTimes.times do
-    Like.create({
+def generateLikes(contact, tags, liked)
+  tags.each do |tag|
+     Like.create({
       liked: liked,
-      tag_id: Tag.all.sample.id,
+      tag_id: tag.id,
       contact_id: contact.id,
     })
   end
@@ -255,11 +256,11 @@ end
 
 puts 'Generating Likes'
 Contact.all.each do |contact|
-  generateLikes(contact, rand(1..7), true)
-  generateLikes(contact, rand(1..7), false)
+  likes = Tag.all.take(rand(1..7))
+  generateLikes(contact, likes, true)
+
+  dislikes = (Tag.all - likes).take(rand(1..7))
+  generateLikes(contact, dislikes, false)
 end
 
 puts 'Seeding completed'
-=======
-# puts 'Seeding completed'
->>>>>>> 121848650f4df555116cdebee21c017a6952438b
