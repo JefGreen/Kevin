@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'unsplash'
 gem 'cloudinary', '~> 1.12.0'
 gem 'bootsnap', require: false
 gem 'devise'
@@ -17,6 +18,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -28,5 +30,4 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
 end
