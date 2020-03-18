@@ -201,12 +201,13 @@ images = [
 # Contacts 30 - 40
 def generateContact(image)
   f_name = image[:male] ? Faker::Name.male_first_name : Faker::Name.female_first_name
+  Faker::Config.locale = 'en-CA'
   contact = Contact.create({
     first_name: f_name,
     last_name: Faker::Name.last_name,
     meeting_location: Faker::Address.full_address,
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
-    # phone_number: ,
+    phone_number: Faker::PhoneNumber.unique.cell_phone,
   })
   contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
   puts "-#{f_name}"
