@@ -1,9 +1,22 @@
+<%= @question.question%>
+  <%= simple_form_for [@contact, @answer] do |f| %>
+    <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
+    <%= f.hidden_field :question_id  %>
+    <%= f.submit "Save" %>
+  <% end %>
 
-    <%= @question.question %>
-    <%= simple_form_for [@contact, @answer] do |f| %>
-      <%= f.input :answer, as: :boolean, required: false  %>
-      <%= f.hidden_field :question_id  %>
-      <%= f.submit "Save" %>
-    <% end %>
+<div id="yes-button" class="yes">
+  <%= image_tag("yes.png") %>
+</div>
+<div id="no-button" class="no">
+  <%= image_tag("no.png") %>
+</div>
 
+<form action="">
+  <input type="hidden" name="answer" value="true" id="hidden-answer-field">
+  <input type="submit" value="Next">
+</form>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<%= javascript_pack_tag "application" %>

@@ -1,15 +1,15 @@
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Examples:
-# #
-# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-# #   Character.create(name: 'Luke', movie: movies.first)
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 
 
-# require 'date'
-# require 'faker'
-# require "open-uri"
+require 'date'
+require 'faker'
+require "open-uri"
 
 # puts '***********************'
 # puts 'Clearing the current db'
@@ -124,37 +124,6 @@
 #     skill: skill,
 #     years_of_experience: rand(1..7)
 #     )
-#   end
-# end
-
-# def generateMeetings(user, mentor)
-#   if mentor
-#     mentor = user
-#     mentee = (User.all - [user]).sample
-#   else
-#     mentor = (User.all - [user]).sample
-#     mentee = user
-#   end
-
-#   Meeting.create({
-#     start_time: DateTime.new(2020,9,1,17),
-#     end_time: DateTime.new(2020,9,1,18),
-#     location: LOCATIONS.sample,
-#     mentor_id: mentor.id,
-#     mentee_id: mentee.id,
-#     accepted: [true, nil].sample
-#   })
-# end
-
-# def generateReviews(user)
-#   rand(2..4).times do
-#     user_mentee = (User.all - [user]).sample
-#     Review.create({
-#       rate: rand(3..5),
-#       content: Faker::Quote.matz,
-#       mentor_id: user.id,
-#       mentee_id: user_mentee.id
-#       })
 #   end
 # end
 
