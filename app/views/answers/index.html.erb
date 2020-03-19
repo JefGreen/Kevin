@@ -5,9 +5,9 @@
 <% @score_final = 0 %>
 
 <% @questions.each do |question| %>
-  <% if question.score =! nil %>
+  <% if question.score != nil %>
     <li><%= question.question %></li>
-    <li><%= question.score.to_i %></li>
+    <li><%= question.score %></li>
   <% @score_final = @score_final + question.score %>
   <% end %>
 <% end %>
