@@ -5,7 +5,7 @@
 
   const yesButton = document.querySelector("#yes-button");
   const noButton = document.querySelector("#no-button");
-  const hiddenAnswerField = document.querySelector("#hidden-answer-field");
+  const hiddenAnswerField = document.querySelector("#answer_answer");
   // attach event listeners to each button to listen a click
   yesButton.addEventListener("click", () => {
     // change the style of the yes button

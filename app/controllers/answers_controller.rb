@@ -8,13 +8,6 @@ class AnswersController < ApplicationController
     @likes = Like.where(contact: @contact).sample
     @score = 0
     @question = Question.find_by(question: "Does #{@contact.first_name} likes #{@likes.tag.name}?")
-
-    #  Question.create(
-    #   question: "Does #{@contact.first_name} likes #{@likes.tag.name}?",
-    #   correct_answer: @likes.liked,
-    #   contact: @contact
-    # )
-
     @answer = Answer.new(question: @question)
 
   end
