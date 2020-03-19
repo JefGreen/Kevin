@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def index
     @contact = Contact.find(params[:contact_id])
+    @questions = Question.where(contact_id: @contact)
   end
 
   def new
@@ -8,13 +9,6 @@ class AnswersController < ApplicationController
     @likes = Like.where(contact: @contact).sample
     @score = 0
     @question = Question.find_by(question: "Does #{@contact.first_name} likes #{@likes.tag.name}?")
-
-    #  Question.create(
-    #   question: "Does #{@contact.first_name} likes #{@likes.tag.name}?",
-    #   correct_answer: @likes.liked,
-    #   contact: @contact
-    # )
-
     @answer = Answer.new(question: @question)
 
   end
@@ -32,7 +26,7 @@ class AnswersController < ApplicationController
       @answer.question.score = @score
       @answer.question.save!
     else
-      redirect_to contact_answers(@contact)
+      redirect_to contact_answers(@contact), method: :get
     end
   end
 
