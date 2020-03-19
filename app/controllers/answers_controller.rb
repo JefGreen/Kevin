@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def index
     @contact = Contact.find(params[:contact_id])
+    @questions = Question.where(contact_id: @contact)
   end
 
   def new
@@ -25,7 +26,7 @@ class AnswersController < ApplicationController
       @answer.question.score = @score
       @answer.question.save!
     else
-      redirect_to contact_answers(@contact)
+      redirect_to contact_answers(@contact), method: :get
     end
   end
 

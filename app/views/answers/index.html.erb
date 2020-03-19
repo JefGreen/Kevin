@@ -1,15 +1,20 @@
 <h1>Answers</h1>
 
+<%= @questions %>
 
-Your points :
+<% @score_final = 0 %>
 
-<% score = 0 %>
-
-<% Question.all.each do |question| %>
+<% @questions.each do |question| %>
   <% if question.score =! nil %>
-    <% score = score + question.score %>
+    <li><%= question.question %></li>
+    <li><%= question.score.to_i %></li>
+  <% @score_final = @score_final + question.score %>
   <% end %>
 <% end %>
 
-<%= score %>
+
+
+Your points with <%= @contact.first_name %>:
+
+<%= @score_final %>
 

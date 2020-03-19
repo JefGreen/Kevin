@@ -19,6 +19,10 @@
   <input type="submit" value="Next">
 </form> -->
 
+<%= link_to new_contact_answer_path(@contact) do %>
+    next
+  <% end %>
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <%= javascript_pack_tag "application" %>
