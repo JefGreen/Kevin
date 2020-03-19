@@ -35,7 +35,7 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     @contact.update(contact_params)
-    redirect_to contacts_path
+    redirect_to contact_path(@contact)
   end
 
   private

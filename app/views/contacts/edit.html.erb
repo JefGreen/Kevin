@@ -2,6 +2,9 @@
   <%= simple_form_for [@contact] do |f| %>
     <%= f.input :first_name, as: :string, required: false  %>
     <%= f.input :last_name, as: :string, required: false %>
+    <%= f.input :birthday %>
+    <%= f.input :meeting_location %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Save changes", class: "button-secondary" %>
   <% end %>
 </div>

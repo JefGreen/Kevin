@@ -1,7 +1,7 @@
 <div class="header">
 	<%= link_to contacts_path(@contact) do %>
 		<div>
-			<i class="fas fa-chevron-left""></i>
+			<i class="fas fa-chevron-left"></i>
 		</div>
 	<% end %>
 	<h4>Profile</h4>
@@ -9,8 +9,7 @@
 
 <div class="info">
 	<div class="picture-container">
-
-    <%= cl_image_tag @contact.photo.key, class: "picture" %>
+    	<%= cl_image_tag @contact.photo.key, class: "picture" %>
 	</div>
 
 	<div class="information">
@@ -25,13 +24,16 @@
 			</div>
 		<% end %>
 	</div>
-	<div>
-		<i class="fas fa-birthday-cake"></i><%= @contact.birthday %> 
-		<br>
-		<i class="fas fa-users"></i><%= @contact.meeting_location %>
-	</div>
 
 </div>
+	<div class="icons">
+		<div class="icon">
+			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %> 
+		</div>
+		<div class="icon">
+			<i class="fas fa-users" style="margin: 5px;"></i><%= @contact.meeting_location %>
+		</div>
+	</div>
 
 
 
@@ -72,4 +74,5 @@
 
 
 				</div>
+
 </div>
