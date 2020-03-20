@@ -11,7 +11,8 @@
   <%= simple_form_for [@contact, @answer] do |f| %>
     <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
     <%= f.hidden_field :question_id  %>
-    <%= f.submit "Save" %>
+    <%= f.submit "Next" %>
+
   <% end %>
 
 <!-- <form action="">
@@ -19,9 +20,8 @@
   <input type="submit" value="Next">
 </form> -->
 
-<%= link_to new_contact_answer_path(@contact) do %>
-    next
-  <% end %>
+
+
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
