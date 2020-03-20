@@ -20,22 +20,25 @@
 			</div>
 		<% end %>
 		<div class="icons">
-			<div class="icon">
-				<i class="fas fa-birthday-cake" style="margin-right: 5px; font-size: 12px"></i><%= @contact.birthday %>
+			<div class="text">
+				<div class="icon">
+					<i class="fas fa-birthday-cake" style="margin-right: 5px; font-size: 12px"></i><%= @contact.birthday %>
+				</div>
+				<div class="icon">
+					<i class="fas fa-users" style="margin-right: 5px; font-size: 12px"></i><%= @contact.meeting_location %>
+				</div>
+
 			</div>
-			<div class="icon">
-				<i class="fas fa-users" style="margin-right: 5px; font-size: 12px"></i><%= @contact.meeting_location %>
+			<div class="score">
+				<%= link_to new_contact_answer_path(@contact) do %>
+					<div class="results">
+						  <%= @percentage %>%
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 
-	<div class="score">
-		<%= link_to new_contact_answer_path(@contact) do %>
-			<div class="results">
-				  <%= @percentage %>%
-			</div>
-		<% end %>
-	</div>
 
 </div>
 
