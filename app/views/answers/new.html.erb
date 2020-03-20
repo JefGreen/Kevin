@@ -9,7 +9,7 @@
     <h2 class="text-align-center">Quiz</h2>
 
 
-  <%= @question.question%>
+  <%= @question.question %>
 
 
   <div id="yes-button" class="yes">
@@ -26,7 +26,7 @@
 
     <% end %>
 
-
+<!-- 
   <% if @questions != nil %>
     <% @score_final = 0 %>
     <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
@@ -44,7 +44,7 @@
       <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
       <p>Your percentage : <%= @percentage %> % </p>
   <% end %>
-
+ -->
 
   <!-- <form action="">
     <input type="hidden" name="answer" value="true" id="hidden-answer-field">
