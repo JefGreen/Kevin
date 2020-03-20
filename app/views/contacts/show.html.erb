@@ -28,7 +28,7 @@
 </div>
 	<div class="icons">
 		<div class="icon">
-			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %> 
+			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %>
 		</div>
 		<div class="icon">
 			<i class="fas fa-users" style="margin: 5px;"></i><%= @contact.meeting_location %>
@@ -43,15 +43,15 @@
 					<div class="actions">
 						<div><strong>Likes</strong></div>
 						<%= link_to new_contact_like_path(@contact) do  %>
-								<div class="button-round"><div>+</div></div>
+							<div class="button-round"><div>+</div></div>
 						<% end %>
 					</div>
 
 					<div class="tags">
 							<% likes = Like.where(contact_id: @contact.id)  %>
-							<% likes.where(liked: true).each do |like| %>
-							<div class="tag"><%= like.tag.name.capitalize %></div>
-						<% end %>
+							<% likes.where(liked: true).take(5).each do |like| %>
+							  <div class="tag"><%= like.tag.name.capitalize %></div>
+						  <% end %>
 					</div>
 
 
@@ -67,7 +67,7 @@
 
 					<div class="tags">
 						<% likes = Like.where(contact_id: @contact.id)  %>
-						<% likes.where(liked: false).each do |like| %>
+						<% likes.where(liked: false).take(5).each do |like| %>
 						  <div class="tag"><%= like.tag.name.capitalize %></div>
 						<% end %>
 					</div>

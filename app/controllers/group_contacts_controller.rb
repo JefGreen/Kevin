@@ -1,28 +1,27 @@
-class LikesController < ApplicationController
+class GroupContactsController < ApplicationController
   def new
-    @liked = Like.new
+    @group = Group.new
     @contact = Contact.find(params[:contact_id])
-    @false = @liked.liked = false
-    @true = @liked.liked = true
   end
 
   def create
     @contact = Contact.find(params[:contact_id])
-    @tag = Tag.find_or_create_by(name: params[:like][:tag].titlecase)
-    liked_before = Like.find_by(contact_id: params[:contact_id], tag_id: @tag.id)
+    @group = Group.find_or_create_by(name: params[:group_contact][:group].titlecase)
+    group_contact_existed = GroupContact.find_by(contact_id: params[:contact_id], group_id: @group.id)
 
-    if liked_before
+    if group_contact_existed
       liked_before.update(likes_params)
       full_name = @contact.first_name @contact.last_name
-      question_exists = Question.find_by(question: "Does #{full_name} likes #{@tag.name}?")
-      question_exists.update(correct_answer: params[:like][:liked].to_s)
+      group_n_for_q = [Group.all.sample.name, @group.name].sample
+      q_exists = Question.find_by(question: "Is #{full_name} part of the group called #{@group.name}?")
+      q_exists.update(correct_answer: @group.name)
       redirect_to contact_path(@contact)
 
     else
-      @liked = Like.new(likes_params)
+      @liked = GroupContact.new(likes_params)
       @liked.tag_id = @tag.id
       @liked.contact_id = params[:contact_id]
-      @question = Question.create(
+      question = Question.create(
         question: "Does #{@contact.first_name} likes #{@tag.name}?",
         correct_answer: params[:like][:liked].to_s,
         contact: @contact
@@ -44,6 +43,6 @@ class LikesController < ApplicationController
   private
 
   def likes_params
-    params.require(:like).permit(%i[contact_id tag_id liked])
+    params.require(:like).permit(%i[contact_id group_id])
   end
 end

@@ -139,13 +139,13 @@
 		align-items: center;
 	    justify-content: left;
 	}
-	
+
 	* {
 	  box-sizing: border-box;
 	}
 
 	.tags {
-		height: 150px;
+		height: auto;
 		overflow-y: scroll;
 		overflow-x: hidden;
 		justify-content: center;
@@ -153,8 +153,6 @@
 		display: flex;
 		flex-wrap: wrap;
 	}
-
-
 
 		.tag	{
 			flex-grow: 1;
