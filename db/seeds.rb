@@ -220,13 +220,28 @@ def generateLikes(contact, tags, liked)
       tag_id: tag.id,
       contact_id: contact.id,
     })
-    Question.create(
-      question: "Does #{contact.first_name} likes #{tag.name}?",
+    Question.create({
+      question: "Does #{contact.first_name} #{contact.last_name} like #{tag.name}?",
       correct_answer: liked.to_s,
-      contact: contact
+      contact_id: contact.id,
+    })
+  end
+end
+
+def generateGroupContacts(contact)
+  Group.all.sample(rand(0..5)).each do |group|
+    GroupContact.create(
+      group_id: group.id,
+      contact_id: contact.id
+    )
+    Question.create(
+      question: "Is #{contact.first_name} #{contact.last_name} part of the group called #{group.name}?",
+      correct_answer: group.name,
+      contact: contact,
     )
   end
 end
+
 
 def generateMeetingLocations()
   array = []
@@ -283,6 +298,9 @@ Contact.all.each do |contact|
 end
 puts ''
 puts 'Associating Groups and Contacts'
-
+10.times {Group.create(name: Faker::Team.unique.sport)}
+Contact.all.each do |contact|
+  generateGroupContacts(contact)
+end
 
 puts 'Seeding completed'

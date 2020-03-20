@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find(params[:id])
     @questions = Question.where(contact_id: @contact)
-    if @questions != nil
+    if !@questions.nil?
       @percentage = (@questions.where(score: 100).count)*100 / @questions.count
     else
       @percentage = 0

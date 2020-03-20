@@ -49,7 +49,4 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:description, :attachment_id, :user_id)
   end
-
-
-
 end

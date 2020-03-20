@@ -10,7 +10,7 @@ class GroupContactsController < ApplicationController
     group_contact_existed = GroupContact.find_by(contact_id: params[:contact_id], group_id: @group.id)
 
     if group_contact_existed
-      liked_before.update(likes_params)
+      # liked_before.update(likes_params)
       full_name = @contact.first_name @contact.last_name
       # group_n_for_q = [Group.all.sample.name, @group.name].sample
       q_exists = Question.find_by(question: "Is #{full_name} part of the group called #{@group.name}?")
