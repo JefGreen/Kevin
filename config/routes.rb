@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  get 'stories/new'
-  get 'stories/create'
-  get 'stories/index'
-  get 'stories/show'
   get 'questions/new'
   get 'questions/create'
   get 'answers/new'
   get 'answers/create'
-  get 'quizzes/show'
   get 'tags/new'
   get 'tags/create'
   get 'likes/new'
   get 'likes/create'
   devise_for :users
   root to: 'pages#home'
+
+
+resources :stories do
+  resources :memories, only: %i(new create)
+end
+
 
   resources :contacts do
     resources :likes
