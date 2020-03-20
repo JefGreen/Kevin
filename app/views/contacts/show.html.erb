@@ -55,12 +55,29 @@
 				<% end %>
 			</div>
 
+<<<<<<< HEAD
+	<div class="box">
+		<div class="actions">
+			<div><strong>DISLIKES</strong></div>
+			<%= link_to new_contact_like_path(@contact) do %>
+				<div class="button-round"><div>+</div></div>
+			<% end %>
+		</div>
+
+		<div class="tags">
+			<% likes = Like.where(contact_id: @contact.id)  %>
+			<% likes.where(liked: false).each do |like| %>
+			<div class="tag">
+			  	<%= like.tag.name.capitalize %>
+			  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
+=======
 			<div class="tags">
 				<% likes = Like.where(contact_id: @contact.id)%>
 				<% likes.where(liked: true).each do |like| %>
 				<div class="tag">
 					<%= like.tag.name.capitalize %>
 					<%= link_to contact_like_path(@contact, like), method: :delete do %>
+>>>>>>> 9552c74c85993c7268e1881b15b2ac4fa208064e
 						<i class="fas fa-times"></i>
 					<% end %>
 				</div>
