@@ -25,6 +25,26 @@
 
   <% end %>
 
+
+<% if @questions != nil %>
+  <% @score_final = 0 %>
+  <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
+
+  <% @questions.each do |question| %>
+    <% if question.score != nil %>
+    <% @score_final = @score_final + question.score %>
+    <% end %>
+  <% end %>
+
+
+  <p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
+
+    <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
+    <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
+    <p>Your percentage : <%= @percentage %> % </p>
+<% end %>
+
+
 <!-- <form action="">
   <input type="hidden" name="answer" value="true" id="hidden-answer-field">
   <input type="submit" value="Next">

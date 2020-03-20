@@ -12,7 +12,7 @@
           <% rescue %>
             <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture">
           <% end %>
-    
+
 	</div>
 
 	<div class="information">
@@ -23,7 +23,7 @@
 		</div>
 		<%= link_to new_contact_answer_path(@contact) do %>
 			<div class="results">
-				80%
+				  <%= @percentage %>%
 			</div>
 		<% end %>
 	</div>
@@ -31,7 +31,7 @@
 </div>
 	<div class="icons">
 		<div class="icon">
-			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %> 
+			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %>
 		</div>
 		<div class="icon">
 			<i class="fas fa-users" style="margin: 5px;"></i><%= @contact.meeting_location %>

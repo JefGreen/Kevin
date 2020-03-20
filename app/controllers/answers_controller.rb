@@ -10,6 +10,7 @@ class AnswersController < ApplicationController
     @score = 0
     @question = Question.find_by(question: "Does #{@contact.first_name} likes #{@likes.tag.name}?")
     @answer = Answer.new(question: @question)
+    @questions = Question.where(contact_id: @contact)
 
   end
 
