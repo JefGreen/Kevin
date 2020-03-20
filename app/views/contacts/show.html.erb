@@ -6,7 +6,6 @@
 
 <div class="info">
 	<div class="picture-container">
-
 	      <% begin %>
             <%= cl_image_tag @contact.photo.key, class: "picture" %>
           <% rescue %>
@@ -15,11 +14,22 @@
 	</div>
 
 	<div class="information">
-		<div class="name">
-			<%= link_to edit_contact_path do %>
+		<%= link_to edit_contact_path do %>
+			<div class="name">
 				<%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
-			<% end %>
+			</div>
+		<% end %>
+		<div class="icons">
+			<div class="icon">
+				<i class="fas fa-birthday-cake" style="margin-right: 5px; font-size: 12px"></i><%= @contact.birthday %>
+			</div>
+			<div class="icon">
+				<i class="fas fa-users" style="margin-right: 5px; font-size: 12px"></i><%= @contact.meeting_location %>
+			</div>
 		</div>
+	</div>
+
+	<div class="score">
 		<%= link_to new_contact_answer_path(@contact) do %>
 			<div class="results">
 				  <%= @percentage %>%
@@ -28,57 +38,54 @@
 	</div>
 
 </div>
-	<div class="icons">
-		<div class="icon">
-			<i class="fas fa-birthday-cake" style="margin: 5px;"></i><%= @contact.birthday %>
-		</div>
-		<div class="icon">
-			<i class="fas fa-users" style="margin: 5px;"></i><%= @contact.meeting_location %>
-		</div>
-	</div>
 
 
 
-<div class="boxes">
+<div class="background">
+	<div class="boxes">
 
-	<div class="box">
-		<div class="actions">
-			<div><strong>LIKES</strong></div>
-			<%= link_to new_contact_like_path(@contact) do  %>
-					<div class="button-round"><div>+</div></div>
-			<% end %>
-		</div>
-
-		<div class="tags">
-			<% likes = Like.where(contact_id: @contact.id)%>
-			<% likes.where(liked: true).each do |like| %>
-			<div class="tag">
-				<%= like.tag.name.capitalize %>
-				<%= link_to contact_like_path(@contact, like), method: :delete do %>
-					<i class="fas fa-times"></i>
+		<div class="box">
+			<div class="actions">
+				<div><strong>LIKES</strong></div>
+				<%= link_to new_contact_like_path(@contact) do  %>
+						<div class="add"><i class="fas fa-plus-circle"></i></div>
 				<% end %>
 			</div>
-			<% end %>
-		</div>
 
+			<div class="tags">
+				<% likes = Like.where(contact_id: @contact.id)%>
+				<% likes.where(liked: true).each do |like| %>
+				<div class="tag">
+					<%= like.tag.name.capitalize %>
+					<%= link_to contact_like_path(@contact, like), method: :delete do %>
+						<i class="fas fa-times"></i>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
 	</div>
 
-	<div class="box">
-		<div class="actions">
-			<div><strong>DISLIKES</strong></div>
-			<%= link_to new_contact_like_path(@contact) do %>
-				<div class="button-round"><div>+</div></div>
-			<% end %>
-		</div>
+</div>
+  
+		<div class="box">
+			<div class="actions">
+				<div><strong>DISLIKES</strong></div>
+				<%= link_to new_contact_like_path(@contact) do %>
+					<div class="add"><i class="fas fa-plus-circle"></i></div>
+				<% end %>
+			</div>
 
-<<<<<<< HEAD
-					<div class="tags">
-						<% likes = Like.where(contact_id: @contact.id)  %>
-						<% likes.where(liked: false).take(5).each do |like| %>
-						  <div class="tag"><%= like.tag.name.capitalize %></div>
-						<% end %>
-					</div>
-=======
+			<div class="tags">
+				<% likes = Like.where(contact_id: @contact.id)  %>
+				<% likes.where(liked: false).each do |like| %>
+				<div class="tag">
+				  	<%= like.tag.name.capitalize %>
+				  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
+							<i class="fas fa-times"></i>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
 		<div class="tags">
 			<% likes = Like.where(contact_id: @contact.id)  %>
 			<% likes.where(liked: false).each do |like| %>
@@ -90,8 +97,8 @@
 			</div>
 			<% end %>
 		</div>
->>>>>>> ab90e0cb08afc15062a6b407dd90210bb2506b9c
 
+		</div>
 	</div>
 </div>
 
