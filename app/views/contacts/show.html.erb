@@ -1,15 +1,18 @@
-<div class="header">
-	<%= link_to contacts_path(@contact) do %>
-		<div>
-			<i class="fas fa-chevron-left"></i>
-		</div>
+<div class="chevron">
+	<%= link_to contacts_path do %>
+		<i class="fas fa-chevron-left"></i>
 	<% end %>
-	<h4>Profile</h4>
 </div>
 
 <div class="info">
 	<div class="picture-container">
-    	<%= cl_image_tag @contact.photo.key, class: "picture" %>
+
+	      <% begin %>
+            <%= cl_image_tag @contact.photo.key, class: "picture" %>
+          <% rescue %>
+            <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture">
+          <% end %>
+    
 	</div>
 
 	<div class="information">
@@ -50,7 +53,10 @@
 					<div class="tags">
 							<% likes = Like.where(contact_id: @contact.id)  %>
 							<% likes.where(liked: true).each do |like| %>
-							<div class="tag"><%= like.tag.name.capitalize %></div>
+							<div class="tag">
+								<%= like.tag.name.capitalize %>
+								
+							</div>
 						<% end %>
 					</div>
 
