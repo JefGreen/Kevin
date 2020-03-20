@@ -61,7 +61,6 @@
 			<% end %>
 		</div>
 
-
 	</div>
 
 	<div class="box">
@@ -72,6 +71,14 @@
 			<% end %>
 		</div>
 
+<<<<<<< HEAD
+					<div class="tags">
+						<% likes = Like.where(contact_id: @contact.id)  %>
+						<% likes.where(liked: false).take(5).each do |like| %>
+						  <div class="tag"><%= like.tag.name.capitalize %></div>
+						<% end %>
+					</div>
+=======
 		<div class="tags">
 			<% likes = Like.where(contact_id: @contact.id)  %>
 			<% likes.where(liked: false).each do |like| %>
@@ -83,6 +90,7 @@
 			</div>
 			<% end %>
 		</div>
+>>>>>>> ab90e0cb08afc15062a6b407dd90210bb2506b9c
 
 	</div>
 </div>
