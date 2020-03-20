@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'stories/new'
+  get 'stories/create'
+  get 'stories/index'
+  get 'stories/show'
   get 'questions/new'
   get 'questions/create'
   get 'answers/new'
