@@ -37,6 +37,7 @@ class LikesController < ApplicationController
   def destroy
     @liked = Like.find(params[:id])
     @liked.destroy
+    @contact = Contact.find(params[:contact_id])
     redirect_to contact_path(@contact)
   end
 

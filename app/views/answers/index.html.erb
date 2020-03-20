@@ -1,24 +1,28 @@
-<h1>Your results : Answers</h1>
+<div class="full-screen">
+	<div>
+		<h1>Your results : Answers</h1>
+
+		<% @score_final = 0 %>
+		<% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
+
+		<% @questions.each do |question| %>
+		  <% if question.score != nil %>
+		  <% @score_final = @score_final + question.score %>
+		  <% end %>
+		<% end %>
 
 
-<% @score_final = 0 %>
-<% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
-
-<% @questions.each do |question| %>
-  <% if question.score != nil %>
-  <% @score_final = @score_final + question.score %>
-  <% end %>
-<% end %>
-
-
-<p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
+		<p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
 
 
 
-<% if @questions != nil %>
-  <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
-  <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
-  <p>Your percentage : <%= @percentage %> % </p>
-<% end %>
+		<% if @questions != nil %>
+		  <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
+		  <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
+		  <p>Your percentage : <%= @percentage %> % </p>
+		<% end %>
+	</div>
 
 
+
+</div>

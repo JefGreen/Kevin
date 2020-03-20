@@ -42,42 +42,65 @@
 
 <div class="boxes">
 
-				<div class="box">
-					<div class="actions">
-						<div><strong>Likes</strong></div>
-						<%= link_to new_contact_like_path(@contact) do  %>
-								<div class="button-round"><div>+</div></div>
-						<% end %>
-					</div>
+	<div class="box">
+		<div class="actions">
+			<div><strong>LIKES</strong></div>
+			<%= link_to new_contact_like_path(@contact) do  %>
+					<div class="button-round"><div>+</div></div>
+			<% end %>
+		</div>
 
-					<div class="tags">
-							<% likes = Like.where(contact_id: @contact.id)  %>
-							<% likes.where(liked: true).each do |like| %>
-							<div class="tag">
-								<%= like.tag.name.capitalize %>
-							</div>
-						<% end %>
-					</div>
-
-
-				</div>
-
-				<div class="box">
-					<div class="actions">
-						<div><strong>Dislikes</strong></div>
-						<%= link_to new_contact_like_path(@contact) do %>
-							<div class="button-round"><div>+</div></div>
-						<% end %>
-					</div>
-
-					<div class="tags">
-						<% likes = Like.where(contact_id: @contact.id)  %>
-						<% likes.where(liked: false).each do |like| %>
-						  <div class="tag"><%= like.tag.name.capitalize %></div>
-						<% end %>
-					</div>
+		<div class="tags">
+			<% likes = Like.where(contact_id: @contact.id)%>
+			<% likes.where(liked: true).each do |like| %>
+			<div class="tag">
+				<%= like.tag.name.capitalize %>
+				<%= link_to contact_like_path(@contact, like), method: :delete do %>
+					<i class="fas fa-times"></i>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
 
 
-				</div>
+	</div>
 
+	<div class="box">
+		<div class="actions">
+			<div><strong>DISLIKES</strong></div>
+			<%= link_to new_contact_like_path(@contact) do %>
+				<div class="button-round"><div>+</div></div>
+			<% end %>
+		</div>
+
+		<div class="tags">
+			<% likes = Like.where(contact_id: @contact.id)  %>
+			<% likes.where(liked: false).each do |like| %>
+			<div class="tag">
+			  	<%= like.tag.name.capitalize %>
+			  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
+						<i class="fas fa-times"></i>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+
+	</div>
+</div>
+
+<div class="footer">
+	<div class="button-center">
+		<%= link_to edit_contact_path do %>
+			<i class="fas fa-user-edit"></i>
+		<% end %>
+	</div>
+
+	<div class="footer-content">
+	<%= link_to root_path do %>
+		<i class="fas fa-home"></i>
+	<% end %>
+	<%= link_to root_path do %>
+		<i class="fas fa-user"></i>
+	<% end %>
+	</div>
 </div>

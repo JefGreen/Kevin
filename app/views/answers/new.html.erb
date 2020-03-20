@@ -1,60 +1,63 @@
-<div class="header">
-  <%= link_to contact_path(@contact) do %>
-    <div>
-      <i class="fas fa-chevron-left"></i>
-    </div>
-  <% end %>
-  <h4>Quiz</h4>
-</div>
-
-
-<%= @question.question%>
-
-
-<div id="yes-button" class="yes">
-  <%= image_tag("yes.png") %>
-</div>
-<div id="no-button" class="no">
-  <%= image_tag("no.png") %>
-</div>
-
-  <%= simple_form_for [@contact, @answer] do |f| %>
-    <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
-    <%= f.hidden_field :question_id  %>
-    <%= f.submit "Next" %>
-
-  <% end %>
-
-
-<% if @questions != nil %>
-  <% @score_final = 0 %>
-  <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
-
-  <% @questions.each do |question| %>
-    <% if question.score != nil %>
-    <% @score_final = @score_final + question.score %>
+<div class="full-screen">
+  <div class="chevron">
+    <%= link_to contact_path(@contact) do %>
+      <div>
+        <i class="fas fa-chevron-left"></i>
+      </div>
     <% end %>
+  </div>
+    <h2 class="text-align-center">Quiz</h2>
+
+
+  <%= @question.question%>
+
+
+  <div id="yes-button" class="yes">
+    <%= image_tag("yes.png") %>
+  </div>
+  <div id="no-button" class="no">
+    <%= image_tag("no.png") %>
+  </div>
+
+    <%= simple_form_for [@contact, @answer] do |f| %>
+      <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
+      <%= f.hidden_field :question_id  %>
+      <%= f.submit "Next" %>
+
+    <% end %>
+
+
+  <% if @questions != nil %>
+    <% @score_final = 0 %>
+    <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
+
+    <% @questions.each do |question| %>
+      <% if question.score != nil %>
+      <% @score_final = @score_final + question.score %>
+      <% end %>
+    <% end %>
+
+
+    <p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
+
+      <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
+      <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
+      <p>Your percentage : <%= @percentage %> % </p>
   <% end %>
 
 
-  <p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
-
-    <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
-    <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
-    <p>Your percentage : <%= @percentage %> % </p>
-<% end %>
-
-
-<!-- <form action="">
-  <input type="hidden" name="answer" value="true" id="hidden-answer-field">
-  <input type="submit" value="Next">
-</form> -->
+  <!-- <form action="">
+    <input type="hidden" name="answer" value="true" id="hidden-answer-field">
+    <input type="submit" value="Next">
+  </form> -->
 
 
 
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<%= javascript_pack_tag "application" %>
+  <%= javascript_pack_tag "application" %>
 
 
+
+</div>
