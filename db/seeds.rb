@@ -275,10 +275,10 @@ end
 puts ''
 puts 'Generating Likes and Questions'
 Contact.all.each do |contact|
-  likes = Tag.all.sample(rand(4..8))
+  likes = Tag.all.sample(rand(5..10))
   generateLikes(contact, likes, true)
 
-  dislikes = (Tag.all - likes).sample(rand(4..8))
+  dislikes = (Tag.all - likes).sample(rand(5..10))
   generateLikes(contact, dislikes, false)
 end
 puts ''

@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
-  get 'group_contacts/new'
-  get 'group_contacts/create'
-  get 'group_contacts/destroy'
-  get 'groups/new'
-  get 'groups/create'
   devise_for :users
   root to: 'pages#home'
+
+
+resources :stories do
+  resources :memories, only: %i(new create)
+end
+
 
   resources :contacts do
     resources :likes
     resources :questions, only: %i(new create index)
     resources :answers, only: %i(new create index)
+    resources :group_contacts, only: %i(new create destroy)
   end
 
   resources :users, only: %i(new create)

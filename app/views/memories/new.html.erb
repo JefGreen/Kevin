@@ -1,0 +1,10 @@
+<div class="d-flex align-items-center justify-content-center full-screen">
+
+<h1>Adding a new contact to the story</h1>
+
+  <%= simple_form_for [@story, @memory] do |f| %>
+    <%= f.input :contact_id, required: false  %>
+    <%= f.submit "Save", class: "button-secondary" %>
+  <% end %>
+
+</div>

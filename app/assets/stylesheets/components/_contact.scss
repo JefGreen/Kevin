@@ -1,33 +1,22 @@
-.header {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	.fas {
-		position: fixed;
-		left: 20px;
-		color: #CCCCD7;
-		font-size: 25px;
-	}
-	h4 {
-		margin-top: 15px;
-	}
-}
-
-
 .picture-container{
 	text-align: center;
 }
 
 .picture {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
 	background-color: red;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 	border: white 1px solid;
+	object-fit: cover;
+}
+
+.picture-index {
+	height: 42px;
+	width: 42px;
+	border-radius: 50%;
 	object-fit: cover;
 }
 
@@ -36,6 +25,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 25px;
 }
 
 .information {
@@ -98,30 +88,6 @@
 	}
 }
 
-.scroll {
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-
-.top-margin {
-	margin-top: 120px;
-}
-
-.bot-margin {
-	margin-bottom: 56px;
-}
-
-.full-screen {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 100vw;
-	height: 100vh;
-	width: 80%;
-	margin: auto;
-}
-
 .boxes {
 	padding:25px;
 }
@@ -137,7 +103,7 @@
 	.actions {
 		display: flex;
 		align-items: center;
-	    justify-content: left;
+	    justify-content: flex-start;
 	}
 
 	* {
@@ -146,23 +112,34 @@
 
 	.tags {
 		height: auto;
+		max-height: 200px;
 		overflow-y: scroll;
 		overflow-x: hidden;
-		justify-content: center;
-		align-items: center;
+		justify-content: flex-start;
+		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
 	}
 
+	.tags::after {
+		  content: '';
+		  flex-grow: 1000000000;
+		}
+
 		.tag	{
+			display: flex;
+			justify-content: space-between;
 			flex-grow: 1;
 			text-align: center;
 			margin: 3px;
-			position: flex;
-			display: inline-block;
 			padding: 4px 6px;
 			background: #E5E7F9;
 			border-radius: 5px;
+
+			i {
+				padding: 0px 5px 0px 10px;
+				color: #CCCCD7;
+			}
 		}
 }
 
@@ -178,6 +155,7 @@
 }
 
 #myUL {
+	width: 80%;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -196,25 +174,4 @@
   background-color: #eee;
 }
 
-.button-plus {
-	width: 50px;
-	height: 50px;
-	background-color: #4C45E4;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-    justify-content: center;
-    border: 7px solid white;
-	margin: -23px auto 0;
 
-}
-
-.footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	background: #4C45E4;
-	box-shadow: 3px 18px 22px rgba(0, 0, 0, 0.12);
-	border-radius: 32px 32px 0px 0px;
-}

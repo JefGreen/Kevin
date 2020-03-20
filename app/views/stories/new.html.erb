@@ -1,0 +1,13 @@
+
+
+
+<div class="d-flex align-items-center justify-content-center full-screen">
+
+<h1>Adding a new story</h1>
+
+  <%= simple_form_for [@story] do |f| %>
+    <%= f.input :description, as: :string, required: false  %>
+    <%= f.submit "Save", class: "button-secondary" %>
+  <% end %>
+
+</div>

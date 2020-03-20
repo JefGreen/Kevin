@@ -1,18 +1,17 @@
 class AnswersController < ApplicationController
+  before_action :find_contact
+
   def index
-    find_contact
     @questions = @contact.questions
   end
 
   def new
-    find_contact
     @score = 0
     @question = @contact.questions.sample
     @answer = Answer.new(question: @question)
   end
 
   def create
-    @contact = Contact.find(params[:contact_id])
     @answer = Answer.new(answer_params)
     @answer.user = current_user
     if @answer.save!

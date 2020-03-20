@@ -1,0 +1,32 @@
+<h1>Story</h1>
+
+
+<p>Description : <%= @story.description %></p>
+
+
+<% @memories.each do |memory| %>
+
+
+  <div class="d-flex align-items-center justify-content-start my-3">
+
+    <% begin %>
+      <%= cl_image_tag Contact.find(memory.contact_id).photo.key, class: "picture-index" %>
+    <% rescue %>
+        <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture-index">
+    <% end %>
+    <%= link_to contact_path(Contact.find(memory.contact_id)) do %>
+      <%= Contact.find(memory.contact_id).first_name %>
+    <% end %>
+  </div>
+
+<% end  %>
+
+
+
+
+<p>Add a new contact to this story</p>
+
+<%= link_to new_story_memory_path(@story) do  %>
+  <div class="button-round"><div>+</div></div>
+<% end %>
+

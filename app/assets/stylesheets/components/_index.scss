@@ -7,6 +7,108 @@
 @import "answers";
 
 
+.chevron {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 25px;
+  a {
+    color: #CCCCD7;
+  }
+}
+
+.scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.top-margin {
+  margin-top: 120px;
+}
+
+.bot-margin {
+  margin-bottom: 56px;
+}
+
+.full-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  width: 80%;
+  margin: auto;
+}
+
+.button-center {
+  margin: -23px auto 0;
+  width: 50px;
+  height: 50px;
+  background-color: #4C45E4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid white; 
+  a {
+    color: white;
+  } 
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #4C45E4;
+  box-shadow: 3px 18px 22px rgba(0, 0, 0, 0.12);
+  border-radius: 32px 32px 0px 0px;
+
+  .footer-content {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 100px;
+    a {
+      font-size: 24px;
+      color: white;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 h2 {
 	text-align: center;
 }

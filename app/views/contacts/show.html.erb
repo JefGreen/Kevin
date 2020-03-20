@@ -1,15 +1,17 @@
-<div class="header">
-	<%= link_to contacts_path(@contact) do %>
-		<div>
-			<i class="fas fa-chevron-left"></i>
-		</div>
+<div class="chevron">
+	<%= link_to contacts_path do %>
+		<i class="fas fa-chevron-left"></i>
 	<% end %>
-	<h4>Profile</h4>
 </div>
 
 <div class="info">
 	<div class="picture-container">
-    	<%= cl_image_tag @contact.photo.key, class: "picture" %>
+
+	      <% begin %>
+            <%= cl_image_tag @contact.photo.key, class: "picture" %>
+          <% rescue %>
+            <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture">
+          <% end %>
 	</div>
 
 	<div class="information">
@@ -20,7 +22,7 @@
 		</div>
 		<%= link_to new_contact_answer_path(@contact) do %>
 			<div class="results">
-				80%
+				  <%= @percentage %>%
 			</div>
 		<% end %>
 	</div>
@@ -39,40 +41,73 @@
 
 <div class="boxes">
 
-				<div class="box">
-					<div class="actions">
-						<div><strong>Likes</strong></div>
-						<%= link_to new_contact_like_path(@contact) do  %>
-							<div class="button-round"><div>+</div></div>
-						<% end %>
-					</div>
+	<div class="box">
+		<div class="actions">
+			<div><strong>LIKES</strong></div>
+			<%= link_to new_contact_like_path(@contact) do  %>
+					<div class="button-round"><div>+</div></div>
+			<% end %>
+		</div>
 
-					<div class="tags">
-							<% likes = Like.where(contact_id: @contact.id)  %>
-							<% likes.where(liked: true).take(5).each do |like| %>
-							  <div class="tag"><%= like.tag.name.capitalize %></div>
-						  <% end %>
-					</div>
+		<div class="tags">
+			<% likes = Like.where(contact_id: @contact.id)%>
+			<% likes.where(liked: true).each do |like| %>
+			<div class="tag">
+				<%= like.tag.name.capitalize %>
+				<%= link_to contact_like_path(@contact, like), method: :delete do %>
+					<i class="fas fa-times"></i>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
 
+	</div>
 
-				</div>
+	<div class="box">
+		<div class="actions">
+			<div><strong>DISLIKES</strong></div>
+			<%= link_to new_contact_like_path(@contact) do %>
+				<div class="button-round"><div>+</div></div>
+			<% end %>
+		</div>
 
-				<div class="box">
-					<div class="actions">
-						<div><strong>Dislikes</strong></div>
-						<%= link_to new_contact_like_path(@contact) do %>
-							<div class="button-round"><div>+</div></div>
-						<% end %>
-					</div>
-
+<<<<<<< HEAD
 					<div class="tags">
 						<% likes = Like.where(contact_id: @contact.id)  %>
 						<% likes.where(liked: false).take(5).each do |like| %>
 						  <div class="tag"><%= like.tag.name.capitalize %></div>
 						<% end %>
 					</div>
+=======
+		<div class="tags">
+			<% likes = Like.where(contact_id: @contact.id)  %>
+			<% likes.where(liked: false).each do |like| %>
+			<div class="tag">
+			  	<%= like.tag.name.capitalize %>
+			  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
+						<i class="fas fa-times"></i>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+>>>>>>> ab90e0cb08afc15062a6b407dd90210bb2506b9c
 
+	</div>
+</div>
 
-				</div>
+<div class="footer">
+	<div class="button-center">
+		<%= link_to edit_contact_path do %>
+			<i class="fas fa-user-edit"></i>
+		<% end %>
+	</div>
 
+	<div class="footer-content">
+	<%= link_to root_path do %>
+		<i class="fas fa-home"></i>
+	<% end %>
+	<%= link_to root_path do %>
+		<i class="fas fa-user"></i>
+	<% end %>
+	</div>
 </div>
