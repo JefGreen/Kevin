@@ -20,13 +20,15 @@ class AnswersController < ApplicationController
     if @answer.save!
       if @answer.answer == @answer.question.correct_answer
         @score = 100
+        @message = "Congrats, right answer"
       else
         @score = 0
+        @message = "Ops, wrong answer"
       end
       @answer.question.score = @score
       @answer.question.save!
+      redirect_to new_contact_answer_path(@contact), notice: @message
     else
-      redirect_to contact_answers(@contact), method: :get
     end
   end
 
