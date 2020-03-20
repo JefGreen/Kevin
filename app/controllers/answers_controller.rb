@@ -1,21 +1,17 @@
 class AnswersController < ApplicationController
+  before_action :find_contact
+
   def index
-    @contact = Contact.find(params[:contact_id])
-    @questions = Question.where(contact_id: @contact)
+    @questions = @contact.questions
   end
 
   def new
-    @contact = Contact.find(params[:contact_id])
-    @likes = Like.where(contact: @contact).sample
     @score = 0
-    @question = Question.find_by(question: "Does #{@contact.first_name} likes #{@likes.tag.name}?")
+    @question = @contact.questions.sample
     @answer = Answer.new(question: @question)
-    @questions = Question.where(contact_id: @contact)
-
   end
 
   def create
-    @contact = Contact.find(params[:contact_id])
     @answer = Answer.new(answer_params)
     @answer.user = current_user
     if @answer.save!
@@ -30,9 +26,15 @@ class AnswersController < ApplicationController
       @answer.question.save!
       redirect_to new_contact_answer_path(@contact), notice: @message
     else
+      render :new
     end
   end
+end
 
+private
+
+def find_contact
+  @contact = Contact.find(params[:contact_id])
 end
 
 def answer_params
