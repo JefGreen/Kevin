@@ -32,7 +32,12 @@ class LikesController < ApplicationController
         render :new
       end
     end
+  end
 
+  def destroy
+    @liked = Like.find(params[:id])
+    @liked.destroy
+    redirect_to contact_path(@contact)
   end
 
   private
