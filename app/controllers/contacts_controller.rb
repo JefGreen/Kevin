@@ -1,12 +1,18 @@
 class ContactsController < ApplicationController
-  before_action :authenticate_user!, only: :index 
-  
+  before_action :authenticate_user!, only: :index
+
   def index
     @contacts = Contact.all.order('first_name ASC')
   end
 
   def show
     @contact = Contact.find(params[:id])
+    @questions = Question.where(contact_id: @contact)
+    if @questions != nil
+      @percentage = (@questions.where(score: 100).count)*100 / @questions.count
+    else
+      @percentage = 0
+    end
     # @image = Contact.all.first.photo.key
   end
 
