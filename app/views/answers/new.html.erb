@@ -8,6 +8,7 @@
   </div>
     <h2 class="text-align-center">Quiz</h2>
 
+  <p>Your progress: <%= @percentage %>% </p>
 
   <%= @question.question %>
 
@@ -28,7 +29,7 @@
 
     <% end %>
 
-<!-- 
+<!--
   <% if @questions != nil %>
     <% @score_final = 0 %>
     <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
