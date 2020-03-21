@@ -11,9 +11,8 @@ class GroupContactsController < ApplicationController
 
     if group_contact_existed
       # liked_before.update(likes_params)
-      full_name = @contact.first_name @contact.last_name
       # group_n_for_q = [Group.all.sample.name, @group.name].sample
-      q_exists = Question.find_by(question: "Is #{full_name} part of the group called #{@group.name}?")
+      q_exists = Question.find_by(type: "GroupContact", contact_id: @contact.id)
       q_exists.update(correct_answer: @group.name)
       redirect_to contact_path(@contact)
 
@@ -22,9 +21,10 @@ class GroupContactsController < ApplicationController
       @contact_group.group_id = @group.id
       @contact_group.contact_id = params[:contact_id]
       Question.create(
-        question: "Is #{full_name} part of the group called #{@group.name}?",
+        question: "Is #{@contact.first_name} #{@contact.last_name} part of the group called #{@group.name}?",
         correct_answer: params[:group_contact][:group],
-        contact: @contact
+        contact: @contact,
+        question_type: "GroupContact"
       )
       if @liked.save
         redirect_to contact_path(@contact)

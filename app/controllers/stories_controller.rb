@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_action :find_story, only: %i[show edit destroy update]
+
   def new
     @story = Story.new
     @user = current_user
@@ -23,28 +25,28 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
     @memories = Memory.where(story_id: @story.id)
   end
 
   def edit
-    @story = Story.find(params[:id])
     @story.save
   end
 
   def destroy
-    @story = Story.find(params[:id])
     @story.destroy
     redirect_to stories_path
   end
 
   def update
-    @story = Story.find(params[:id])
     @story.update(story_params)
     redirect_to story_path(@story)
   end
 
   private
+
+  def find_story
+    @story = Story.find(params[:story_id])
+  end
 
   def story_params
     params.require(:story).permit(:description, :title, :attachment_id, :user_id)

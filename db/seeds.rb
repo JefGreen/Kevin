@@ -187,11 +187,219 @@ images = [
 {
   url:'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
   male: false,
-}
-# {
-#   url:'',
-#   male: ,
-# },
+},
+{
+  url:'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1473531761844-5a14668fc8f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1490195117352-aa267f47f2d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1502773860571-211a597d6e4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1437913135140-944c1ee62782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1439402702863-6434b61e6392?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1502773689256-3fb05abd681f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1484446991649-77f7fbd73f1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1440332013745-3a1357afa90c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1465218550585-6d069382d2a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1465429167186-266ef03d6277?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1525186402429-b4ff38bedec6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1508215302842-8a015a452a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1448518184296-a22facb4446f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1541983663620-7571a820610c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1501168296011-538e44c26981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1492462543947-040389c4a66c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1491756975177-a13d74ed1e2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1495603889488-42d1d66e5523?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1492288991661-058aa541ff43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1496360650824-229a83e340db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1489980869433-d1f7c7ac0fcf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1465409042654-5314e9d1754b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1471017851983-fc49d89c57c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1475552113915-6fcb52652ba2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1495490140452-5a226aef25d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1505136022555-39704db312fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1478144113946-d55adda4e24e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1494302377477-915db5a8e609?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1516756587022-7891ad56a8cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1464750329548-977f9793ca3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1492447216082-4726bf04d1d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1485218173291-62104d18e1c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
+{
+  url:'https://images.unsplash.com/photo-1494708001911-679f5d15a946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: true,
+},
+{
+  url:'https://images.unsplash.com/photo-1520466809213-7b9a56adcd45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
+  male: false,
+},
 # {
 #   url:'',
 #   male: ,
@@ -206,7 +414,7 @@ def generateContact(image)
     first_name: f_name,
     last_name: Faker::Name.last_name,
     meeting_location: Faker::Address.full_address,
-    birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+    birthday: Faker::Date.birthday(min_age: 18, max_age: 35),
     phone_number: Faker::PhoneNumber.unique.cell_phone,
   })
   contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
@@ -224,6 +432,7 @@ def generateLikes(contact, tags, liked)
       question: "Does #{contact.first_name} #{contact.last_name} like #{tag.name}?",
       correct_answer: liked.to_s,
       contact_id: contact.id,
+      question_type: "Like",
     })
   end
 end
@@ -236,8 +445,9 @@ def generateGroupContacts(contact)
     )
     Question.create(
       question: "Is #{contact.first_name} #{contact.last_name} part of the group called #{group.name}?",
-      correct_answer: group.name,
+      correct_answer: true.to_s,
       contact: contact,
+      question_type: "GroupContact",
     )
   end
 end
@@ -276,7 +486,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.sample(30).each do |image|
+images.each do |image|
   generateContact(image)
 end
 
@@ -297,10 +507,13 @@ Contact.all.each do |contact|
   generateLikes(contact, dislikes, false)
 end
 puts ''
-puts 'Associating Groups and Contacts'
+puts 'Associating Groups with Contacts and generating questions'
 10.times {Group.create(name: Faker::Team.unique.sport)}
 Contact.all.each do |contact|
   generateGroupContacts(contact)
 end
+puts ''
+# puts 'Generating'
+
 
 puts 'Seeding completed'
