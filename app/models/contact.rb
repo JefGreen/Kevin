@@ -6,4 +6,14 @@ class Contact < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :memories
   has_many :stories, through: :memories
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_groups,
+                  against: %i[first_name last_name],
+                  associated_against: {
+                    groups: :name
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

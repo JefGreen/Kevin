@@ -26,7 +26,7 @@ class LikesController < ApplicationController
         question: "Does #{@contact.first_name} like #{@tag.name}?",
         correct_answer: params[:like][:liked].to_s,
         contact: @contact,
-        type: "Like"
+        question_type: "Like"
       )
       if @liked.save
         redirect_to contact_path(@contact)
