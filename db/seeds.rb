@@ -461,6 +461,8 @@ def generateStoriesAndQuestions()
     })
   end
 
+
+
   Question.create(
     question: "Is #{contact.first_name} #{contact.last_name} part of the story called #{group.name}?",
     correct_answer: true.to_s,
@@ -531,8 +533,8 @@ end
 puts ''
 puts 'Generating stories with questions'
 User.create(
-  email: 'j.trempe@hotmail.com',
-  encrypted_password: '123456',
+  email: 'admin@admin.com',
+  password: '123456',
 )
 generateStoriesAndQuestions()
 
