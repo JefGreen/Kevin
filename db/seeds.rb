@@ -414,7 +414,7 @@ def generateContact(image)
     first_name: f_name,
     last_name: Faker::Name.last_name,
     meeting_location: Faker::Address.full_address,
-    birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+    birthday: Faker::Date.birthday(min_age: 18, max_age: 35),
     phone_number: Faker::PhoneNumber.unique.cell_phone,
   })
   contact.photo.attach(io: URI.open(image[:url]), filename: "#{Faker::Name.unique.name}.png")
@@ -432,6 +432,7 @@ def generateLikes(contact, tags, liked)
       question: "Does #{contact.first_name} #{contact.last_name} like #{tag.name}?",
       correct_answer: liked.to_s,
       contact_id: contact.id,
+      question_type: "Like",
     })
   end
 end
@@ -446,6 +447,7 @@ def generateGroupContacts(contact)
       question: "Is #{contact.first_name} #{contact.last_name} part of the group called #{group.name}?",
       correct_answer: true.to_s,
       contact: contact,
+      question_type: "GroupContact",
     )
   end
 end
@@ -511,7 +513,7 @@ Contact.all.each do |contact|
   generateGroupContacts(contact)
 end
 puts ''
-puts 'Generating'
+# puts 'Generating'
 
 
 puts 'Seeding completed'

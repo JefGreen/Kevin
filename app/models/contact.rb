@@ -5,5 +5,5 @@ class Contact < ApplicationRecord
   has_many :groups, through: :group_contacts
   has_many :questions, dependent: :destroy
   has_many :memories
-  has_namy :stories, through: :memories
+  has_many :stories, through: :memories
 end
