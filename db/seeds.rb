@@ -452,6 +452,33 @@ def generateGroupContacts(contact)
   end
 end
 
+def generateStoriesAndQuestions()
+  30.times do
+    Story.create({
+      description: Faker::Restaurant.description,
+      user_id: User.all.first.id,
+      title: "Eating out at #{Faker::Restaurant.name}",
+      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+      attachment_id: 1
+    })
+  end
+
+  Story.all.each do |story|
+    Contact.all.sample(rand(2..6)).each do |contact|
+      Memory.create(
+        story_id: story.id,
+        contact_id: contact.id
+      )
+    end
+  end
+
+  # Question.create(
+  #   question: "Is #{contact.first_name} #{contact.last_name} part of the story called #{group.name}?",
+  #   correct_answer: true.to_s,
+  #   contact: contact,
+  #   question_type: "Story",
+  # )
+end
 
 def generateMeetingLocations()
   array = []
@@ -513,7 +540,14 @@ Contact.all.each do |contact|
   generateGroupContacts(contact)
 end
 puts ''
-# puts 'Generating'
+puts 'Generating stories with questions'
+User.create(
+  email: 'admin@admin.com',
+  password: '123456',
+)
+generateStoriesAndQuestions()
+
+
 
 
 puts 'Seeding completed'
