@@ -457,18 +457,27 @@ def generateStoriesAndQuestions()
     Story.create({
       description: Faker::Restaurant.description,
       user_id: User.all.first.id,
-      title: "Eating out at #{Faker::Restaurant.name}"
+      title: "Eating out at #{Faker::Restaurant.name}",
+      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+      attachment_id: 1
     })
   end
 
+  Story.all.each do |story|
+    Contact.all.sample(rand(2..6)).each do |contact|
+      Memory.create(
+        story_id: story.id,
+        contact_id: contact.id
+      )
+    end
+  end
 
-
-  Question.create(
-    question: "Is #{contact.first_name} #{contact.last_name} part of the story called #{group.name}?",
-    correct_answer: true.to_s,
-    contact: contact,
-    question_type: "Story",
-  )
+  # Question.create(
+  #   question: "Is #{contact.first_name} #{contact.last_name} part of the story called #{group.name}?",
+  #   correct_answer: true.to_s,
+  #   contact: contact,
+  #   question_type: "Story",
+  # )
 end
 
 def generateMeetingLocations()
@@ -504,7 +513,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.take(2).each do |image|
+images.each do |image|
   generateContact(image)
 end
 

@@ -38,16 +38,7 @@
 			</div>
 		</div>
 	</div>
-
-
-
 </div>
-
-<% @contact.stories.each do |story| %>
-  <%= story.title %>
-<% end %>
-
-
 
 <div class="background">
 	<div class="boxes">
@@ -107,13 +98,9 @@
 			</div>
 
 			<div class="tags">
-				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
-				<% likes.where(liked: false).each do |like| %>
+				<% @contact.stories.each do |story| %>
 				<div class="tag">
-				  	<%= like.tag.name.capitalize %>
-				  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
-							<i class="fas fa-times"></i>
-					<% end %>
+				  	<%= story.title %>
 				</div>
 				<% end %>
 			</div>
