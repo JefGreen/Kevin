@@ -38,6 +38,9 @@ class LikesController < ApplicationController
 
   def destroy
     @liked = Like.find(params[:id])
+    question = Question.find_by(question: "Does #{@contact.first_name} #{@contact.last_name} like #{@liked.tag.name}?")
+    raise
+    question.destroy
     @liked.destroy
     redirect_to contact_path(@contact)
   end
