@@ -7,13 +7,12 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    @questions = Question.where(contact_id: @contact)
-    if !@questions.nil?
-      @percentage = (@questions.where(score: 100).count)*100 / @questions.count
-    else
+    @questions = @contact.questions
+    if @questions.count.zero?
       @percentage = 0
+    else
+      @percentage = @questions.where(score: 100).count * 100 / @questions.count
     end
-    # @image = Contact.all.first.photo.key
   end
 
   def new
