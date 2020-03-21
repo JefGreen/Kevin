@@ -170,7 +170,7 @@
   display: block
 }
 
-#myUL li a:hover:not(.header) {
+#myUL :hover:not(.header) {
   background-color: #eee;
 }
 

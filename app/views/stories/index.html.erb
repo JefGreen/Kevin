@@ -1,16 +1,115 @@
-<div class="full-screen">
-	<h1>Memories</h1>
+	<div class="search-contact">
+		<div class="chevron">
+			<%= link_to contacts_path do %>
+				<i class="fas fa-chevron-left"></i>
+			<% end %>
+		</div>
+		<h2><strong>Memories.</strong></h2>				
+		<input type="text" name="search" placeholder="Search for a memory..." id="myInput" onkeyup="myFunction()">
+	</div> 
 
-	<%= link_to "Create a new memory", new_story_path %>
+
+<div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
+	<ul id="myUL-story">
+		<% @stories.each do |story| %>
+			<li>
+				<%= link_to story_path(story) do %>
+					<%= story.title.capitalize %>
+          <br>
+          <%= story.date&.strftime("%B %e, %Y ") %>
+				<% end %>
+
+
+
+        <div class="d-flex">
+            <% story.memories.take(3).each do |memory| %>
+              <%= link_to contact_path(Contact.find(memory.contact_id)) do %>
+                <% begin %>
+                  <%= cl_image_tag Contact.find(memory.contact_id).photo.key, class: "picture-index" %>
+                <% rescue %>
+                    <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture-index">
+                <% end %>
+              <% end %>
+            <% end  %>
+        </div>
+
+
+
+
+
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+
+
+
+
+
+<div class="footer">
+    <div class="button-center">
+      <%= link_to new_story_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </div>
+
+    <div class="footer-content">
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= link_to root_path do %>
+        <i class="fas fa-user"></i>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 
-	  <% @stories.each do |story| %>
-	      <%= link_to story_path(story) do %>
-	        <p><%= story.title %></p>
-	      <% end %>
-	  <% end %>
+	
+
+	 
 
 
 
-</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL-story");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>

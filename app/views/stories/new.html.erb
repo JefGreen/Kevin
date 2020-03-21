@@ -5,6 +5,7 @@
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :string, required: false  %>
     <%= f.input :description, as: :string, required: false  %>
+    <%= f.input :date, as: :date %>
     <%= f.submit "Save", class: "button-secondary" %>
   <% end %>
 

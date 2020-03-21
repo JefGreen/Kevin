@@ -6,17 +6,16 @@
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
 	<ul id="myUL">
 		<% @contacts.each do |contact| %>
-
 			<li>
 				<div class="d-flex align-items-center justify-content-start my-3">
 				<% begin %>
-		      <%= cl_image_tag contact.photo.key, class: "picture-index" %>
-		    <% rescue %>
-		      <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture-index">
-		    <% end %>
-				<%= link_to contact_path(contact) do %>
-					<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
-				<% end %>
+			      <%= cl_image_tag contact.photo.key, class: "picture-index" %>
+			    <% rescue %>
+			      <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture-index">
+			    <% end %>
+					<%= link_to contact_path(contact) do %>
+						<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
+					<% end %>
 				</div>
 			</li>
 
