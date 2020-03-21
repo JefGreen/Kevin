@@ -2,7 +2,15 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
-    @contacts = Contact.all.order('first_name ASC')
+    if params["search"]
+      @contacts = Contact.all.search_by_name_and_groups(params["search"].to_s).order('first_name ASC')
+    else
+      @contacts = Contact.all.order('first_name ASC')
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
