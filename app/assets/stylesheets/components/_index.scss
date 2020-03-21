@@ -5,6 +5,7 @@
 @import "button";
 @import "contact";
 @import "answers";
+@import "story-show";
 
 
 .chevron {
@@ -50,10 +51,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 7px solid white; 
+  border: 7px solid white;
   a {
     color: white;
-  } 
+  }
 }
 
 .footer {
