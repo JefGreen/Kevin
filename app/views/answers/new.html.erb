@@ -12,17 +12,19 @@
   <%= @question.question %>
 
 
-  <div id="yes-button" class="yes">
-    <%= image_tag("yes.png") %>
-  </div>
-  <div id="no-button" class="no">
-    <%= image_tag("no.png") %>
+  <div class="d-flex justify-content-center align-items-center">
+    <div id="yes-button" class="yes">
+      <%= image_tag("yes.png") %>
+    </div>
+    <div id="no-button" class="no">
+      <%= image_tag("no.png") %>
+    </div>
   </div>
 
     <%= simple_form_for [@contact, @answer] do |f| %>
       <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
       <%= f.hidden_field :question_id  %>
-      <%= f.submit "Next" %>
+      <%= f.submit "Next", class: "button" %>
 
     <% end %>
 
