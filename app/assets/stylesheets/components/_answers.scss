@@ -1,5 +1,14 @@
-.selected {
-  background-color: black;
-  border-radius: 1px;
-  border-color: black;
+.question {
+	align-items: center;
+	font-size: 20px;
+}
+
+
+
+.options {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 60%;
+	padding: 30px 0px 30px 0px;
 }
