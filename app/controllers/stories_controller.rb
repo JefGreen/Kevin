@@ -25,6 +25,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @story = Story.find(params[:id])
     @memories = Memory.where(story_id: @story.id)
   end
 
@@ -45,7 +46,7 @@ class StoriesController < ApplicationController
   private
 
   def find_story
-    @story = Story.find(params[:story_id])
+    @story = Story.find(params[:id])
   end
 
   def story_params
