@@ -15,7 +15,28 @@
 			<li>
 				<%= link_to story_path(story) do %>
 					<%= story.title.capitalize %>
+          <br>
+          <%= story.date&.strftime("%B %e, %Y ") %>
 				<% end %>
+
+
+
+        <div class="d-flex">
+            <% story.memories.take(3).each do |memory| %>
+              <%= link_to contact_path(Contact.find(memory.contact_id)) do %>
+                <% begin %>
+                  <%= cl_image_tag Contact.find(memory.contact_id).photo.key, class: "picture-index" %>
+                <% rescue %>
+                    <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture-index">
+                <% end %>
+              <% end %>
+            <% end  %>
+        </div>
+
+
+
+
+
 			</li>
 		<% end %>
 	</ul>
