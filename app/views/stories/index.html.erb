@@ -1,8 +1,16 @@
-<h1>Stories</h1>
-  <% @stories.each do |story| %>
-      <%= link_to story_path(story) do %>
-        <p><%= story.title %></p>
-      <% end %>
-  <% end %>
+<div class="full-screen">
+	<h1>Memories</h1>
+
+	<%= link_to "Create a new memory", new_story_path %>
+
+	
+
+	  <% @stories.each do |story| %>
+	      <%= link_to story_path(story) do %>
+	        <p><%= story.title %></p>
+	      <% end %>
+	  <% end %>
 
 
+
+</div>

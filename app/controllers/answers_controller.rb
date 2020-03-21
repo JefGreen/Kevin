@@ -9,6 +9,12 @@ class AnswersController < ApplicationController
     @score = 0
     @question = @contact.questions.sample
     @answer = Answer.new(question: @question)
+    @questions = @contact.questions
+    if @questions.count.zero?
+      @percentage = 0
+    else
+      @percentage = @questions.where(score: 100).count * 100 / @questions.count
+    end
   end
 
   def create
