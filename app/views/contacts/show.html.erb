@@ -61,7 +61,7 @@
 			</div>
 
 			<div class="tags">
-				<% likes = Like.where(contact_id: @contact.id)%>
+				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
 				<% likes.where(liked: true).each do |like| %>
 				<div class="tag">
 					<%= like.tag.name.capitalize %>
@@ -83,7 +83,31 @@
 			</div>
 
 			<div class="tags">
-				<% likes = Like.where(contact_id: @contact.id)  %>
+				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
+				<% likes.where(liked: false).each do |like| %>
+				<div class="tag">
+				  	<%= like.tag.name.capitalize %>
+				  	<%= link_to contact_like_path(@contact, like), method: :delete do %>
+							<i class="fas fa-times"></i>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+
+
+
+
+		<div class="box">
+			<div class="actions">
+				<strong>MEMORIES</strong>
+				<%= link_to new_story_path do %>
+					<div class="add"><i class="fas fa-plus-circle"></i></div>
+				<% end %>
+			</div>
+
+			<div class="tags">
+				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
 				<% likes.where(liked: false).each do |like| %>
 				<div class="tag">
 				  	<%= like.tag.name.capitalize %>
@@ -95,21 +119,21 @@
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="footer">
-	<div class="button-center">
-		<%= link_to edit_contact_path do %>
-			<i class="fas fa-user-edit"></i>
-		<% end %>
-	</div>
+	<div class="footer">
+		<div class="button-center">
+			<%= link_to edit_contact_path do %>
+				<i class="fas fa-user-edit"></i>
+			<% end %>
+		</div>
 
-	<div class="footer-content">
-	<%= link_to root_path do %>
-		<i class="fas fa-home"></i>
-	<% end %>
-	<%= link_to root_path do %>
-		<i class="fas fa-user"></i>
-	<% end %>
+		<div class="footer-content">
+			<%= link_to root_path do %>
+				<i class="fas fa-home"></i>
+			<% end %>
+			<%= link_to root_path do %>
+				<i class="fas fa-user"></i>
+			<% end %>
+		</div>
 	</div>
 </div>
