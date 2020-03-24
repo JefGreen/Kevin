@@ -22,3 +22,5 @@ import "bootstrap";
     // select the hidden input field and change the value to "false"
     hiddenAnswerField.value = "false";
   });
+
+
