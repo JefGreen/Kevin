@@ -1,9 +1,9 @@
 <div class="full-screen">
-
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :text, required: false  %>
     <%= f.input :date, as: :date %>
     <%= f.input :description, as: :text, required: false %>
+    <%= f.input :photo, as: :file, :input_html => { :multiple => true } %>
     <%= f.submit "Save changes", class: "button-secondary" %>
   <% end %>
 </div>
