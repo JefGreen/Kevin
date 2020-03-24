@@ -459,7 +459,6 @@ def generateStoriesAndQuestions()
       user_id: User.all.first.id,
       title: "Eating out at #{Faker::Restaurant.name}",
       date: Faker::Date.between(from: 80.days.ago, to: Date.today),
-      attachment_id: 1
     })
   end
 
@@ -513,7 +512,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.each do |image|
+images.take(2).each do |image|
   generateContact(image)
 end
 

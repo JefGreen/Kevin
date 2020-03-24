@@ -9,7 +9,6 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(story_params)
-    @attachment = Attachment.new
     @user = current_user
     @story.user = @user
     @story.attachment = @attachment
@@ -50,6 +49,6 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:description, :title, :attachment_id, :user_id, :date)
+    params.require(:story).permit(:description, :title, :user_id, :date, attachments: [])
   end
 end

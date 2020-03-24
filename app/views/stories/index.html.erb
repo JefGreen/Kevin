@@ -4,9 +4,9 @@
 				<i class="fas fa-chevron-left"></i>
 			<% end %>
 		</div>
-		<h2><strong>Memories.</strong></h2>				
+		<h2><strong>Memories.</strong></h2>
 		<input type="text" name="search" placeholder="Search for a memory..." id="myInput" onkeyup="myFunction()">
-	</div> 
+	</div>
 
 
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
@@ -16,22 +16,20 @@
   			<li>
   				<div class="info-story">
 
-          
+
               <div class="title"><%= story.title.capitalize %></div>
               <%= story.date&.strftime("%B %e, %Y ") %>
           </div>
 
           <div class="d-flex">
-            <% story.memories.take(3).each do |memory|%>
-              <%= link_to contact_path(Contact.find(memory.contact_id)) do %>
-                <%= cl_image_tag Contact.find(memory.contact_id).photo.key, class: "picture-index" %>
-              <% end %>
+            <% story.contacts.take(3).each do |contact|%>
+              <%= cl_image_tag contact.photo.key, class: "picture-index" %>
             <% end %>
           </div>
 
 
   			</li>
-      <% end %>    
+      <% end %>
 	  <% end %>
 	</ul>
 </div>
@@ -71,11 +69,11 @@
 
 
 
-	
 
-	
 
-	 
+
+
+
 
 
 
