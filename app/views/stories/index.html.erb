@@ -12,24 +12,21 @@
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
 	<ul id="myUL-story">
 	  <% @stories.each do |story| %>
-      <%= link_to story_path(story) do %>
-  			<li>
+  		<li>
+        <%= link_to story_path(story) do %>
   				<div class="info-story">
-
-
               <div class="title"><%= story.title.capitalize %></div>
-              <%= story.date&.strftime("%B %e, %Y ") %>
+              <div class="d-flex date">
+                <%= story.date&.strftime("%B %e, %Y ") %>
+                <div>
+                  <% story.contacts.take(3).each do |contact|%>
+                    <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
+                  <% end %>
+                </div>
+              </div>
           </div>
-
-          <div class="d-flex">
-            <% story.contacts.take(3).each do |contact|%>
-              <%= cl_image_tag contact.photo.key, class: "picture-index" %>
-            <% end %>
-          </div>
-
-
-  			</li>
-      <% end %>
+        <% end %>
+  		</li>
 	  <% end %>
 	</ul>
 </div>
@@ -55,31 +52,6 @@
       <% end %>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,6 @@
+<h1>Meetings#index</h1>
+<p>Find me in app/views/meetings/index.html.erb</p>
+
+<% @meetings.each do |meeting| %>
+  <%= meeting.start_time %> : <%= meeting.location %>
+<% end %>
