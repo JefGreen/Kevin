@@ -99,9 +99,11 @@
 
 			<div class="tags">
 				<% @contact.stories.each do |story| %>
-				<div class="tag">
-				  	<%= story.title %>
-				</div>
+					<%= link_to story_path(story) do %>
+						<div class="tag">
+				  			<div><%= story.title %></div>
+						</div>
+				  	<% end %>
 				<% end %>
 			</div>
 		</div>

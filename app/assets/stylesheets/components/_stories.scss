@@ -1,15 +1,10 @@
 .info-story-show {
   width: 90%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   padding: 35px 0px 0px 0px;
-  margin: auto;
+  margin: 25px;
   margin-bottom: 50px;
-}
-
-.title-story {
-  margin-right: 70px;
 }
 
 .background-story {
@@ -34,7 +29,7 @@
 #myUL-story li {
   display: flex;
   justify-content: space-between;
-  /*flex-direction: column;*/
+  flex-direction: column;
   margin: 5px;
   padding: 8px;
   border: 1px solid #ddd;
@@ -49,14 +44,29 @@
     font-color: grey;
       .title {
       color: black;
-      font-size: 20px;
-      font-weight: bold;
-    }
+      font-size: 17px;
+      font-weight: 600;
+      }
+      .date {
+        justify-content: space-between;
+        color: grey;
+        text-decoration: none;
+      }
   }
 }
 
 #myUL-story :hover:not(.header) {
   background-color: #eee;
+  text-decoration: none;
+}
+
+.contacts-pictures {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 2px 2px 0px 0px;
+
 }
 
 .files-story {
@@ -74,9 +84,4 @@
   border-radius: 8px;
   width: 100px;
   height: 100px;
-}
-
-.title {
-  margin-top: 5%;
-  margin-left: 5%;
 }

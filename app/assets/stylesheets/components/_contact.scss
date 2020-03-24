@@ -127,20 +127,25 @@
 		}
 
 		.tag	{
+			text-decoration: none;
+			color: black;
 			display: flex;
 			justify-content: space-between;
 			flex-grow: 1;
-			text-align: center;
 			margin: 3px;
 			padding: 4px 6px;
 			background: #E5E7F9;
 			border-radius: 5px;
 
-			i {
+			a {
 				padding: 0px 5px 0px 10px;
 				color: #CCCCD7;
 			}
 		}
+		a, a:hover, a:active, a:visited, a:focus {
+    		text-decoration:none;
+		}
+
 }
 
 

@@ -453,11 +453,34 @@ def generateGroupContacts(contact)
 end
 
 def generateStoriesAndQuestions()
-  30.times do
+  10.times do
+    Attachment.create()
     Story.create({
       description: Faker::Restaurant.description,
       user_id: User.all.first.id,
       title: "Eating out at #{Faker::Restaurant.name}",
+      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+      attachment_id: 1
+    })
+  end
+
+  10.times do
+    Attachment.create()
+    Story.create({
+      description: Faker::Restaurant.description,
+      user_id: User.all.first.id,
+      title: "Matty's birthday at #{Faker::Restaurant.name}",
+      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+      attachment_id: 1
+    })
+  end
+
+  10.times do
+    Attachment.create()
+    Story.create({
+      description: Faker::Restaurant.description,
+      user_id: User.all.first.id,
+      title: "Sarah's wedding at #{Faker::Restaurant.name}",
       date: Faker::Date.between(from: 80.days.ago, to: Date.today),
       attachment_id: 1
     })
@@ -468,7 +491,7 @@ def generateStoriesAndQuestions()
       Memory.create(
         story_id: story.id,
         contact_id: contact.id
-      )
+      ).save!
     end
   end
 
@@ -513,7 +536,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.take(5).each do |image|
+images.each do |image|
   generateContact(image)
 end
 

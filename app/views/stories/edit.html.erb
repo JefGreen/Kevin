@@ -1,13 +1,9 @@
-<h1 class="title">Create a memory</h1>
-
 <div class="full-screen">
-
 
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :text, required: false  %>
     <%= f.input :date, as: :date %>
     <%= f.input :description, as: :text, required: false %>
-    <%= f.submit "Save", class: "button-secondary" %>
+    <%= f.submit "Save changes", class: "button-secondary" %>
   <% end %>
-
 </div>

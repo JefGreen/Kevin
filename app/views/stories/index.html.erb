@@ -4,7 +4,7 @@
 				<i class="fas fa-chevron-left"></i>
 			<% end %>
 		</div>
-		<h2><strong>Memoriez.</strong></h2>				
+		<h2><strong>Memories.</strong></h2>				
 		<input type="text" name="search" placeholder="Search for a memory..." id="myInput" onkeyup="myFunction()">
 	</div> 
 
@@ -12,26 +12,22 @@
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
 	<ul id="myUL-story">
 	  <% @stories.each do |story| %>
-      <%= link_to story_path(story) do %>
-  			<li>
+  		<li>
+        <%= link_to story_path(story) do %>
   				<div class="info-story">
-
-          
               <div class="title"><%= story.title.capitalize %></div>
-              <%= story.date&.strftime("%B %e, %Y ") %>
+
+              <div class="d-flex date">
+                <%= story.date&.strftime("%B %e, %Y ") %>
+                <div>
+                  <% story.contacts.take(3).each do |contact|%>
+                    <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
+                  <% end %>
+                </div>
+              </div>
           </div>
-
-          <div class="d-flex">
-            <% story.memories.take(3).each do |memory|%>
-              <%= link_to contact_path(Contact.find(memory.contact_id)) do %>
-                <%= cl_image_tag Contact.find(memory.contact_id).photo.key, class: "picture-index" %>
-              <% end %>
-            <% end %>
-          </div>
-
-
-  			</li>
-      <% end %>    
+        <% end %>    
+  		</li>
 	  <% end %>
 	</ul>
 </div>
