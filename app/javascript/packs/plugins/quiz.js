@@ -3,6 +3,7 @@ const quiz = () => {
     const yesButton = document.querySelector("#yes-button");
     const noButton = document.querySelector("#no-button");
     const hiddenAnswerField = document.querySelector("#answer_answer");
+    const submitButton = document.getElementById("submit-answer");
     // attach event listeners to each button to listen a click
 
 
@@ -13,8 +14,8 @@ const quiz = () => {
         noButton.classList.remove("selected");
         // select the hidden input field and change the value to "true"
         hiddenAnswerField.value = "true";
+        submitButton.click();
       });
-
 
     // same thing for no button
 
@@ -25,6 +26,7 @@ const quiz = () => {
         yesButton.classList.remove("selected");
         // select the hidden input field and change the value to "false"
         hiddenAnswerField.value = "false";
+        submitButton.click();
       });
 
 
