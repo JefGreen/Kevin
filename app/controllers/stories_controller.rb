@@ -4,7 +4,6 @@ class StoriesController < ApplicationController
   def new
     @story = Story.new
     @user = current_user
-    @attachment = Attachment.new
   end
 
   def create
@@ -24,7 +23,6 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
     @memories = Memory.where(story_id: @story.id)
   end
 

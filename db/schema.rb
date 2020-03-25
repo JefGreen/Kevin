@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_15_84_814753) do
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "user_id"
-    t.boolean "answer"
+    t.string "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2020_15_84_814753) do
 
   create_table "questions", force: :cascade do |t|
     t.string "question"
-    t.boolean "correct_answer"
+    t.string "correct_answer"
     t.bigint "contact_id"
     t.integer "score"
     t.datetime "created_at", null: false
