@@ -35,6 +35,10 @@ puts '-Deleted Stories'
 Memory.destroy_all
 puts '-Deleted Memories'
 
+Meeting.destroy_all
+puts '-Deleted Meetings'
+
+
 puts 'Clearing db completed'
 puts '***********************'
 
