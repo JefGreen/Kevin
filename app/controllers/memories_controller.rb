@@ -2,6 +2,7 @@ class MemoriesController < ApplicationController
   before_action :find_story
 
   def new
+    @contacts = Contact.all.order('first_name ASC')
     @memory = Memory.new
   end
 

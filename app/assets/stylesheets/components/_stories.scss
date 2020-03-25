@@ -6,6 +6,7 @@
   margin: 30px;
   margin-bottom: 50px;
 }
+
 .text-story {
   text-indent: 15px;
   text-align: justify;
@@ -23,12 +24,6 @@ img {
   border-radius: 5px;
   object-fit: cover;
   margin-bottom: 5px;
-  transition: transform .5s;
-  align-items: center;
-}
-
-img:hover {
-  transform: scale(4);
   align-items: center;
 }
 
@@ -46,7 +41,7 @@ img:hover {
 #myUL-story {
   display: flex;
   flex-direction: column;
-  flex-flow: scroll;  
+  flex-flow: scroll;
   width: 80%;
   list-style-type: none;
   padding: 0;
