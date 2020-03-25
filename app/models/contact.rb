@@ -6,7 +6,9 @@ class Contact < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :memories
   has_many :stories, through: :memories
+  has_many :events
   has_many :meetings, through: :events
+
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_groups,
