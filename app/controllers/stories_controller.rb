@@ -4,12 +4,10 @@ class StoriesController < ApplicationController
   def new
     @story = Story.new
     @user = current_user
-    @attachment = Attachment.new
   end
 
   def create
     @story = Story.new(story_params)
-    @attachment = Attachment.new
     @user = current_user
     @story.user = @user
     @story.attachment = @attachment
@@ -25,7 +23,6 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
     @memories = Memory.where(story_id: @story.id)
   end
 
@@ -50,6 +47,6 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:description, :title, :attachment_id, :user_id, :date)
+    params.require(:story).permit(:description, :title, :user_id, :date, attachments: [])
   end
 end

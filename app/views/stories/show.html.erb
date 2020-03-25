@@ -35,23 +35,9 @@
     <div class="box">
       <strong>PICTURES</strong>
       <div class="story-pictures">
-        <img src="https://stokelyeventcenter.com/wp-content/uploads/2017/01/party_mood.jpg" alt="">
-        <img src="https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-        <img src="https://s3.amazonaws.com/media.eremedia.com/wp-content/uploads/sites/4/2019/03/04124624/celebrate-party-700x467.jpg" alt="">
-        <img src="https://stoneyroads.com/wp-content/uploads/2019/02/house-party-large.jpg" alt="">
-        <img src="https://catering-kvatric.hr/wp-content/uploads/2017/04/best-party-planner.jpg" alt="">
-        <img src="https://dirtydogsaloon.ca/wp-content/uploads/2019/06/DD_JUNE1_030_sm-1400x768.jpg" alt="">
-        <img src="https://miro.medium.com/max/800/0*_be5JSrWvVkIwjGj.jpg" alt="">
-        <img src="https://epicpew.com/wp-content/uploads/2019/12/party.jpg" alt="">
-        <img src="https://rockymountevents.com/wp-content/uploads/2018/09/birthday_celebration.jpg" alt=""><img src="https://stokelyeventcenter.com/wp-content/uploads/2017/01/party_mood.jpg" alt="">
-        <img src="https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-        <img src="https://s3.amazonaws.com/media.eremedia.com/wp-content/uploads/sites/4/2019/03/04124624/celebrate-party-700x467.jpg" alt="">
-        <img src="https://stoneyroads.com/wp-content/uploads/2019/02/house-party-large.jpg" alt="">
-        <img src="https://catering-kvatric.hr/wp-content/uploads/2017/04/best-party-planner.jpg" alt="">
-        <img src="https://dirtydogsaloon.ca/wp-content/uploads/2019/06/DD_JUNE1_030_sm-1400x768.jpg" alt="">
-        <img src="https://miro.medium.com/max/800/0*_be5JSrWvVkIwjGj.jpg" alt="">
-        <img src="https://epicpew.com/wp-content/uploads/2019/12/party.jpg" alt="">
-        <img src="https://rockymountevents.com/wp-content/uploads/2018/09/birthday_celebration.jpg" alt="">
+        <% @story.photos.each do |photo|%>
+            <%= cl_image_tag photo.key%>
+        <% end %>
       </div>
     </div>
 

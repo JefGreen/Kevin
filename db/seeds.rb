@@ -453,47 +453,44 @@ def generateGroupContacts(contact)
 end
 
 def generateStoriesAndQuestions()
-  10.times do
-    Attachment.create()
+  # 10.times do
     Story.create({
       description: Faker::Restaurant.description,
       user_id: User.all.first.id,
       title: "Eating out at #{Faker::Restaurant.name}",
       date: Faker::Date.between(from: 80.days.ago, to: Date.today),
-      attachment_id: 1
     })
-  end
+  # end
 
-  10.times do
-    Attachment.create()
-    Story.create({
-      description: Faker::Restaurant.description,
-      user_id: User.all.first.id,
-      title: "Matty's birthday at #{Faker::Restaurant.name}",
-      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
-      attachment_id: 1
-    })
-  end
+  story_images = [
+    'https://images.unsplash.com/photo-1585071550721-fdb362ae2b8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    'https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80',
+  ]
 
-  10.times do
-    Attachment.create()
-    Story.create({
-      description: Faker::Restaurant.description,
-      user_id: User.all.first.id,
-      title: "Sarah's wedding at #{Faker::Restaurant.name}",
-      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
-      attachment_id: 1
-    })
-  end
+  Story.first.photos.attach(io: URI.open(story_images[0]), filename: "#{Faker::Name.unique.name}.png")
+  Story.first.photos.attach(io: URI.open(story_images[1]), filename: "#{Faker::Name.unique.name}.png")
 
-  Story.all.each do |story|
-    Contact.all.sample(rand(2..6)).each do |contact|
-      Memory.create(
-        story_id: story.id,
-        contact_id: contact.id
-      ).save!
-    end
-  end
+  # 10.times do
+  #   Attachment.create()
+  #   Story.create({
+  #     description: Faker::Restaurant.description,
+  #     user_id: User.all.first.id,
+  #     title: "Matty's birthday at #{Faker::Restaurant.name}",
+  #     date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+  #   })
+  # end
+
+  # 10.times do
+  #   Attachment.create()
+  #   Story.create({
+  #     description: Faker::Restaurant.description,
+  #     user_id: User.all.first.id,
+  #     title: "Sarah's wedding at #{Faker::Restaurant.name}",
+  #     date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+  #   })
+  # end
+
+
 
   # Question.create(
   #   question: "Is #{contact.first_name} #{contact.last_name} part of the story called #{group.name}?",
@@ -536,7 +533,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.each do |image|
+images.take(2).each do |image|
   generateContact(image)
 end
 
@@ -571,6 +568,16 @@ User.create(
 generateStoriesAndQuestions()
 
 
+puts ''
+puts 'Associating contacts to stories'
+Story.all.each do |story|
+    Contact.all.sample(rand(2..6)).each do |contact|
+      Memory.create(
+        story_id: story.id,
+        contact_id: contact.id
+      )
+    end
+  end
 
 
 puts 'Seeding completed'
