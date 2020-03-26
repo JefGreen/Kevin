@@ -14,6 +14,10 @@ puts '***********************'
 puts 'Clearing the current db'
 User.destroy_all
 puts '-Deleted Users'
+User.create(
+  email: 'admin@admin.com',
+  password: '123456',
+)
 
 Contact.destroy_all
 puts '-Deleted Contacts'
@@ -455,23 +459,17 @@ def generateGroupContacts(contact)
   end
 end
 
-def generateStoriesAndQuestions()
-  # 10.times do
-    Story.create({
-      description: Faker::Restaurant.description,
-      user_id: User.all.first.id,
-      title: "Eating out at #{Faker::Restaurant.name}",
-      date: Faker::Date.between(from: 80.days.ago, to: Date.today),
-    })
-  # end
+def generateStory(values)
+  new_story = Story.create({
+    description: values[:description],
+    user_id: User.all.first.id,
+    title: values[:title],
+    date: Faker::Date.between(from: 80.days.ago, to: Date.today),
+  })
 
-  story_images = [
-    'https://images.unsplash.com/photo-1585071550721-fdb362ae2b8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80',
-  ]
-
-  Story.first.photos.attach(io: URI.open(story_images[0]), filename: "#{Faker::Name.unique.name}.png")
-  Story.first.photos.attach(io: URI.open(story_images[1]), filename: "#{Faker::Name.unique.name}.png")
+  values[:images].each do |image|
+    new_story.photos.attach(io: URI.open(image), filename: "#{Faker::Name.unique.name}.png")
+  end
 
   # 10.times do
   #   Attachment.create()
@@ -564,11 +562,75 @@ Contact.all.each do |contact|
 end
 puts ''
 puts 'Generating stories with questions'
-User.create(
-  email: 'admin@admin.com',
-  password: '123456',
-)
-generateStoriesAndQuestions()
+old_diner = {
+  images: [
+    'https://images.unsplash.com/photo-1548696060-8fae845c6452?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1555992303-78fcc6e82520?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1555992457-b8fefdd09069?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1555992336-fb0d29498b13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1527157002950-d8fdc7857c22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+  ],
+  description: "It was a real pleasure to share a meal in this retro cafe after a night out.",
+  title: "Diner at Friday's American Bar & Cafe",
+}
+
+apple_picking = {
+  images: [
+    'https://images.unsplash.com/photo-1508706000025-b720ee541485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1508004727890-1f5e1a22932e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1570913141769-73e3e38d61d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1570913174069-06485c64f8e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1570913182974-40e1158b780a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+  ],
+  description: "The perfect weather with the best people",
+  title: "Apple picking",
+}
+
+road_trip_Redwood_Forest = {
+  images: [
+    'https://images.unsplash.com/photo-1520022283252-ca69c721d247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    'https://images.unsplash.com/photo-1520991888732-5a1fbd8aa98f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+    'https://images.unsplash.com/photo-1526059118371-f9f480197165?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1566336570006-0698145b4ae7?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1566927540107-c49dc3e7401a?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1520991888732-5a1fbd8aa98f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+  ],
+  description: "Drive through the woods",
+  title: "Redwood Forest Drive, Bakersfield, United States",
+}
+
+hiking_in_the_wild = {
+  images: [
+    'https://images.unsplash.com/photo-1571111937090-4452a4af8755?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937186-3955f43c682f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937352-3c47f5e04c75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937516-da0c264b3584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937019-51b7529ababe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1570482662264-7656d61a46db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1569179470582-706dd97fcea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+  ],
+  description: 'Long hike at Mont Blanc in Saguenay',
+  title: 'Wild hike'
+}
+
+long_walk_at_the_beach = {
+  images: [
+    'https://images.unsplash.com/photo-1541084963374-d4e38ea612bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+    'https://images.unsplash.com/photo-1535593464420-41bd5c616756?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1563503136947-cc262fa1e423?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+    'https://images.unsplash.com/photo-1563822473780-6915d836b4f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+  ]
+}
+
+puts 'Generated the following stories:'
+generateStory(old_diner)
+puts '- Old diner'
+generateStory(apple_picking)
+puts '- Apple picking'
+generateStory(road_trip_Redwood_Forest)
+puts '- Drive through Redwood Forest'
+generateStory(hiking_in_the_wild)
+puts '- Wild hike'
 
 
 puts ''
