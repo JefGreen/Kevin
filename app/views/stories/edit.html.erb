@@ -1,4 +1,12 @@
-<h2 class="search-contact">Edit your story</h2>
+<div class="chevron">
+  <%= link_to stories_path do %>
+    <div>
+      <i class="fas fa-chevron-left"></i>
+    </div>
+  <% end %>
+</div>
+<h2 class="page-title">Edit your story</h2>
+
 
 <div class="full-screen">
   <%= simple_form_for [@story] do |f| %>
@@ -6,6 +14,22 @@
     <%= f.input :date, as: :date %>
     <%= f.input :description, as: :text, required: false %>
     <%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
-    <%= f.submit "Save changes", class: "button-story" %>
+
+
+
+
+    <div class="footer">
+      <div class="button-center">
+    <%= f.submit "", class: "fas fa-save" %>
+      </div>
+      <div class="footer-content">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+        <%= link_to contacts_path do %>
+          <i class="fas fa-user"></i>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

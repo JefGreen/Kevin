@@ -1,17 +1,30 @@
 .question {
-	align-items: center;
-	font-size: 20px;
+	width: 80%;
+	position: fixed;
+	font-size: 30px;
+	top: 100px;
+	margin-left: 20px;
+	font-family: 'Gochi Hand', cursive;
 }
 
-.selected {
+
+/*.selected {
   border: 10px solid black ;
-}
+}*/
 
 
 .options {
+	margin-top: 50%;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	width: 60%;
-	padding: 30px 0px 30px 0px;
+	.opt {	
+		color: #4C45E4;
+		font-size: 100px;
+		padding: 20px;
+		opacity: 0.6;
+	}
+
+	.opt:hover {
+		opacity: 1;
+	}
 }

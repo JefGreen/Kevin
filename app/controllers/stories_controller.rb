@@ -16,7 +16,6 @@ class StoriesController < ApplicationController
       @story.attachment_id = 1
     end
     if @story.save
-    raise
       redirect_to stories_path
     else
       render :new
