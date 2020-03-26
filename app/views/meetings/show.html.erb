@@ -1,4 +1,55 @@
-<h1>Meetings#show</h1>
-<p>Find me in app/views/meetings/show.html.erb</p>
+<div class="chevron">
+  <%= link_to meetings_path do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %>
+</div>
 
-<%= @meeting.location %>
+
+<div class="info-story-show d-flex">
+  <h4><strong><%= @meeting.start_time&.strftime("%B %e, %Y ") %></strong></h4>
+
+
+  <div class="story-contacts d-flex">
+    <% @meeting.contacts.each do |contact|%>
+      <%= link_to contact_path(Contact.find(contact.id)) do %>
+        <%= cl_image_tag Contact.find(contact.id).photo.key, class: "contacts-pictures" %>
+      <% end %>
+    <% end %>
+
+    <%= link_to new_meeting_event_path(@meeting) do  %>
+      <div class="add"><i class="fas fa-plus-circle"></i></div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div class="background-story">
+  <div class="boxes">
+
+    <div class="box">
+      <strong>LOCATION</strong>
+      <div class="text-story">
+        <%= @meeting.location %>
+      </div>
+    </div>
+
+
+
+  <div class="footer">
+    <div class="button-center">
+      <%= link_to edit_meeting_path(@meeting) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </div>
+
+    <div class="footer-content">
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= link_to contacts_path do %>
+        <i class="fas fa-user"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

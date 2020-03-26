@@ -1,2 +1,10 @@
-<h1>Meetings#edit</h1>
-<p>Find me in app/views/meetings/edit.html.erb</p>
+<div class="full-screen">
+  <h1 class="title">Edit a meeting</h1>
+  <%= simple_form_for [@meeting] do |f| %>
+    <%= f.input :location, as: :string, required: false  %>
+    <%= f.input :start_time, as: :date %>
+    <%= f.input :end_time, as: :date %>
+    <%= f.submit "Save", class: "button-secondary" %>
+  <% end %>
+
+</div>

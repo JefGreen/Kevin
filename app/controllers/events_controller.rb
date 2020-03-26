@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @contacts = Contact.all.order('first_name ASC')
   end
 
   def create
