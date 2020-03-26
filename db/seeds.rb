@@ -601,13 +601,37 @@ road_trip_Redwood_Forest = {
 }
 
 hiking_in_the_wild = {
-
+  images: [
+    'https://images.unsplash.com/photo-1571111937090-4452a4af8755?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937186-3955f43c682f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937352-3c47f5e04c75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937516-da0c264b3584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1571111937019-51b7529ababe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1570482662264-7656d61a46db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1569179470582-706dd97fcea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+  ],
+  description: 'Long hike at Mont Blanc in Saguenay',
+  title: 'Wild hike'
 }
 
+long_walk_at_the_beach = {
+  images: [
+    'https://images.unsplash.com/photo-1541084963374-d4e38ea612bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+    'https://images.unsplash.com/photo-1535593464420-41bd5c616756?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1563503136947-cc262fa1e423?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+    'https://images.unsplash.com/photo-1563822473780-6915d836b4f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+  ]
+}
 
+puts 'Generated the following stories:'
 generateStory(old_diner)
+puts '- Old diner'
 generateStory(apple_picking)
+puts '- Apple picking'
 generateStory(road_trip_Redwood_Forest)
+puts '- Drive through Redwood Forest'
+generateStory(hiking_in_the_wild)
+puts '- Wild hike'
 
 
 puts ''
