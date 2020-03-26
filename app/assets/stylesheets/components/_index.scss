@@ -6,6 +6,7 @@
 @import "contact";
 @import "answers";
 @import "stories";
+@import "memories";
 
 
 .chevron {
@@ -16,6 +17,13 @@
   a {
     color: #CCCCD7;
   }
+}
+
+.page-title {
+  position: fixed;
+  margin-left: 70px;
+  margin-top: 20px;
+  font-size: 30px;
 }
 
 .scroll {

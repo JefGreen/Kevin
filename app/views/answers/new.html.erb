@@ -1,60 +1,55 @@
-<div class="full-screen">
-  <div class="chevron">
-    <%= link_to contact_path(@contact) do %>
-      <div>
-        <i class="fas fa-chevron-left"></i>
-      </div>
-    <% end %>
-  </div>
-    <h2 class="text-align-center">Quiz</h2>
+<div class="chevron">
+  <%= link_to contact_path(@contact) do %>
+    <div>
+      <i class="fas fa-chevron-left"></i>
+    </div>
+  <% end %>
+</div>
+<h2 class="page-title">Quiz</h2>
 
-  <p>Your progress: <%= @percentage %>% </p>
+
+<div class="full-screen">
+
 
 <div class="question">
   <%= @question.question %>
 </div>
 
   <div class="options">
-    <div id="yes-button" class="yes">
-      <%= image_tag("yes.png") %>
+    <div id="yes-button" class="yes opt">
+      <i class="fas fa-check-circle"></i>
     </div>
-    <div id="no-button" class="no">
-      <%= image_tag("no.png") %>
+    <div id="no-button" class="no opt">
+      <i class="fas fa-times-circle"></i>
     </div>
   </div>
+
+  <p>Your progress: <%= @percentage %>% </p>
 
     <%= simple_form_for [@contact, @answer] do |f| %>
       <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
       <%= f.hidden_field :question_id  %>
-      <%= f.submit "Next", class: "button" %>
-
-    <% end %>
-
-<!--
-  <% if @questions != nil %>
-    <% @score_final = 0 %>
-    <% @percentage = (@questions.where(score: 100).count)*100 / @questions.count  %>
-
-    <% @questions.each do |question| %>
-      <% if question.score != nil %>
-      <% @score_final = @score_final + question.score %>
-      <% end %>
+      <%= f.submit "", required: false, id: "submit-answer", class: "invisible" %>
+<!--       <%= f.submit "Next", class: "button", id: "submit-answer" %> -->
     <% end %>
 
 
-    <p>Your points with <%= @contact.first_name %>: <%= @score_final %></p>
+    <div class="footer">
+      <div class="button-center">
+        <%= link_to new_contact_answer_path(@contact) do %>
+          <i class="fas fa-forward"></i>
+        <% end %>
+      </div>
 
-      <p>Total questions for <%= @contact.first_name %>  : <%= @questions.count %> questions</p>
-      <p>You know the answer  : <%= @questions.where(score: 100).count %> questions</p>
-      <p>Your percentage : <%= @percentage %> % </p>
-  <% end %>
- -->
-
-  <!-- <form action="">
-    <input type="hidden" name="answer" value="true" id="hidden-answer-field">
-    <input type="submit" value="Next">
-  </form> -->
-
+      <div class="footer-content">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+        <%= link_to contacts_path do %>
+          <i class="fas fa-user"></i>
+        <% end %>
+      </div>
+    </div>
 
 
 

@@ -5,7 +5,7 @@
 </div>
 
 <div class="info-story-show d-flex">
-  <h4><strong><%= @story.title %></strong></h4>
+  <h4><strong><%= @story.title.capitalize %></strong></h4>
   <%= @story.date&.strftime("%B %e, %Y ") %>
 
   <div class="story-contacts d-flex">
@@ -29,24 +29,18 @@
       <strong>STORY</strong>
       <div class="text-story">
         <%= @story.description %>
-        <p>When Mark tried to go and meet the AIRBNB host, he felt and everyone was shocked, but it was OK then the host offered us ice cream (so Mark would feel better). The ice cream tasted like CHEESE. We didn't know if it was really a new chef in town or if it was not supposed to taste like cheese. We'll always have this doubt in our lives. We couldn't stop laughing.</p>
       </div>
     </div>
 
     <div class="box">
       <strong>PICTURES</strong>
-      <div class="files-story">
-        <div class="box-files">
-
-        </div>
-        <div class="box-files">
-
-        </div>
+      <div class="story-pictures">
+        <% @story.photos.each do |photo|%>
+            <%= cl_image_tag photo.key%>
+        <% end %>
       </div>
     </div>
 
-
-  </div>
 
 
 
@@ -67,6 +61,3 @@
     </div>
   </div>
 </div>
-
-
-
