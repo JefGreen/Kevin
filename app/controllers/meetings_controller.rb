@@ -6,15 +6,16 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     if @meeting.save
-      redirect_to
+      redirect_to meetings_path
     else
       render :new
     end
-
   end
 
   def edit
+    @meeting = Meeting.find(params[:id])
     @meeting.save
+
   end
 
   def index
@@ -30,6 +31,5 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:start_time, :end_time, :location)
   end
-
 
 end
