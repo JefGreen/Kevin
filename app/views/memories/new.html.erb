@@ -17,9 +17,9 @@
 				</div>
 		    	<div>
 		    		<%= simple_form_for [@story, @memory] do |f| %>
-		    		<%= f.hidden_field :contact_id, value: contact.id %>
-			  	  	<%= f.submit "Add", class: "submit" %>
-		  		<% end %>
+		    			<%= f.hidden_field :contact_id, value: contact.id %>
+			  	  		<%= f.submit "Add", class: "submit" %>
+		  			<% end %>
 		    	</div>
 			</li>
 		<% end %>

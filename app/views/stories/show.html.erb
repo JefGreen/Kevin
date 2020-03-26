@@ -5,7 +5,7 @@
 </div>
 
 <div class="info-story-show d-flex">
-  <h4><strong><%= @story.title %></strong></h4>
+  <h4><strong><%= @story.title.capitalize %></strong></h4>
   <%= @story.date&.strftime("%B %e, %Y ") %>
 
   <div class="story-contacts d-flex">

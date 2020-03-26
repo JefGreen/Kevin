@@ -10,8 +10,13 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     @user = current_user
     @story.user = @user
-    @story.attachment = @attachment
+    if @attachment
+      @story.attachment = @attachment
+    else
+      @story.attachment_id = 1
+    end
     if @story.save
+    raise
       redirect_to stories_path
     else
       render :new
@@ -47,6 +52,6 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:description, :title, :user_id, :date, photos: [])
+    params.require(:story).permit(:description, :title, :user_id, :date, contact_ids: [], photos: [])
   end
 end

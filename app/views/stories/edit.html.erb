@@ -1,9 +1,11 @@
+<h2 class="search-contact">Edit your story</h2>
+
 <div class="full-screen">
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :text, required: false  %>
     <%= f.input :date, as: :date %>
     <%= f.input :description, as: :text, required: false %>
     <%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
-    <%= f.submit "Save changes", class: "button-secondary" %>
+    <%= f.submit "Save changes", class: "button-story" %>
   <% end %>
 </div>
