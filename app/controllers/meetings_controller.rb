@@ -34,7 +34,7 @@ class MeetingsController < ApplicationController
       end
       @sum = @percentage + @sum
     end
-    @final_percentage = @sum / @meeting.contacts.count
+    @final_percentage = @meeting.contacts.count.zero? ? 0 : @sum / @meeting.contacts.count
   end
 
   private
