@@ -24,6 +24,17 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
+    @sum = 0
+    @meeting.contacts.each do |contact|
+      @questions = contact.questions
+      if @questions.count.zero?
+        @percentage = 0
+      else
+        @percentage = @questions.where(score: 100).count * 100 / @questions.count
+      end
+      @sum = @percentage + @sum
+    end
+    @final_percentage = @sum / @meeting.contacts.count
   end
 
   private
