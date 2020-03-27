@@ -7,19 +7,37 @@
   <h2><strong>Meetings.</strong></h2>
 </div>
 
+
+
+
+
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
   <ul id="myUL-meeting">
     <% @meetings.each do |meeting| %>
+
+    <% @sum = 0 %>
+    <% meeting.contacts.each do |contact| %>
+      <% @questions = contact.questions %>
+      <% if @questions.count.zero?  %>
+        <% @percentage = 0 %>
+      <% else %>
+        <% @percentage = @questions.where(score: 100).count * 100 / @questions.count  %>
+      <% end %>
+    <% @sum = @percentage + @sum %>
+    <% end %>
+    <% @final_percentage = @sum / meeting.contacts.count %>
+
       <li>
         <%= link_to meeting_path(meeting) do %>
           <div class="info-meeting">
               <div class="d-flex date">
-                <%= meeting.start_time&.strftime("%B %e, %Y ") %>
+                <%= meeting.start_time&.strftime("%B %e ") %>
                 <div>
                   <% meeting.contacts.take(3).each do |contact|%>
                     <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
                   <% end %>
                 </div>
+              <div class="percentage-index"><%= @final_percentage %>%</div>
               </div>
           </div>
         <% end %>
