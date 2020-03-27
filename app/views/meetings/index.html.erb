@@ -25,7 +25,7 @@
       <% end %>
     <% @sum = @percentage + @sum %>
     <% end %>
-    <% @final_percentage = @sum / meeting.contacts.count %>
+    <% @final_percentage = meeting.contacts.count.zero? ? 0 : @sum / meeting.contacts.count %>
 
       <li>
         <%= link_to meeting_path(meeting) do %>
