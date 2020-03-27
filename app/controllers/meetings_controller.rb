@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
 
     @meetings = Meeting.geocoded
 
-    @markers = @meetings.map do |meeting|
+    @markers = [@meeting].map do |meeting|
       {
         lat: meeting.latitude,
         lng: meeting.longitude
