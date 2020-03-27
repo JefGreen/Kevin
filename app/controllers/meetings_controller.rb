@@ -24,6 +24,16 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
+
+    @meetings = Meeting.geocoded
+
+    @markers = @meetings.map do |meeting|
+      {
+        lat: meeting.latitude,
+        lng: meeting.longitude
+      }
+    end
+
     @sum = 0
     @meeting.contacts.each do |contact|
       @questions = contact.questions

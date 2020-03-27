@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_15_84_814753) do
+ActiveRecord::Schema.define(version: 2020_15_84_814754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_15_84_814753) do
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "user_id"
-    t.string "answer"
+    t.boolean "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2020_15_84_814753) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "memories", force: :cascade do |t|
@@ -115,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_15_84_814753) do
 
   create_table "questions", force: :cascade do |t|
     t.string "question"
-    t.string "correct_answer"
+    t.boolean "correct_answer"
     t.bigint "contact_id"
     t.integer "score"
     t.datetime "created_at", null: false
