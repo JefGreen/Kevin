@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'events/new'
   get 'users/new'
   get 'users/create'
+  get 'pages/welcome'
   devise_for :users
   root to: 'pages#home'
 
