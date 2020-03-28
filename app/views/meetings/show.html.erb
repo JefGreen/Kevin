@@ -23,7 +23,13 @@
     <%= link_to new_meeting_event_path(@meeting) do  %>
       <div class="add"><i class="fas fa-plus-circle"></i></div>
     <% end %>
-    <div class="percentage"><%= @final_percentage %>%</div>
+    <div class="score-meeting-show">
+          <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
+          <%= @final_percentage %>%
+      <% end %>
+    </div>
+
+
   </div>
 </div>
 
