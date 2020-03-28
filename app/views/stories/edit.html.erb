@@ -16,14 +16,12 @@
     <%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
 
 
-
-
     <div class="footer">
       <div class="button-center">
     <a href="#" onclick="document.getElementById('edit_story_<%= @story.id %>').submit();"><i class="fas fa-save"></i></a>
       </div>
       <div class="footer-content">
-        <%= link_to root_path do %>
+        <%= link_to pages_welcome_path do %>
           <i class="fas fa-home"></i>
         <% end %>
         <%= link_to contacts_path do %>

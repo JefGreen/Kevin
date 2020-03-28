@@ -1,20 +1,77 @@
-<div class="full-screen">
+<div class="welcome-container">
 
-        <div class="bounce-in-top">
-          <h2>Hello, it's <strong>Kevin.</strong></h2>
+  <div class="kevin">
+    <p>Kevin.</p>
+  </div>
+
+  <div class="welcome-user">
+    <p>Welcome back Jeff!</p>
+  </div>
+
+    <div class="infos-top">
+      <div class="info-score">
+        <div class="score-welcome-home">
+          <%= link_to root_path do %>
+            <%= @percentage %>%
+          <% end %>
         </div>
+        <p>How much you know about your friends</p>
+      </div>
 
-        <div class="icons-home">
-            <div>
-              <%= link_to "Friends", contacts_path %>
-            </div >
-            <div>
-              <%= link_to "Memories", stories_path %>
-            </div >
+      <div class="info-score">
+        <div class="clock">
+          <%= link_to root_path do %>
+            <i class="far fa-clock"></i>
+          <% end %>
+        </div>
+        <p>You have a new meeting in 4 hours</p>
+      </div>
 
-            <div>
-              <%= link_to "Meetings", meetings_path %>
+    </div>
+
+
+    <div class="background-welcome">
+      <div class="block1">
+        <div class="icons-welcome">
+          <div class="icons-with-text">
+            <div class="icons-background">
+              <%= link_to contacts_path do %>
+                <i class="fas fa-user"></i>
+              <% end %>
+            </div >
+            <p>FRIENDS</p>
+          </div>
+
+            <div class="icons-with-text">
+              <div class="icons-background">
+                <%= link_to stories_path do %>
+                  <i class="fas fa-paper-plane"></i>
+                <% end %>
+              </div >
+              <p>MEMORIES</p>
             </div>
-        </div>
+      </div>
+
+      <div class="block2">
+         <div class="icons-welcome">
+          <div class="icons-with-text">
+            <div class="icons-background">
+              <%= link_to meetings_path do %>
+                <i class="fas fa-user-friends"></i>
+              <% end %>
+            </div >
+            <p>MEETINGS</p>
+          </div>
+            <div class="icons-with-text">
+              <div class="icons-background">
+                <%= link_to stories_path do %>
+                  <i class="fas fa-paper-plane"></i>
+                <% end %>
+              </div >
+              <p>QUIZ</p>
+            </div>
+      </div>
 
 </div>
+
+

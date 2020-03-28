@@ -1,3 +1,126 @@
-.icons-home {
+.icons-welcome {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kevin {
+  align-items: center;
+  justify-content: center;
+}
+
+.kevin p {
+  font-size: 25px;
+  color: black;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.welcome-user {
+  color: black;
+  margin-left: 15px;
+  margin-bottom: 50px;
+}
+
+.info-score {
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.info-score p{
+  margin-left: 15px;
+  font-size: 14px;
+  color: #68615F;
+}
+
+
+.infos-top {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+.welcome-container {
+  align-items: center;
+  justify-content: center;
+
+}
+
+.score-welcome-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: #4C45E4;
+  border: 5px solid #4C45E4;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.icons-background {
+  margin-top: 30px;
+  border-radius: 30px 30px 30px 30px;
+  padding-bottom: 50px;
+  background-color: #4C45E4;
+  width: 100px;
+  height: 110px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 4px 23px rgba(168, 168, 168, 0.7);
+
+}
+
+.icons-background i {
+  font-size: 50px;
+  text-decoration: none;
+  color: white;
+  margin-top: 30px;
+  justify-content: space-between;
+  box-shadow: 0px 4px 23px rgba(168, 168, 168, 0.14);
+
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+
+.clock i {
+  font-size: 70px;
+  text-decoration: none;
+  color: #4C45E4;
+
+}
+
+.clock p {
+  margin-left: 5px;
+}
+
+.icons-with-text {
+  text-align: center;
+  justify-content: center;
+}
+
+
+.icons-with-text p {
+  color: #4C45E4;
+  margin-top: 15px;
+}
+
+.background-welcome {
+  height: auto;
+  flex-flow: scroll;
+  background-color: #f3f3f3;
+  border-radius: 30px 30px 0px 0px;
+  padding-bottom: 50px;
 }

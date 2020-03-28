@@ -31,7 +31,7 @@ class LikesController < ApplicationController
       if @liked.save
         redirect_to contact_path(@contact)
       else
-        render :new
+        redirect_to contact_path(@contact)
       end
     end
   end
