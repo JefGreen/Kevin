@@ -1,4 +1,77 @@
-<h1>Meetings#show</h1>
-<p>Find me in app/views/meetings/show.html.erb</p>
+<div class="chevron">
+  <%= link_to meetings_path do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %>
+</div>
 
-<%= @meeting.location %>
+
+<div class="info-story-show d-flex">
+  <h4><strong><%= @meeting.start_time&.strftime("%B %e, %Y ") %></strong></h4>
+
+
+  <div class="story-contacts d-flex">
+    <% @meeting.contacts.each do |contact|%>
+      <%= link_to contact_path(Contact.find(contact.id)) do %>
+      <% begin %>
+        <%= cl_image_tag Contact.find(contact.id).photo.key, class: "contacts-pictures" %>
+      <% rescue %>
+       <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="contacts-pictures">
+       <% end %>
+      <% end %>
+    <% end %>
+
+    <%= link_to new_meeting_event_path(@meeting) do  %>
+      <div class="add"><i class="fas fa-plus-circle"></i></div>
+    <% end %>
+    <div class="score-meeting-show">
+          <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
+          <%= @final_percentage %>%
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="background-story">
+  <div class="boxes">
+
+    <div class="box">
+      <strong>LOCATION</strong>
+      <div class="text-story">
+        <%= @meeting.location %>
+
+        <div
+          id="map"
+          style="width: 100%;
+          height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+
+      </div>
+    </div>
+
+
+
+  <div class="footer">
+    <div class="button-center">
+      <%= link_to edit_meeting_path(@meeting) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </div>
+
+    <div class="footer-content">
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= link_to contacts_path do %>
+        <i class="fas fa-user"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

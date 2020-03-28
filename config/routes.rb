@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :meetings, only: %i(new create index show) do
+  resources :meetings, only: %i(new create index show edit) do
     resources :events, only: %i(new create)
   end
 

@@ -14,6 +14,7 @@ gem 'rails', '5.2.4.1'
 gem 'redis'
 gem 'datetime_picker_input'
 gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3' 
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
