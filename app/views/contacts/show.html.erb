@@ -47,7 +47,7 @@
 			<div class="actions">
 				<strong>LIKES</strong>
         <%= simple_form_for [@contact, @liked] do |f| %>
-          <%= f.input :tag, as: :string, required: false %>
+          <%= f.input :tag, as: :string, required: true %>
           <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
           <%= f.button :submit, '+' %>
         <% end %>

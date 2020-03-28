@@ -31,7 +31,7 @@ class LikesController < ApplicationController
       if @liked.save
         redirect_to contact_path(@contact)
       else
-        render :new
+        render "products/show"
       end
     end
   end
