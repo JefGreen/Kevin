@@ -12,53 +12,17 @@
 <div class="full-screen">
 	<%= simple_form_for [@story] do |f| %>
 		<%= f.input :title, as: :text, required: false  %>
-		<%= f.input :date, as: :date %>
-		
-		<%= f.input :description, as: :text, required: false %>
-		<%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
-		<%#= f.input :contact, as: :select2, collection: Contact.all, multiple: true %>
-
-		<%= select_tag "contact_id", options_from_collection_for_select(
+		<%= select_tag "contacts", options_from_collection_for_select(
 	      Contact.all.
 	     	sort_by { |user| user.first_name },
 	     :first_name, :first_name),
 	      class: 'select2', multiple: true %>
-		
+		<%= f.input :date, as: :date %>
+		<%= f.input :description, as: :text, required: false %>
+		<div class="filesup">
 			
-			<!-- 	<legend class="col-form-label pt-0">Contacts</legend>
-		<div class="friends">
-			<fieldset class="form-group">
-				<input type="hidden" name="story[contact_ids][]" value="">
-				<div class="form-check">
-					<% Contact.all.order('first_name ASC').each do |contact| %>
-					<input class="form-check-input check_boxes optional" type="checkbox" value="<%= contact.id %>" name="story[contact_ids][]" id="story_contact_ids_<%= contact.id %>">
-					
-					<label for="story_contact_ids_<%= contact.id %>">
-						<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
-					</label>
-					<br>
-					<% end %>
-				</div>
-			</fieldset>	
+		<%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
 		</div>
- -->
-
-
-	<!--  <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
-		<ul id="myUL">
-			<% Contact.all.take(3).each do |contact| %>
-				<a><%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %></a>
-			    	<div>
-			    		<%= simple_form_for contact do |f| %>
-			    			<%= f.hidden_field :contact_id, value: contact.id %>
-				  	  		<%= f.submit "Add", class: "submit" %>
-			  			<% end %>
-			    	</div>
-				</li>
-			<% end %>
-		</ul>
-	</div> -->
-
 
 		<div class="footer">
 		    <div class="button-center">

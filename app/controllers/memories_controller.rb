@@ -9,7 +9,6 @@ class MemoriesController < ApplicationController
   def create
     @memory = Memory.new(memory_params)
     @memory.story_id = @story.id
-
     if @memory.save
       redirect_to story_path(@story)
     else

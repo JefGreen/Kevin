@@ -11,6 +11,8 @@ class StoriesController < ApplicationController
     @user = current_user
     @story.user = @user
     @story.attachment_id = @attachment_id
+    @story_contacts = params[:contacts].map { |contact| Contact.find_by(first_name: contact) }
+    @story.contacts = @story_contacts
     if @story.save
       redirect_to stories_path
     else
