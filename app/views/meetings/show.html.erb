@@ -24,14 +24,15 @@
       <div class="add"><i class="fas fa-plus-circle"></i></div>
     <% end %>
     <div class="score-meeting-show">
-          <%= link_to root_path do %>
+      <% if @meeting.contacts.count.zero?  %>
+      <% else %>
+        <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
           <%= @final_percentage %>%
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
-
-
 
 
 <div class="background-story">
