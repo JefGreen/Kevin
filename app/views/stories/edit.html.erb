@@ -5,10 +5,16 @@
     </div>
   <% end %>
 </div>
-<h2 class="page-title">Edit your story</h2>
+<h2 class="page-title">Edit your Memory</h2>
+
 
 
 <div class="full-screen">
+<%= link_to story_path(@story), method: :delete do %>
+  <i class="fas fa-times"> Destroy this Memory</i>
+<% end %>
+
+
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :text, required: false  %>
     <%= f.input :date, as: :date %>
