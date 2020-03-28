@@ -49,6 +49,12 @@ class MeetingsController < ApplicationController
     @final_percentage = @meeting.contacts.count.zero? ? 0 : @sum / @meeting.contacts.count
   end
 
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to meetings_path
+  end
+
   private
 
   def meeting_params
