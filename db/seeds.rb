@@ -619,7 +619,26 @@ long_walk_at_the_beach = {
     'https://images.unsplash.com/photo-1535593464420-41bd5c616756?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1563503136947-cc262fa1e423?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
     'https://images.unsplash.com/photo-1563822473780-6915d836b4f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-  ]
+  ],
+  description: 'Beautiful walk on the beach of Santa Monica',
+  title: 'Beach day with the fam'
+}
+
+sarah_s_birthday = {
+  images: [
+    'https://images.unsplash.com/photo-1556035511-3168381ea4d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80',
+    'https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1915&q=80',
+    'https://images.unsplash.com/photo-1541760866956-dcad73131a0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
+    'https://images.unsplash.com/photo-1559527496-f12da151c388?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80',
+    'https://images.unsplash.com/photo-1578874990472-fb3657aa57af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    'https://images.unsplash.com/photo-1579450887429-b86059844ac6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2082&q=80',
+    'https://images.unsplash.com/photo-1551529663-e4327b8fc96c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    'https://images.unsplash.com/photo-1583318432730-a19c89692612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2125&q=80',
+    'https://images.unsplash.com/photo-1582103121609-6467f9db55ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80',
+    'https://images.unsplash.com/photo-1574933938624-cb65bda98c52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1886&q=80',
+  ],
+  description: 'Had an amazing night celebrating Sarah\'s 23rd birthday at the FlyJin bar in Montreal' ,
+  title: 'Sarah\'s birthday party'
 }
 
 puts 'Generated the following stories:'
@@ -631,6 +650,10 @@ generateStory(road_trip_Redwood_Forest)
 puts '- Drive through Redwood Forest'
 generateStory(hiking_in_the_wild)
 puts '- Wild hike'
+generateStory(long_walk_at_the_beach)
+puts '- Beach day with the fam'
+generateStory(sarah_s_birthday)
+puts '- Sarah\'s birthday party'
 
 
 puts ''

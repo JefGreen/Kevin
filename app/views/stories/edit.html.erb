@@ -20,7 +20,7 @@
 
     <div class="footer">
       <div class="button-center">
-    <%= f.submit "", class: "fas fa-save" %>
+    <a href="#" onclick="document.getElementById('edit_story_<%= @story.id %>').submit();"><i class="fas fa-save"></i></a>
       </div>
       <div class="footer-content">
         <%= link_to root_path do %>
