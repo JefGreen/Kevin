@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :find_contact
 
   def new
-    @liked = Like.new
+    @liked = Like.new(liked: true)
     @false = @liked.liked = false
     @true = @liked.liked = true
   end
@@ -31,15 +31,15 @@ class LikesController < ApplicationController
       if @liked.save
         redirect_to contact_path(@contact)
       else
-        render :new
+        render "products/show"
       end
     end
   end
 
   def destroy
     @liked = Like.find(params[:id])
-    question = Question.find_by(question: "Does #{@contact.first_name} #{@contact.last_name} like #{@liked.tag.name}?")
-    question.destroy
+    # question = Question.find_by(question: "Does #{@contact.first_name} #{@contact.last_name} like #{@liked.tag.name}?")
+    # question.destroy
     @liked.destroy
     redirect_to contact_path(@contact)
   end
