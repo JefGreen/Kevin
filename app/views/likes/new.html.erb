@@ -3,6 +3,6 @@
 
   <%= simple_form_for [@contact, @liked] do |f| %>
     <%= f.input :tag, as: :string, required: false %>
-    <%= f.input :liked, as: :boolean, required: false %>
+    <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
     <%= f.submit "adding it" %>
   <% end %>
