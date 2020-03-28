@@ -37,7 +37,12 @@
                     <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
                   <% end %>
                 </div>
-              <div class="percentage-index"><%= @final_percentage %>%</div>
+                <div class="score-meeting">
+                  <%= link_to new_contact_answer_path(meeting.contacts.take(1)) do %>
+                      <%= @final_percentage %>%
+                    <% end %>
+                </div>
+
               </div>
           </div>
         <% end %>

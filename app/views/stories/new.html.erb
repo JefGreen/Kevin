@@ -16,24 +16,32 @@
 		
 		<%= f.input :description, as: :text, required: false %>
 		<%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
+		<%#= f.input :contact, as: :select2, collection: Contact.all, multiple: true %>
 
-
-	<fieldset class="form-group">
-		<legend class="col-form-label pt-0">Contacts</legend>
-		<input type="hidden" name="story[contact_ids][]" value="">
-		<div class="form-check">
-			<% Contact.all.order('first_name ASC').take(5).each do |contact| %>
-			<input class="form-check-input check_boxes optional" type="checkbox" value="<%= contact.id %>" name="story[contact_ids][]" id="story_contact_ids_<%= contact.id %>">
-			
-			<label for="story_contact_ids_<%= contact.id %>">
-				<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
-			</label>
-			<br>
-			<% end %>
-		</div>
-	</fieldset>
+		<%= select_tag "contact_id", options_from_collection_for_select(
+	      Contact.all.
+	     	sort_by { |user| user.first_name },
+	     :first_name, :first_name),
+	      class: 'select2', multiple: true %>
 		
-
+			
+			<!-- 	<legend class="col-form-label pt-0">Contacts</legend>
+		<div class="friends">
+			<fieldset class="form-group">
+				<input type="hidden" name="story[contact_ids][]" value="">
+				<div class="form-check">
+					<% Contact.all.order('first_name ASC').each do |contact| %>
+					<input class="form-check-input check_boxes optional" type="checkbox" value="<%= contact.id %>" name="story[contact_ids][]" id="story_contact_ids_<%= contact.id %>">
+					
+					<label for="story_contact_ids_<%= contact.id %>">
+						<%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %>
+					</label>
+					<br>
+					<% end %>
+				</div>
+			</fieldset>	
+		</div>
+ -->
 
 
 	<!--  <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
@@ -54,16 +62,16 @@
 
 		<div class="footer">
 		    <div class="button-center">
-			<%= f.submit "", class: "fas fa-save" %>
+				<a href="#" onclick="document.getElementById('new_story').submit();"><i class="fas fa-save"></i></a>
 		    </div>
 
 		    <div class="footer-content">
-		      <%= link_to root_path do %>
-		        <i class="fas fa-home"></i>
-		      <% end %>
-		      <%= link_to contacts_path do %>
-		        <i class="fas fa-user"></i>
-		      <% end %>
+		    	<%= link_to root_path do %>
+		        	<i class="fas fa-home"></i>
+		    	<% end %>
+				<%= link_to contacts_path do %>
+					<i class="fas fa-user"></i>
+				<% end %>
 		    </div>
 		</div>
 	<% end %>

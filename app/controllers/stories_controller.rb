@@ -10,11 +10,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     @user = current_user
     @story.user = @user
-    if @attachment
-      @story.attachment = @attachment
-    else
-      @story.attachment_id = 1
-    end
+    @story.attachment_id = @attachment_id
     if @story.save
       redirect_to stories_path
     else
