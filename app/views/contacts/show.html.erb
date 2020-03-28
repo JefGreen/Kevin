@@ -46,12 +46,12 @@
 		<div class="box">
 			<div class="actions">
 				<strong>LIKES</strong>
-        <form action=<%="contacts/#{@contact.id}/likes/new"%>>
-          <input type="tag" id="fname" name="fname" value="John">
-          <input type="hidden" id="fnamed" name="fliked" value= true>
-          <input type="submit" value="+">
-        </form>
-			</div>
+        <%= simple_form_for [@contact, @liked] do |f| %>
+          <%= f.input :tag, as: :string, required: false %>
+          <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
+          <%= f.button :submit, '+' %>
+        <% end %>
+      </div>
 
 			<div class="tags">
 				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
