@@ -7,8 +7,12 @@
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "select2": "^4.0.13",
+<<<<<<< HEAD
     "mapbox-gl": "^1.9.0",
     "popper.js": "^1.16.1"
+=======
+    "mapbox-gl": "^1.9.0"
+>>>>>>> ac7a2d5b19c2dbd8113ce605b7c4d8a5f8046eb5
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"

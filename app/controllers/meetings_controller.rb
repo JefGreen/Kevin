@@ -5,6 +5,8 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
+    p meeting_params
+    p @meeting
     if @meeting.save
       redirect_to meetings_path
     else
