@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @liked = Like.new
     @contact = Contact.find(params[:id])
     @questions = @contact.questions
     if @questions.count.zero?

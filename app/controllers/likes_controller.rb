@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :find_contact
 
   def new
-    @liked = Like.new
+    @liked = Like.new(liked: true)
     @false = @liked.liked = false
     @true = @liked.liked = true
   end
