@@ -9,11 +9,11 @@
 
 <div class="full-screen">
 	<%= simple_form_for [@contact] do |f| %>
-		<%= f.input :first_name, as: :string, required: false  %>
-		<%= f.input :last_name, as: :string, required: false %>
+		<%= f.input :first_name, as: :string, required: false, label: false, placeholder: "Kevin" %>
+		<%= f.input :last_name, as: :string, required: false, label: false, placeholder: "Williams" %>
 		<%= f.input :birthday %>
-		<%= f.input :meeting_location %>
-    <%= f.input :photo, as: :file %>
+		<%= f.input :meeting_location, label: false, placeholder: "At Sarah Brampton's birthday!" %>
+    	<%= f.input :photo, as: :file, label: "Upload a profile picture" %>
 
 
 		<div class="footer">
