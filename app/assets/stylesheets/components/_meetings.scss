@@ -15,6 +15,65 @@
   }
 }
 
+.meeting-infos {
+  margin-left: 15px;
+}
+
+
+.meeting-infos p {
+  color: grey;
+}
+
+.info-meeting h2 {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}
+
+.info-meeting p {
+  text-decoration: none;
+  color: grey;
+  font-size: 14px;
+}
+
+
+.info-meeting a {
+  text-decoration: none;
+  color: blue;
+  font-size: 17px;
+}
+
+.cancel-meeting i {
+  color: grey;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.cancel-meeting {
+  margin-bottom: 10px;
+}
+
+.info-meeting-show {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 0px 0px 0px;
+  margin: 30px;
+  margin-bottom: 20px;
+
+}
+
+.info-meeting-show p {
+  font-color: grey;
+  text-decoration: none;
+}
+
+.photos-users-meeting {
+  display:flex;
+
+}
+
+
 .percentage {
   margin-left: 180px;
 }
@@ -41,7 +100,7 @@
 
 .score-meeting-show {
       position: relative;
-      right: 5px;
+      right: 15px;
       display: flex;
       align-items: center;
         justify-content: center;
@@ -52,7 +111,6 @@
       border: 3px solid #4C45E4;
       font-size: 22px;
       text-decoration: none;
-      margin-left: 150px;
     }
 
 
@@ -64,6 +122,13 @@
   list-style-type: none;
   padding: 0;
   margin-top: 20px;
+  text-decoration: none;
+}
+
+
+.myUL-meeting a {
+  text-decoration: none;
+  color: black;
 }
 
 #myUL-meeting li {
@@ -75,6 +140,7 @@
   border: 1px solid #ddd;
   box-shadow: 0px 4px 23px rgba(168, 168, 168, 0.14);
   border-radius: 8px;
+  text-decoration: none;
 
   .info-meeting {
     padding: 5px;
@@ -94,6 +160,7 @@
         font-weight: 600;
         font-size: 17px;
       }
+
   }
 }
 

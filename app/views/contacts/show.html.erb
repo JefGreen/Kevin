@@ -53,8 +53,7 @@
           <% end %>
         </div>
 				<div class="add" id="trigger_like"><i class="fas fa-plus-circle"></i></div>
-
-		    </div>
+		  </div>
 
 			<div class="tags">
 				<% likes = Like.includes(:tag).where(contact_id: @contact.id).order('tags.name')%>
@@ -129,7 +128,7 @@
 			<%= link_to pages_welcome_path do %>
 				<i class="fas fa-home"></i>
 			<% end %>
-			<%= link_to root_path do %>
+			<%= link_to contacts_path do %>
 				<i class="fas fa-user"></i>
 			<% end %>
 		</div>

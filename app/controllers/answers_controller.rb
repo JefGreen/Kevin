@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :find_contact
+  before_action :find_contact, only: [:index, :new, :create]
 
   def index
     @questions = @contact.questions

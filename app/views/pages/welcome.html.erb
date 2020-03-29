@@ -11,7 +11,7 @@
     <div class="infos-top">
       <div class="info-score">
         <div class="score-welcome-home">
-          <%= link_to root_path do %>
+          <%= link_to answers_home_path do %>
             <%= @percentage %>%
           <% end %>
         </div>
@@ -20,7 +20,7 @@
 
       <div class="info-score">
         <div class="clock">
-          <%= link_to root_path do %>
+          <%= link_to meetings_path do %>
             <i class="far fa-clock"></i>
           <% end %>
         </div>
@@ -45,7 +45,7 @@
             <div class="icons-with-text">
               <div class="icons-background">
                 <%= link_to stories_path do %>
-                  <i class="fas fa-paper-plane"></i>
+                  <i class="fas fa-book-open"></i>
                 <% end %>
               </div >
               <p>MEMORIES</p>
@@ -63,9 +63,9 @@
             <p>MEETINGS</p>
           </div>
             <div class="icons-with-text">
-              <div class="icons-background">
-                <%= link_to stories_path do %>
-                  <i class="fas fa-paper-plane"></i>
+              <div class="icons-background-quiz">
+                <%= link_to answers_home_path do %>
+                  <i class="fas fa-question"></i>
                 <% end %>
               </div >
               <p>QUIZ</p>

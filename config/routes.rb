@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
   get 'pages/welcome'
+  get 'answers/home'
   devise_for :users
   root to: 'pages#home'
 
