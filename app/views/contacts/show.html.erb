@@ -46,13 +46,14 @@
 		<div class="box">
 			<div class="actions">
 				<strong>LIKES</strong>
+        <div class="d-none" id="like_input">
+          <%= simple_form_for [@contact, @liked] do |f| %>
+            <%= f.input :tag, label: false, as: :string, required: true %>
+            <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
+          <% end %>
+        </div>
 				<div class="add" id="trigger_like"><i class="fas fa-plus-circle"></i></div>
-					<div class="d-none" id="like_input">
-						<%= simple_form_for [@contact, @liked] do |f| %>
-				          <%= f.input :tag, label: false, as: :string, required: true %>
-				          <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
-				        <% end %>
-					</div>
+
 		    </div>
 
 			<div class="tags">
@@ -72,13 +73,13 @@
 		<div class="box">
 			<div class="actions">
 				<strong>DISLIKES</strong>
-				<div class="add" id="trigger_like"><i class="fas fa-plus-circle"></i></div>
-          <div class="d-none" id="like_input">
-            <%= simple_form_for [@contact, @liked] do |f| %>
-                  <%= f.input :tag, label: false, as: :string, required: true %>
-                  <%= f.input :liked, :as => :hidden, :input_html => { :value => false } %>
-                <% end %>
-          </div>
+				<div class="d-none" id="dislike_input">
+          <%= simple_form_for [@contact, @liked] do |f| %>
+            <%= f.input :tag, label: false, as: :string, required: true %>
+            <%= f.input :liked, :as => :hidden, :input_html => { :value => false } %>
+          <% end %>
+        </div>
+        <div class="add" id="trigger_dislike"><i class="fas fa-plus-circle"></i></div>
 			</div>
 
 			<div class="tags">
