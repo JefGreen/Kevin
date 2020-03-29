@@ -5,48 +5,46 @@
 </div>
 
 
-<div class="info-story-show d-flex">
-  <h4><strong><%= @meeting.start_time&.strftime("%B %e, %Y ") %></strong></h4>
+<div class="info-meeting-show">
 
-  <div class="story-contacts d-flex">
-    <% @meeting.contacts.each do |contact|%>
-      <%= link_to contact_path(Contact.find(contact.id)) do %>
-      <% begin %>
-        <%= cl_image_tag Contact.find(contact.id).photo.key, class: "contacts-pictures" %>
-      <% rescue %>
-       <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="contacts-pictures">
-       <% end %>
-      <% end %>
-    <% end %>
-
-    <%= link_to new_meeting_event_path(@meeting) do  %>
-      <div class="add"><i class="fas fa-plus-circle"></i></div>
-    <% end %>
-    <div class="score-meeting-show">
-      <% if @meeting.contacts.count.zero?  %>
-      <% else %>
-        <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
-          <%= @final_percentage %>%
+  <div class="meeting-infos">
+    <h4><strong><%= @meeting.start_time&.strftime("%B %e ") %></strong></h4>
+    <p><%= @meeting.start_time&.strftime("%I:%M%p") %></p>
+    <div class="photos-users-meeting">
+      <% @meeting.contacts.each do |contact|%>
+        <%= link_to contact_path(Contact.find(contact.id)) do %>
+        <% begin %>
+          <%= cl_image_tag Contact.find(contact.id).photo.key, class: "contacts-pictures" %>
+        <% rescue %>
+         <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="contacts-pictures">
+         <% end %>
         <% end %>
+      <% end %>
+      <%= link_to new_meeting_event_path(@meeting) do  %>
+        <div class="add"><i class="fas fa-plus-circle"></i></div>
       <% end %>
     </div>
   </div>
+
+  <% if @meeting.contacts.count.zero?  %>
+  <% else %>
+  <div class="score-meeting-show">
+
+        <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
+          <%= @final_percentage %>%
+        <% end %>
+  </div>
+  <% end %>
 </div>
 
 
 
 <div class="background-story">
-  <div class="cancel-meeting">
-  <%= link_to meeting_path(@meeting), method: :delete do %>
-    <i class="fas fa-times"> Cancel this meeting</i>
-  <% end %>
-</div>
   <div class="boxes">
     <div class="box">
       <strong>LOCATION</strong>
       <div class="text-story">
         <%= @meeting.location %>
-
         <div
           id="map"
           style="width: 100%;
@@ -54,8 +52,11 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
-
-
+      </div>
+      <div class="cancel-meeting">
+        <%= link_to meeting_path(@meeting), method: :delete do %>
+          <i class="fas fa-times"> Cancel this meeting</i>
+        <% end %>
       </div>
     </div>
 
@@ -64,6 +65,7 @@
   <div class="footer">
     <div class="button-center">
       <%= link_to edit_meeting_path(@meeting) do %>
+        <i class="fas fa-pen"></i>
       <% end %>
     </div>
 

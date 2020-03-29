@@ -31,7 +31,7 @@
         <%= link_to meeting_path(meeting) do %>
           <div class="info-meeting">
               <div class="d-flex date">
-                <%= meeting.start_time&.strftime("%B %e ") %>
+                <h2><strong><%= meeting.start_time&.strftime("%B %e") %><p></strong></h2>
                 <div>
                   <% meeting.contacts.take(3).each do |contact|%>
                     <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
@@ -42,8 +42,8 @@
                     +
                   <% else %>
                     <%= link_to new_contact_answer_path(meeting.contacts.take(1)) do %>
-                        <%= @final_percentage %>%
-                      <% end %>
+                      <%= @final_percentage %>%
+                    <% end %>
                   <% end %>
                   </div>
               </div>
