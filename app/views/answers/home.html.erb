@@ -1,0 +1,34 @@
+<div class="header">
+	<h2>Quiz room</h2>
+	<p>Choose a <strong>friend</strong> you want to be quizzed on</p>
+</div>
+
+	<div class="background-quiz">
+   		<div class="quiz-friends">
+   			<% Contact.order('first_name ASC').each do |contact| %>
+            <%= link_to new_contact_answer_path(contact) do %>
+	            <div class="d-fex contact-box" style="flex-direction: column;">
+	            	<div> <%= cl_image_tag contact.photo.key, class: "picture-index" %></div>
+	            	<div><%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %></div>
+	            </div>
+            <% end %>
+        <% end %>
+   		</div>
+	</div>
+
+	<div class="footer">
+    <div class="button-center">
+      <%= link_to new_story_path do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </div>
+
+    <div class="footer-content">
+      <%= link_to pages_welcome_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= link_to contacts_path do %>
+        <i class="fas fa-user"></i>
+      <% end %>
+    </div>
+  </div>
