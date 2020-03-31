@@ -17,8 +17,14 @@ class MeetingsController < ApplicationController
   def edit
     @meeting = Meeting.find(params[:id])
     @meeting.save
-
   end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+    @meeting.update(meeting_params)
+    redirect_to meeting_path(@meeting)
+  end
+
 
   def index
     @meetings = Meeting.all
@@ -58,7 +64,7 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:meeting).permit(:start_time, :end_time, :location)
+    params.require(:meeting).permit(:start_time, :end_time, :location, :title)
   end
 
 end

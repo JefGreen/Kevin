@@ -9,6 +9,7 @@
 
   <div class="meeting-infos">
     <h4><strong><%= @meeting.start_time&.strftime("%B %e ") %></strong></h4>
+    <h2><strong><%= @meeting.title %></strong></h2>
     <p><%= @meeting.start_time&.strftime("%I:%M%p") %></p>
     <div class="photos-users-meeting">
       <% @meeting.contacts.each do |contact|%>

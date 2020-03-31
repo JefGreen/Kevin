@@ -31,6 +31,7 @@
         <%= link_to meeting_path(meeting) do %>
           <div class="info-meeting">
               <div class="d-flex date">
+                <p><%= meeting.title %></p>
                 <h2><strong><%= meeting.start_time&.strftime("%B %e") %><p></strong></h2>
                 <div>
                   <% meeting.contacts.take(3).each do |contact|%>
