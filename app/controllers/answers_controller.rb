@@ -23,10 +23,10 @@ class AnswersController < ApplicationController
     if @answer.save!
       if @answer.answer == @answer.question.correct_answer
         @score = 100
-        @message = "Congrats, right answer"
+        @message = "Congrats, you got it right!"
       else
         @score = 0
-        @message = "Ops, wrong answer"
+        @message = "Sorry, wrong answer!"
       end
       @answer.question.score = @score
       @answer.question.save!
