@@ -17,8 +17,14 @@ class MeetingsController < ApplicationController
   def edit
     @meeting = Meeting.find(params[:id])
     @meeting.save
-
   end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+    @meeting.update(meeting_params)
+    redirect_to meeting_path(@meeting)
+  end
+
 
   def index
     @meetings = Meeting.all
@@ -47,6 +53,16 @@ class MeetingsController < ApplicationController
       @sum = @percentage + @sum
     end
     @final_percentage = @meeting.contacts.count.zero? ? 0 : @sum / @meeting.contacts.count
+
+    @color = ""
+
+    if @final_percentage == 0
+      @color = "red"
+    elsif @final_percentage == 100
+      @color = "green"
+    elsif @final_percentage < 40
+      @color = "orange"
+    end
   end
 
   def destroy
@@ -58,7 +74,7 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:meeting).permit(:start_time, :end_time, :location)
+    params.require(:meeting).permit(:start_time, :end_time, :location, :title)
   end
 
 end

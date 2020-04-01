@@ -1,7 +1,8 @@
 <div class="full-screen">
   <h1 class="title">Edit a meeting</h1>
   <%= simple_form_for [@meeting] do |f| %>
-    <%= f.input :location, as: :string, required: false  %>
+    <%= f.input :title, as: :string, required: true  %>
+    <%= f.input :location, as: :string, required: true  %>
     <%= f.input :start_time, as: :string , input_html: {class: "datepicker"}%>
     <%= f.input :end_time, as: :string , input_html: {class: "datepicker"}%>
     <%= f.submit "Save", class: "button-secondary" %>

@@ -11,15 +11,24 @@
   <%= @question.question %>
 </div>
 
-<%= @message %>
+
 
 <div class="full-screen">
+
+  
+
+
   <div class="options">
-    <div id="yes-button" class="yes opt">
-      <i class="fas fa-check-circle"></i>
+    <div class="message">
+      <%= notice %>
     </div>
-    <div id="no-button" class="no opt">
-      <i class="fas fa-times-circle"></i>
+    <div class="buttons">
+      <div id="yes-button" class="yes opt">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div id="no-button" class="no opt">
+        <i class="fas fa-times-circle"></i>
+      </div>
     </div>
   </div>
 

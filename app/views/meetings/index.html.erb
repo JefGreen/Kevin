@@ -27,26 +27,65 @@
     <% end %>
     <% @final_percentage = meeting.contacts.count.zero? ? 0 : @sum / meeting.contacts.count %>
 
+    <% if @final_percentage == 0 %>
+      <% @color = "red" %>
+    <% elsif @final_percentage == 100 %>
+      <% @color = "green" %>
+    <% elsif @final_percentage < 40 %>
+      <% @color = "orange" %>
+    <% end %>
+
+
       <li>
         <%= link_to meeting_path(meeting) do %>
           <div class="info-meeting">
+            <div class="first-block">
+              <div class="title">
+                <strong><%= meeting.title %></strong>
+              </div>
               <div class="d-flex date">
-                <h2><strong><%= meeting.start_time&.strftime("%B %e") %><p></strong></h2>
+                <%= meeting.start_time&.strftime("%B %e") %>
+              </div>
                 <div>
                   <% meeting.contacts.take(3).each do |contact|%>
                     <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
                   <% end %>
                 </div>
+            </div>
                 <div class="score-meeting">
                   <% if meeting.contacts.count.zero?  %>
                     +
                   <% else %>
                     <%= link_to new_contact_answer_path(meeting.contacts.take(1)) do %>
-                      <%= @final_percentage %>%
+
+
+
+                            <% if @final_percentage == 0 %>
+
+                                <div class="c100 p100 small <%=@color%>">
+                                    <span><%= @final_percentage %>%</span>
+                                  <div class="slice">
+                                    <div class="bar"></div>
+                                    <div class="fill"></div>
+                                  </div>
+                                </div>
+
+                            <% else %>
+
+                            <div class="c100 p<%=@final_percentage%> small <%=@color%>">
+                                <span><%= @final_percentage %>%</span>
+                              <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                              </div>
+                            </div>
+
+                          <% end %>
+
+
                     <% end %>
                   <% end %>
-                  </div>
-              </div>
+                </div>
           </div>
         <% end %>
       </li>
