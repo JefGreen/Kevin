@@ -58,6 +58,8 @@ class MeetingsController < ApplicationController
       @color = "red"
     elsif @final_percentage == 100
       @color = "green"
+    elsif @final_percentage.between?(40, 100)
+      @color = ""
     elsif @final_percentage < 40
       @color = "orange"
     end
