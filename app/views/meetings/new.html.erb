@@ -1,13 +1,30 @@
-
+<div class="chevron">
+  <%= link_to meetings_path do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %>
+</div>
+<h1 class="page-title">Create a meeting</h1>
 
 <div class="full-screen">
-  <h1 class="title">Create a meeting</h1>
   <%= simple_form_for [@meeting] do |f| %>
-    <%= f.input :title, as: :string, required: true  %>
-    <%= f.input :location, as: :string, required: true  %>
-    <%= f.input :start_time, as: :string , input_html: {class: "datepicker"}%>
-    <%= f.input :end_time, as: :string , input_html: {class: "datepicker"}%>
-    <%= f.submit "Save", class: "button-secondary" %>
+    <%= f.input :title, as: :string, required: true, label: false, placeholder: "Title" %>
+    <%= f.input :location, as: :string, required: true, label: false, placeholder: "Location"  %>
+    <%= f.input :start_time, as: :string , input_html: {class: "datepicker"}, label: "From" %>
+    <%= f.input :end_time, as: :string , input_html: {class: "datepicker"}, label: "To" %>
   <% end %>
+
+  <div class="footer">
+			<div class="button-center">
+				<a href="#" onclick="document.getElementById('new_meeting').submit();"><i class="fas fa-save"></i></a>
+		    </div>
+		<div class="footer-content">
+			<%= link_to pages_welcome_path do %>
+				<i class="fas fa-home"></i>
+			<% end %>
+			<%= link_to contacts_path do %>
+				<i class="fas fa-user"></i>
+			<% end %>
+		</div>
+	</div>
 
 </div>
