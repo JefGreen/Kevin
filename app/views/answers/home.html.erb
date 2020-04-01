@@ -7,7 +7,7 @@
    		<div class="quiz-friends">
    			<% Contact.order('first_name ASC').each do |contact| %>
             <%= link_to new_contact_answer_path(contact) do %>
-	            <div class="d-fex contact-box" style="flex-direction: column;">
+	            <div class="contact-box">
 	            	<div> <%= cl_image_tag contact.photo.key, class: "picture-index" %></div>
 	            	<div><%= contact.first_name.capitalize %> <%= contact.last_name.capitalize %></div>
 	            </div>
