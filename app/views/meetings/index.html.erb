@@ -30,15 +30,20 @@
       <li>
         <%= link_to meeting_path(meeting) do %>
           <div class="info-meeting">
+            <div class="first-block">
+              <div class="title">
+                <strong><%= meeting.title %></strong>
+              </div>
               <div class="d-flex date">
-                <p><%= meeting.title %></p>
-                <h2><strong><%= meeting.start_time&.strftime("%B %e") %><p></strong></h2>
+                <%= meeting.start_time&.strftime("%B %e") %>
+              </div>
                 <div>
                   <% meeting.contacts.take(3).each do |contact|%>
                     <%= cl_image_tag contact.photo.key, class: "contacts-pictures" %>
                   <% end %>
                 </div>
-                <div class="score-meeting">
+            </div>
+            <div class="score-meeting">
                   <% if meeting.contacts.count.zero?  %>
                     +
                   <% else %>
@@ -46,8 +51,7 @@
                       <%= @final_percentage %>%
                     <% end %>
                   <% end %>
-                  </div>
-              </div>
+             </div>
           </div>
         <% end %>
       </li>

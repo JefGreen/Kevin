@@ -13,6 +13,9 @@
   h2 {
     text-align: left;
   }
+  h3 {
+    text-align: left;
+  }
 }
 
 .meeting-infos {
@@ -24,11 +27,7 @@
   color: grey;
 }
 
-.info-meeting h2 {
-  text-decoration: none;
-  color: black;
-  font-size: 22px;
-}
+
 
 .info-meeting p {
   text-decoration: none;
@@ -41,6 +40,7 @@
   text-decoration: none;
   color: blue;
   font-size: 17px;
+  text-decoration: none;
 }
 
 .cancel-meeting i {
@@ -148,17 +148,21 @@
     text-decoration: none;
     font-size: 14px;
     font-color: grey;
+    display: flex;
+    justify-content: space-between;
       .title {
       color: black;
       font-size: 17px;
       font-weight: 600;
+      text-decoration: none;
       }
       .date {
         justify-content: space-between;
         color: grey;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 17px;
+        font-weight: 400;
+        font-size: 15px;
+
       }
 
   }
