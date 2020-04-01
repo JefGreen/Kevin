@@ -10,9 +10,28 @@
 
     <div class="infos-top">
       <div class="info-score">
-        <div class="score-welcome-home">
+        <div class="">
           <%= link_to answers_home_path do %>
-            <%= @percentage %>%
+              <% if @percentage == 0 %>
+
+                <div class="c100 p100 small <%=@color%>">
+                    <span><%= @percentage %>%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+
+              <% else %>
+
+                <div class="c100 p<%=@percentage%> small <%=@color%>">
+                    <span><%= @percentage %>%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+            <% end %>
           <% end %>
         </div>
         <p>How much you know about your friends</p>
@@ -21,7 +40,28 @@
       <div class="info-score">
         <div class="clock">
           <%= link_to meetings_path do %>
-            <i class="far fa-clock"></i>
+            <% if @percentage == 0 %>
+
+                <div class="c100 p100 small <%=@color%>">
+                    <span><%= @percentage %>%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+
+              <% else %>
+
+                <div class="c100 p<%=@percentage%> small <%=@color%>">
+                    <span><%= @percentage %>%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
+            <% end %>
+
+
           <% end %>
         </div>
         <p>You have a new meeting in 4 hours</p>
