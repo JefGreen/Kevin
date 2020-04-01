@@ -1,3 +1,5 @@
+
+
 <div class="chevron">
   <%= link_to meetings_path do %>
     <i class="fas fa-chevron-left"></i>
@@ -6,7 +8,6 @@
 
 
 <div class="info-meeting-show">
-
   <div class="meeting-infos">
     <h4><strong><%= @meeting.title %></strong></h4>
     <p><%= @meeting.start_time&.strftime("%B %e ")%>: <%= @meeting.start_time&.strftime("%I:%M%p")%></p>
@@ -29,12 +30,35 @@
 
   <% if @meeting.contacts.count.zero?  %>
   <% else %>
-  <div class="score-meeting-show">
 
-        <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
-          <%= @final_percentage %>%
-        <% end %>
-  </div>
+    <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
+
+      <% if @final_percentage == 0 %>
+
+        <div class="c100 p100 big <%=@color%>">
+            <span><%= @final_percentage %>%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>
+
+      <% else %>
+
+        <div class="c100 p<%=@final_percentage%> big <%=@color%>">
+            <span><%= @final_percentage %>%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>
+
+      <% end %>
+
+
+
+
+    <% end %>
   <% end %>
 </div>
 

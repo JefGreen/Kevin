@@ -53,6 +53,16 @@ class MeetingsController < ApplicationController
       @sum = @percentage + @sum
     end
     @final_percentage = @meeting.contacts.count.zero? ? 0 : @sum / @meeting.contacts.count
+
+    @color = ""
+
+    if @final_percentage == 0
+      @color = "red"
+    elsif @final_percentage == 100
+      @color = "green"
+    elsif @final_percentage < 40
+      @color = "orange"
+    end
   end
 
   def destroy
