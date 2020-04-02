@@ -26,6 +26,8 @@ class PagesController < ApplicationController
     @meeting_percentage_color = color(@meeting_percentage_color)
   end
 
+  private
+
   def color(value)
     case value.to_i
     when 'NA'
