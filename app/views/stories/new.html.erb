@@ -17,7 +17,7 @@
 	     	sort_by { |user| user.first_name },
 	     :first_name, :first_name),
 	      class: 'select2', multiple: true %>
-		<%= f.input :date, as: :string , input_html: {class: "datepicker"} %>
+		<%= f.input :date, as: :string , input_html: {class: "datepicker-without"} %>
 		<%= f.input :description, as: :text, required: false, label: false, placeholder: "How was it?" %>
 		<%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
 
