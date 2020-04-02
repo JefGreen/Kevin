@@ -5,40 +5,29 @@ class PagesController < ApplicationController
   end
 
   def welcome
+    # Get first meeting or notify user that they have no meetings
+    mettings = Meeting.all
+    if mettings.count.zero?
+      @phrase = "You currently have no meetings coming up"
+      @meeting_percentage = 100
+    else
+      meeting = mettings.order('start_time ASC').first
+      @phrase = "You have a new meeting starting at #{meeting.start_time&.strftime('%I:%M%p')}"
 
-    # meeting percentage
-
-    @meeting = Meeting.all.order('start_time ASC').first
-
-    @sum_meeting = 0
-    @meeting.contacts.each do |contact|
-      @questions_contacts = contact.questions
-      if @questions_contacts.count.zero?
-        @percentage1 = 0
-      else
-        @percentage1 = @questions_contacts.where(score: 100).count * 100 / @questions_contacts.count
-      end
-      @sum_meeting = @percentage1 + @sum_meeting
+      meeting_q = meeting.questions
+      @meeting_percentage = meeting_q.count.zero? ? 100 : meeting_q.where(score: 100).count * 100 / meeting_q.count
     end
-    @meeting_percentage = @meeting.contacts.count.zero? ? 0 : @sum_meeting / @meeting.contacts.count
 
-    # general percentage
+    # Get percentage for the total of contacts
+    @percentage = Question.count.zero? ? 100 : Question.where(score: 100).count * 100 / Question.count
 
-    @sum = 0
-    @questions = Question.all
-      if @questions.count.zero?
-        @percentage = 0
-      else
-        @percentage = @questions.where(score: 100).count * 100 / @questions.count
-      end
-
-    if @percentage == 0
+    # Color setup
+    if @percentage.zero?
       @color = "red"
     elsif @percentage == 100
       @color = "green"
     elsif @percentage < 40
       @color = "orange"
     end
-
   end
 end

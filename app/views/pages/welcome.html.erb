@@ -12,18 +12,6 @@
       <div class="info-score">
         <div class="">
           <%= link_to answers_home_path do %>
-              <% if @percentage == 0 %>
-
-                <div class="c100 p100 small <%=@color%>">
-                    <span><%= @percentage %>%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-
-              <% else %>
-
                 <div class="c100 p<%=@percentage%> small <%=@color%>">
                     <span><%= @percentage %>%</span>
                   <div class="slice">
@@ -31,7 +19,6 @@
                     <div class="fill"></div>
                   </div>
                 </div>
-            <% end %>
           <% end %>
         </div>
         <p>How much you know about your friends</p>
@@ -40,18 +27,6 @@
       <div class="info-score">
         <div class="clock">
           <%= link_to meetings_path do %>
-            <% if @meeting_percentage == 0 %>
-
-                <div class="c100 p100 small <%=@color%>">
-                    <span><%= @meeting_percentage %>%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-
-              <% else %>
-
                 <div class="c100 p<%=@meeting_percentage%> small <%=@color%>">
                     <span><%= @meeting_percentage %>%</span>
                   <div class="slice">
@@ -59,12 +34,10 @@
                     <div class="fill"></div>
                   </div>
                 </div>
-            <% end %>
-
           <% end %>
         </div>
         <div>
-          <p>You have a new meeting starting at <%= @meeting.start_time&.strftime("%I:%M%p") %></p>
+          <p><%= @phrase %></p>
         </div>
       </div>
     </div>
