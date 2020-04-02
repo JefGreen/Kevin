@@ -17,7 +17,7 @@
 
   <%= simple_form_for [@story] do |f| %>
     <%= f.input :title, as: :text, required: false  %>
-    <%= f.input :date, as: :date %>
+    <%= f.input :date, as: :string , input_html: {class: "datepicker"} %>
     <%= f.input :description, as: :text, required: false %>
     <%= f.input :photos, as: :file, :input_html => { :multiple => true } %>
 
