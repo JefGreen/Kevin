@@ -14,6 +14,7 @@ $secondary-color-dark: #777;
 $bg-color-dark: #666;
 $primary-color-green-dark: #5fd400;
 $primary-color-orange-dark: #e08833;
+$primary-color-yellow: #f5ef42;
 $red :#A82337 ;
 
 
@@ -231,6 +232,17 @@ $red :#A82337 ;
         }
     }
 
+    &.yellow {
+        .bar,
+        .fill {
+            border-color: $primary-color-yellow !important;
+        }
+        &:hover {
+            >span {
+                color: $primary-color-yellow;
+            }
+        }
+    }
 
 
 

@@ -12,7 +12,7 @@
       <div class="info-score">
         <div class="">
           <%= link_to answers_home_path do %>
-                <div class="c100 p<%=@percentage%> small <%=@color%>">
+                <div class="c100 p<%=@percentage%> small <%=@percentage_color%>">
                     <span><%= @percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>
@@ -27,7 +27,7 @@
       <div class="info-score">
         <div class="clock">
           <%= link_to meetings_path do %>
-                <div class="c100 p<%=@meeting_percentage%> small <%=@color%>">
+                <div class="c100 p<%=@meeting_percentage%> small <%=@meeting_percentage_color%>">
                     <span><%= @meeting_percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>

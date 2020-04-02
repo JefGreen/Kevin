@@ -22,12 +22,22 @@ class PagesController < ApplicationController
     @percentage = Question.count.zero? ? 100 : Question.where(score: 100).count * 100 / Question.count
 
     # Color setup
-    if @percentage.zero?
-      @color = "red"
-    elsif @percentage == 100
-      @color = "green"
-    elsif @percentage < 40
-      @color = "orange"
+    @percentage_color = color(@percentage)
+    @meeting_percentage_color = color(@meeting_percentage_color)
+  end
+
+  def color(value)
+    case value.to_i
+    when 'NA'
+      "red"
+    when 0...10
+      "red"
+    when 10...40
+      "orange"
+    when 40...100
+      "yellow"
+    when 100
+      "green"
     end
   end
 end
