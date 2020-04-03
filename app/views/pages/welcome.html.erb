@@ -5,29 +5,18 @@
   </div>
 
   <div class="welcome-user">
-    <p>Welcome back Jeff!</p>
+
   </div>
 
-    <div class="infos-top">
-      <div class="info-score">
-        <div class="">
-          <%= link_to answers_home_path do %>
-                <div class="c100 p<%=@percentage%> small <%=@percentage_color%>">
-                    <span><%= @percentage %>%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-          <% end %>
-        </div>
-        <p>How much you know about your friends</p>
-      </div>
+  <div class="alerts">
+    <p>Welcome back Jeff!</p>
+
+  </div>
 
       <div class="info-score">
         <div class="clock">
           <%= link_to meetings_path do %>
-                <div class="c100 p<%=@meeting_percentage%> small <%=@meeting_percentage_color%>">
+                <div class="c100 p<%=@meeting_percentage%> big orange">
                     <span><%= @meeting_percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>
@@ -37,7 +26,7 @@
           <% end %>
         </div>
         <div>
-          <p><%= @phrase %></p>
+          <p><%= @phrase %> and you only know <strong><%= @meeting_percentage %>%</strong> about the friends at that meeting</p>
         </div>
       </div>
     </div>

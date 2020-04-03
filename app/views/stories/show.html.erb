@@ -2,6 +2,9 @@
   <%= link_to stories_path do %>
     <i class="fas fa-chevron-left"></i>
   <% end %>
+  <%= link_to story_path(@story), method: :delete do %>
+    <i class="fas fa-times"></i>
+  <% end %>
 </div>
 
 <div class="info-story-show d-flex">
@@ -28,7 +31,7 @@
     <div class="box">
       <strong>STORY</strong>
       <div class="text-story">
-        <%= @story.description %>
+        <%=@story.description %>
       </div>
     </div>
 
