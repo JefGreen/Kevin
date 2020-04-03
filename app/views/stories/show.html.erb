@@ -29,14 +29,14 @@
   <div class="boxes">
 
     <div class="box">
-      <strong>STORY</strong>
+      <div class="box-title"><strong>STORY</strong></div>
       <div class="text-story">
         <%=@story.description %>
       </div>
     </div>
 
     <div class="box">
-      <strong>PICTURES</strong>
+      <div class="box-title"><strong>PICTURES</strong></div>
       <div class="story-pictures">
         <% @story.photos.each do |photo|%>
             <%= cl_image_tag photo.key%>
