@@ -11,7 +11,8 @@
   top:0;
   left:0;
   h2 {
-    text-align: left;
+    text-align: center;
+    font-family: avenir;
   }
   h3 {
     text-align: left;
@@ -39,12 +40,16 @@
   color: grey;
 }
 
+.box-title {
+  color: #68615F;
+}
 
 
 .info-meeting p {
   text-decoration: none;
   color: grey;
   font-size: 14px;
+  font-family: avenir;
 }
 
 
@@ -78,6 +83,7 @@
 .info-meeting-show p {
   font-color: grey;
   text-decoration: none;
+  font-family: avenir;
 }
 
 .photos-users-meeting {
@@ -167,6 +173,7 @@
       font-size: 17px;
       font-weight: 600;
       text-decoration: none;
+      font-family: avenir;
       }
       .date {
         justify-content: space-between;
