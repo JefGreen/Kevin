@@ -37,7 +37,7 @@ class PagesController < ApplicationController
     when 10...40
       "orange"
     when 40...100
-      "yellow"
+      "orange"
     when 100
       "green"
     end
