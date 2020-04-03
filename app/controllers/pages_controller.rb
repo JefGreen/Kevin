@@ -19,10 +19,10 @@ class PagesController < ApplicationController
     end
 
     # Get percentage for the total of contacts
-    @percentage = Question.count.zero? ? 100 : Question.where(score: 100).count * 100 / Question.count
+    @percentage = Contact.percentage
 
     # Color setup
-    @percentage_color = color(@percentage)
+    @percentage_color = Contact.color
     @meeting_percentage_color = color(@meeting_percentage_color)
   end
 

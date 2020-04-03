@@ -17,6 +17,21 @@ class Contact < ApplicationRecord
     questions.count.zero? ? 0 : questions.where(score: 100).count * 100 / questions.count
   end
 
+  def self.color
+    case percentage.to_i
+    when 'NA'
+      "red"
+    when 0...10
+      "red"
+    when 10...40
+      "orange"
+    when 40...100
+      "yellow"
+    when 100
+      "green"
+    end
+  end
+
   def color
     case percentage.to_i
     when 'NA'
