@@ -534,7 +534,7 @@ puts 'Generating Groups'
 puts 'Generating Contacts'
 puts ''
 puts 'Added the following to Kevin:'
-images.take(5).each do |image|
+images.each do |image|
   generateContact(image)
 end
 

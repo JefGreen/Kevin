@@ -16,7 +16,11 @@
 <div class="full-screen">
   <div class="options">
     <div class="message">
-      <%= notice %>
+      <% if notification %>
+        <span style="color: <%= notification["color"] %>">
+          <%= notification["text"] %>
+        </span>
+      <% end %>
     </div>
     <div class="buttons">
       <div id="yes-button" class="yes opt">
@@ -28,7 +32,7 @@
     </div>
   </div>
 
-  <p>Your progress: <%= @percentage %>% </p>
+  <p>Your score is: <%= @percentage %>%!</p>
 
     <%= simple_form_for [@contact, @answer] do |f| %>
       <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>

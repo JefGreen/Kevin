@@ -23,14 +23,20 @@ class AnswersController < ApplicationController
     if @answer.save!
       if @answer.answer == @answer.question.correct_answer
         @score = 100
-        @message = "Congrats, you got it right!"
+        @message = {
+                    text: "Congrats, you got it right",
+                    color: "#4caf50"
+                  }
       else
         @score = 0
-        @message = "Sorry, wrong answer!"
+        @message = {
+                    text: "Sorry, wrong answer!",
+                    color: "#f44336"
+                  }
       end
       @answer.question.score = @score
       @answer.question.save!
-      redirect_to new_contact_answer_path(@contact), notice: @message
+      redirect_to new_contact_answer_path(@contact), notification: @message
     else
       render :new
     end
