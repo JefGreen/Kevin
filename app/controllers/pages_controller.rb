@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def welcome
-    # Get first meeting or notify user that they have no meetings
+    # Get first meeting. Notify user that they have no meetings and give a percentage
     mettings = Meeting.all
     if mettings.count.zero?
       @phrase = "You currently have no meetings coming up"
