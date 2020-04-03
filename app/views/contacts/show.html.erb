@@ -69,7 +69,7 @@
 		<div class="box">
 			<div class="actions">
 				<strong>LIKES</strong>
-		        <div class="d-none field" id="like_input">
+		        <div class="w-0 animation" id="like_input">
 		          <%= simple_form_for [@contact, @liked] do |f| %>
 		            <%= f.input :tag, label: false, as: :string, required: true %>
 		            <%= f.input :liked, :as => :hidden, :input_html => { :value => true } %>
@@ -95,7 +95,7 @@
 		<div class="box">
 			<div class="actions">
 				<strong>DISLIKES</strong>
-				<div class="d-none" id="dislike_input">
+				<div class="w-0 animation" id="dislike_input">
 		          <%= simple_form_for [@contact, @liked] do |f| %>
 		            <%= f.input :tag, label: false, as: :string, required: true %>
 		            <%= f.input :liked, :as => :hidden, :input_html => { :value => false } %>
