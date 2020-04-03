@@ -24,19 +24,23 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 35px 0px 0px 0px;
+	padding: 65px 0px 0px 0px;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+
 }
 
 .information {
-	width: auto;
+	margin-top: 10px;
+  width: auto;
 	display: flex;
 	flex-direction: column;
 	margin-left: 15px;
 
 	.name {
-		font-size: 24px;
+		font-size: 22px;
 		font-weight: bold;
 		color: black;
 	}
@@ -48,7 +52,13 @@
 		.text {
 			display: flex-end;
 			flex-direction: column;
-			width: 70%;
+      width: 70%;
+      margin-right: 10px;
+      margin-left: 10px;
+      color: grey;
+      font-size: 13px;
+      text-align: left;
+
 		}
 		.score {
 			position: relative;
@@ -63,6 +73,7 @@
 			border: 3px solid #4C45E4;
 			font-size: 18px;
 			text-decoration: none;
+      margin-left: 10px;
 		}
 	}
 }

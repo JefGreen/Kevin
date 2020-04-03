@@ -31,11 +31,12 @@
 				<div class="icon">
 					<i class="fas fa-users" style="margin-right: 5px; font-size: 12px"></i><%= @contact.meeting_location %>
 				</div>
-
-			</div>
-			<div class="">
-				<%= link_to new_contact_answer_path(@contact) do %>
-					<div class="results">
+      </div>
+		</div>
+	</div>
+  <div class="">
+        <%= link_to new_contact_answer_path(@contact) do %>
+          <div class="results">
                 <div class="c100 p<%=@contact.percentage %> small <%=@contact.color%>">
                     <span><%= @contact.percentage %>%</span>
                   <div class="slice">
@@ -43,11 +44,9 @@
                     <div class="fill"></div>
                   </div>
                 </div>
-					</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
+          </div>
+        <% end %>
+  </div>
 </div>
 
 <div class="background">
