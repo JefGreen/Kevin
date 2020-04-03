@@ -11,10 +11,10 @@
 <div class="info">
 	<div class="picture-container">
 	      <% begin %>
-            <%= cl_image_tag @contact.photo.key, class: "picture" %>
-          <% rescue %>
-            <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture">
-          <% end %>
+          <%= cl_image_tag @contact.photo.key, class: "picture" %>
+        <% rescue %>
+          <img src="https://vignette.wikia.nocookie.net/real-life-heroes/images/2/2c/Michael_Jackson.jpg/revision/latest?cb=20191122190551" class="picture">
+        <% end %>
 	</div>
 
 	<div class="information">
@@ -36,30 +36,13 @@
 			<div class="">
 				<%= link_to new_contact_answer_path(@contact) do %>
 					<div class="results">
-
-              <% if @percentage == 0 %>
-
-                <div class="c100 p100 extrasmall <%=@color%>">
-                    <span><%= @percentage %>%</span>
+                <div class="c100 p<%=@contact.percentage %> small <%=@contact.color%>">
+                    <span><%= @contact.percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>
                     <div class="fill"></div>
                   </div>
                 </div>
-
-              <% else %>
-
-                <div class="c100 p<%=@percentage%> extrasmall <%=@color%>">
-                    <span><%= @percentage %>%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
-                </div>
-            <% end %>
-
-
-
 					</div>
 				<% end %>
 			</div>
