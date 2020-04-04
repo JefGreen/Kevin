@@ -7,36 +7,12 @@
   <h2 class="page-title">Meetups.</h2>
 </div>
 
-
-
-
-
 <div class="d-flex align-items-center justify-content-center scroll top-margin bot-margin">
   <ul id="myUL-meeting">
     <% @meetings.each do |meeting| %>
 
-    <% @sum = 0 %>
-    <% meeting.contacts.each do |contact| %>
-      <% @questions = contact.questions %>
-      <% if @questions.count.zero?  %>
-        <% @percentage = 0 %>
-      <% else %>
-        <% @percentage = @questions.where(score: 100).count * 100 / @questions.count  %>
-      <% end %>
-    <% @sum = @percentage + @sum %>
-    <% end %>
-    <% @final_percentage = meeting.contacts.count.zero? ? 0 : @sum / meeting.contacts.count %>
-
-    <% if @final_percentage == 0 %>
-      <% @color = "red" %>
-    <% elsif @final_percentage == 100 %>
-      <% @color = "green" %>
-    <% elsif @final_percentage.between?(40, 100) %>
-      <% @color = "" %>
-    <% elsif @final_percentage < 40 %>
-      <% @color = "orange" %>
-    <% end %>
-
+    <% @final_percentage = Contact.percentage_of(meeting.contacts) %>
+    <% @color = color(@final_percentage) %>
 
       <li>
         <%= link_to meeting_path(meeting) do %>
@@ -60,30 +36,13 @@
                   <% else %>
                     <%= link_to new_contact_answer_path(meeting.contacts.take(1)) do %>
 
-
-
-                            <% if @final_percentage == 0 %>
-
-                                <div class="c100 p100 small <%=@color%>">
-                                    <span><%= @final_percentage %>%</span>
-                                  <div class="slice">
-                                    <div class="bar"></div>
-                                    <div class="fill"></div>
-                                  </div>
-                                </div>
-
-                            <% else %>
-
-                            <div class="c100 p<%=@final_percentage%> small <%=@color%>">
-                                <span><%= @final_percentage %>%</span>
-                              <div class="slice">
-                                <div class="bar"></div>
-                                <div class="fill"></div>
-                              </div>
-                            </div>
-
-                          <% end %>
-
+                      <div class="c100 p<%=@final_percentage%> small <%=@color%>">
+                          <span><%= @final_percentage %>%</span>
+                        <div class="slice">
+                          <div class="bar"></div>
+                          <div class="fill"></div>
+                        </div>
+                      </div>
 
                     <% end %>
                   <% end %>

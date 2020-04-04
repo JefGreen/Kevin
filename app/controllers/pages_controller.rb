@@ -22,24 +22,7 @@ class PagesController < ApplicationController
     @percentage = Contact.percentage
 
     # Color setup
-    @percentage_color = Contact.color
+    @percentage_color = color(@percentage)
     @meeting_percentage_color = color(@meeting_percentage_color)
-  end
-
-  private
-
-  def color(value)
-    case value.to_i
-    when 'NA'
-      "red"
-    when 0...10
-      "red"
-    when 10...40
-      "orange"
-    when 40...100
-      "orange"
-    when 100
-      "green"
-    end
   end
 end
