@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
     case percentage.to_i
     when 'NA'
       "red"
-    when 0...10
+    when 0...20
       "red"
-    when 10...40
+    when 20...50
       "orange"
-    when 40...100
+    when 50...70
       "blue"
-    when 100
+    when 70..100
       "green"
     else
       ""
