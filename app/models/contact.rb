@@ -14,7 +14,7 @@ class Contact < ApplicationRecord
   end
 
   def self.percentage_of(contacts)
-    contacts.reduce(0) { |sum, c| sum + c.percentage } / contacts.count
+    contacts.count.zero? ? 0 : contacts.reduce(0) { |sum, c| sum + c.percentage } / contacts.count
   end
 
   def percentage

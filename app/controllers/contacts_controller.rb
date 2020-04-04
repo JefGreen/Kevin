@@ -16,21 +16,6 @@ class ContactsController < ApplicationController
   def show
     @liked = Like.new
     @contact = Contact.find(params[:id])
-    @questions = @contact.questions
-    if @questions.count.zero?
-      @percentage = 0
-    else
-      @percentage = @questions.where(score: 100).count * 100 / @questions.count
-    end
-
-    if @percentage == 0
-      @color = "red"
-    elsif @percentage == 100
-      @color = "green"
-    elsif @percentage < 40
-      @color = "orange"
-    end
-
   end
 
   def new

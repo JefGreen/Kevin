@@ -37,7 +37,7 @@
   <div class="">
         <%= link_to new_contact_answer_path(@contact) do %>
           <div class="results">
-                <div class="c100 p<%=@contact.percentage %> small <%=@contact.color%>">
+                <div class="c100 p<%=@contact.percentage %> small <%=color(@contact.percentage)%>">
                     <span><%= @contact.percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>

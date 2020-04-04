@@ -9,20 +9,27 @@ class PagesController < ApplicationController
     mettings = Meeting.all
     if mettings.count.zero?
       @phrase = "You currently have no meetings coming up"
-      @meeting_percentage = 100
+      @meeting_percentage = 0
     else
       meeting = mettings.order('start_time ASC').first
-      @phrase = "You have a new meeting #{meeting.start_time&.strftime("%B %e ")} at #{meeting.start_time&.strftime('%I:%M%p')}"
-
-      meeting_q = meeting.questions
-      @meeting_percentage = meeting_q.count.zero? ? 100 : meeting_q.where(score: 100).count * 100 / meeting_q.count
+      @meeting_percentage = Contact.percentage_of(meeting.contacts)
+      start_date = meeting.start_time&.strftime("%B %e ")
+      start_time = meeting.start_time&.strftime('%I:%M%p')
+      @phrase = "You have a new meeting #{start_date} at #{start_time} and #{phrase_for(@meeting_percentage)[0]}"
+      @phrase2 = phrase_for(@meeting_percentage)[1]
     end
+  end
 
-    # Get percentage for the total of contacts
-    @percentage = Contact.percentage
+  private
 
-    # Color setup
-    @percentage_color = color(@percentage)
-    @meeting_percentage_color = color(@meeting_percentage_color)
+  def phrase_for(percentage)
+    case percentage.to_i
+    when 0...50
+      ["you only know ", "Use this time to learn to know them."]
+    when 50...70
+      ["you know ", "Practice more if you have time."]
+    when 70...100
+      ["wow you know ", "You are ready!."]
+    end
   end
 end
