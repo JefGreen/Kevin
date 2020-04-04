@@ -9,14 +9,14 @@
   </div>
 
   <div class="alerts">
-    <p>Welcome back Jeff!</p>
+    <p>Welcome back</p>
 
   </div>
 
       <div class="info-score">
         <div class="clock">
           <%= link_to meetings_path do %>
-                <div class="c100 p<%=@meeting_percentage%> big orange">
+                <div class="c100 p<%=@meeting_percentage%> big <%= color(@meeting_percentage) %>">
                     <span><%= @meeting_percentage %>%</span>
                   <div class="slice">
                     <div class="bar"></div>
@@ -26,7 +26,7 @@
           <% end %>
         </div>
         <div>
-          <p><%= @phrase %> and you only know <strong><%= @meeting_percentage %>%</strong> about the friends at that meeting</p>
+          <p><%= @phrase %> <strong><%= @meeting_percentage %>%</strong> about the friends at that meeting. <%= @phrase2 %></p>
         </div>
       </div>
     </div>

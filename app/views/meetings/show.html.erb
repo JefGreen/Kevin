@@ -30,21 +30,10 @@
   </div>
 
   <% if @meeting.contacts.count.zero?  %>
+  +
   <% else %>
 
     <%= link_to new_contact_answer_path(@meeting.contacts.take(1)) do %>
-
-      <% if @final_percentage == 0 %>
-
-        <div class="c100 p100 big <%=@color%>">
-            <span><%= @final_percentage %>%</span>
-          <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
-          </div>
-        </div>
-
-      <% else %>
 
         <div class="c100 p<%=@final_percentage%> big <%=@color%>">
             <span><%= @final_percentage %>%</span>
@@ -53,9 +42,6 @@
             <div class="fill"></div>
           </div>
         </div>
-
-      <% end %>
-
 
     <% end %>
   <% end %>
