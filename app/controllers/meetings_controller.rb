@@ -25,7 +25,7 @@ class MeetingsController < ApplicationController
 
 
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.all.order("start_time ASC")
   end
 
   def show
