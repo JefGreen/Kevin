@@ -16,50 +16,52 @@
 
 
 <div class="full-screen">
-  <div class="options">
-    <div class="message">
-      <% if notification %>
-        <span style="color: <%= notification["color"] %>">
-          <%= notification["text"] %>
-        </span>
+  <div class="background-quiz">
+    <div class="options">
+      <div class="message">
+        <% if notification %>
+          <span style="color: <%= notification["color"] %>">
+            <%= notification["text"] %>
+          </span>
+        <% end %>
+      </div>
+      <div class="buttons">
+        <div id="yes-button" class="yes opt">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div id="no-button" class="no opt">
+          <i class="fas fa-times-circle"></i>
+        </div>
+      </div>
+    </div>
+
+      <div style="text-align: center;">Your score is: <%= @percentage %>%!</div>
+
+      <%= simple_form_for [@contact, @answer] do |f| %>
+        <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
+        <%= f.hidden_field :question_id  %>
+        <%= f.submit "", required: false, id: "submit-answer", class: "invisible" %>
+  <!--       <%= f.submit "Next", class: "button", id: "submit-answer" %> -->
       <% end %>
-    </div>
-    <div class="buttons">
-      <div id="yes-button" class="yes opt">
-        <i class="fas fa-check-circle"></i>
+
+
+      <div class="footer">
+        <div class="button-center">
+          <%= link_to new_contact_answer_path(@contact) do %>
+            <i class="fas fa-forward"></i>
+          <% end %>
+        </div>
+
+        <div class="footer-content">
+          <%= link_to pages_welcome_path do %>
+            <i class="fas fa-home"></i>
+          <% end %>
+          <%= link_to contacts_path do %>
+            <i class="fas fa-user"></i>
+          <% end %>
+        </div>
       </div>
-      <div id="no-button" class="no opt">
-        <i class="fas fa-times-circle"></i>
-      </div>
-    </div>
   </div>
-
-  <p>Your score is: <%= @percentage %>%!</p>
-
-    <%= simple_form_for [@contact, @answer] do |f| %>
-      <%= f.input :answer, as: :hidden, required: false %> <%# use inspector to find the id that simple form has given it %>
-      <%= f.hidden_field :question_id  %>
-      <%= f.submit "", required: false, id: "submit-answer", class: "invisible" %>
-<!--       <%= f.submit "Next", class: "button", id: "submit-answer" %> -->
-    <% end %>
-
-
-    <div class="footer">
-      <div class="button-center">
-        <%= link_to new_contact_answer_path(@contact) do %>
-          <i class="fas fa-forward"></i>
-        <% end %>
-      </div>
-
-      <div class="footer-content">
-        <%= link_to pages_welcome_path do %>
-          <i class="fas fa-home"></i>
-        <% end %>
-        <%= link_to contacts_path do %>
-          <i class="fas fa-user"></i>
-        <% end %>
-      </div>
-    </div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag "application" %>
