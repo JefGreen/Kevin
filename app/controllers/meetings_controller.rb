@@ -40,29 +40,8 @@ class MeetingsController < ApplicationController
       }
     end
 
-    @sum = 0
-    @meeting.contacts.each do |contact|
-      @questions = contact.questions
-      if @questions.count.zero?
-        @percentage = 0
-      else
-        @percentage = @questions.where(score: 100).count * 100 / @questions.count
-      end
-      @sum = @percentage + @sum
-    end
-    @final_percentage = @meeting.contacts.count.zero? ? 0 : @sum / @meeting.contacts.count
-
-    @color = ""
-
-    if @final_percentage == 0
-      @color = "red"
-    elsif @final_percentage == 100
-      @color = "green"
-    elsif @final_percentage.between?(40, 100)
-      @color = ""
-    elsif @final_percentage < 40
-      @color = "orange"
-    end
+    @final_percentage = Contact.percentage_of(@meeting.contacts)
+    @color = color(@final_percentage)
   end
 
   def destroy
@@ -77,4 +56,18 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(:start_time, :end_time, :location, :title)
   end
 
+  # def color(percentage)
+  #   case percentage
+  #   when 'NA'
+  #     "red"
+  #   when 0...10
+  #     "red"
+  #   when 10...40
+  #     "blue"
+  #   when 40...100
+  #     "yellow"
+  #   when 100
+  #     "green"
+  #   end
+  # end
 end

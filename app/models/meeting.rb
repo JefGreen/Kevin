@@ -5,20 +5,4 @@ class Meeting < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
-  def color
-    case percentage.to_i
-    when 'NA'
-      "red"
-    when 0...10
-      "red"
-    when 10...40
-      "orange"
-    when 40...100
-      "yellow"
-    when 100
-      "green"
-    end
-  end
-
 end
