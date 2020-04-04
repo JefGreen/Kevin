@@ -55,19 +55,4 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:start_time, :end_time, :location, :title)
   end
-
-  # def color(percentage)
-  #   case percentage
-  #   when 'NA'
-  #     "red"
-  #   when 0...10
-  #     "red"
-  #   when 10...40
-  #     "blue"
-  #   when 40...100
-  #     "yellow"
-  #   when 100
-  #     "green"
-  #   end
-  # end
 end
